@@ -5,12 +5,39 @@
   name="Models" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <ownedCommentsInternal>
     <comment
-      Id="a4471492-8ac9-4cfe-9fab-c0d97a482c05">
-      <body>Test</body>
+      Id="2c0d8e0e-640c-425f-b30c-50f0f5901e40">
+      <body>4 Goals per player</body>
     </comment>
     <comment
-      Id="3caa108a-a603-4034-9add-8223e21cb9af">
-      <body>dsfsd</body>
+      Id="706f491a-0d66-42d0-8c3f-ddd3ecf4462d">
+      <body>View
+</body>
+    </comment>
+    <comment
+      Id="a45df8c2-0aa5-4666-9f91-3bc9a166bce4">
+      <body>ModelView (controller)
+</body>
+    </comment>
+    <comment
+      Id="c7febc44-e5e4-4fbc-8cfa-73df7f92550e">
+      <body>Model
+</body>
+    </comment>
+    <comment
+      Id="1838a844-7b42-4773-9362-a1c977153df0">
+      <body>Field contains:
+Next field
+Previous Field
+Switch Field</body>
+    </comment>
+    <comment
+      Id="e2d24f5a-3a9f-4af3-8342-65175414a733">
+      <body>Color to link objects to players</body>
+    </comment>
+    <comment
+      Id="00f68101-44df-405e-bd71-d980dda6d32e">
+      <body>TODO:
+-move() checken, staat nu in field, afhankelijk van wat de method pawnclick terug geeft moet dit anders. Volgens deze structuur zou het ideaal zijn als je een bepaalde field terug krijgt bij pawnClick zodat je direct naar die field gaat en de pawn op dat veld selecteerd en naar voren schuift  1 positie vanuit handle turn, en dat een x aantal keer afhankelijk van je diceRoll</body>
     </comment>
   </ownedCommentsInternal>
   <profileInstances>
@@ -27,6 +54,785 @@
         name="StandardProfileL3" />
     </packageHasProfileInstances>
   </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="6e2ffaa7-f4e5-4d1a-9d24-0ebdecf616c3"
+        name="MainWindow"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="787b9547-02cf-48dc-a7a7-ecc7421e62d2"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="Game"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="26c8c938-bb58-4058-851b-08bd167e7451"
+              LastKnownName="Game"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7dd9a4d0-d2ba-4a08-924a-0f53c6ac93f1"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f2a553f2-1fe1-4a0d-bc20-f8c1b24abb22"
+                  name="Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="a86ff124-2a10-48c4-9f6e-b0d0ffecbdce"
+            name="diceClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0513db8e-9a4d-4ac4-be6e-0fb83846e089"
+            name="pawnClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="26c8c938-bb58-4058-851b-08bd167e7451"
+        name="Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="9ffa4907-eccd-4a19-9e6e-2f2cee6b34a4"
+            isDerived="false"
+            sourceEndRoleName="Game"
+            targetEndRoleName="Board"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ba47e36-eaeb-44da-9739-38a83b21da75"
+              LastKnownName="Board"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8beaebd6-32d2-4910-af47-5d3cb038de08"
+                  name="Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7df7aa59-8af3-40c8-8718-437063c83c6e"
+                  name="Board"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="2cc43024-a711-4b54-8c4f-55401e263bcb"
+            name="Int diceRoll"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="dd65215c-3bd1-4124-90c4-6377a9f52a81"
+            name="Field pawnSelected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="c6747d76-b711-4fea-802c-8fc3371fb47d"
+            name="rollDice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="11cbe1a3-c939-4928-986a-b8eb96180370"
+            name="handleTurn"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="60f46abb-32b6-437a-9425-61a7391dccf7"
+            name="startGame"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3134fa3c-6838-4cfb-b231-c6f84a4a293d"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="6cfcec3e-f522-418b-a7f3-52da618477ff"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Field"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="cbe5afdd-8f08-410a-ad80-41f599c7bd8c"
+              LastKnownName="Field"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51460925-e0f4-4264-945e-6cd3a9d3a44c"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="143c3315-a5b2-4057-8624-e77dff4bcdd2"
+                  name="Field"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c11af963-ba4b-4450-be40-2696bfd98671"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Spawn"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b29b10ec-ef1b-4e6e-9d2a-180ebfa7435d"
+              LastKnownName="Spawn"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8d1079b8-a60f-4806-a27f-ea5e82fc1c55"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f4ada893-e10c-41b3-ada1-de97be0a8180"
+                  name="Spawn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="64434ace-e4ca-4880-b6a9-d23831705cb8"
+                      name="Lower"
+                      value="4" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e47ee5a1-16a1-4706-8d59-5e5ad5d86f77"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="7e17c4d6-e8b0-4c91-a287-452db45557cc"
+            name="Field startingField"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9d090a25-a7ad-4f69-b586-0de845044d0d"
+            name="Color"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8234558f-dd9e-42e4-b005-ccc9349f1ea1"
+            name="Spawn[] spawn"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="149aee4e-3bd3-4bae-9830-fefab6ed01ab"
+            name="Int PawnsInGoal"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cbe5afdd-8f08-410a-ad80-41f599c7bd8c"
+        name="Field"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="c0c922b9-d2bf-470c-b12c-e0cfacf6eafa"
+            isDerived="false"
+            sourceEndRoleName="Field"
+            targetEndRoleName="Field"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="cbe5afdd-8f08-410a-ad80-41f599c7bd8c"
+              LastKnownName="Field"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d10abb51-a2a0-46e1-acac-0f31e7ef2b2a"
+                  name="Field"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="94ac69c3-af2a-477d-b72c-58f7885e0e6a"
+                  name="Field"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="19d453d3-449a-4348-ae23-c901e1747a9a"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6fd55263-c151-4618-9e40-d29f52ff1fc7"
+                      name="Upper"
+                      value="3" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3d24f47b-739b-47d1-9612-a6b2c400f162"
+            isDerived="false"
+            sourceEndRoleName="Field"
+            targetEndRoleName="Pawn"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3db74900-b651-4305-a203-99c72bcabdb9"
+              LastKnownName="Pawn"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5429570b-abc1-4e81-9b64-abdb93957d75"
+                  name="Field"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6472043a-381e-4f87-8a62-ef9ce705f7fe"
+                  name="Pawn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d3a5a164-2985-40fd-9ac8-3b2751b1dca4"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7e4c6f27-1302-4a64-af53-3ef92b042285"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="8868c7f9-6c25-4f78-b6e4-aacb30918ecc"
+            name="move"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7ba47e36-eaeb-44da-9739-38a83b21da75"
+        name="Board"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="02d4734f-5c23-4857-8e4e-5ce4ce1a18a0"
+            isDerived="false"
+            sourceEndRoleName="Board"
+            targetEndRoleName="Field"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="cbe5afdd-8f08-410a-ad80-41f599c7bd8c"
+              LastKnownName="Field"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5bdc37d5-89fe-4ce0-96d9-a8931fab0c89"
+                  name="Board"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c6f42902-ee28-4440-a359-bcc94580b47d"
+                  name="Field"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="043f9ec8-b7b6-43e2-b396-fcd40d9b3f5c"
+            isDerived="false"
+            sourceEndRoleName="Board"
+            targetEndRoleName="Player"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3134fa3c-6838-4cfb-b231-c6f84a4a293d"
+              LastKnownName="Player"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="053e6359-bc90-4f79-ab8d-f87b46ad3b44"
+                  name="Board"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c66af8db-fd3f-458c-b0f0-28478299b278"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4f32f6ed-46ad-4aac-901d-e5097341c07b"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="5cf644a2-aa0d-4066-bde1-0eeb136bf30c"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0c3c04ee-27f3-4ed4-8f1b-cdd5c0a4012b"
+            isDerived="false"
+            sourceEndRoleName="Board"
+            targetEndRoleName="LinkedList"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="290a54dd-100d-46c4-a2e5-dba622730a71"
+              LastKnownName="LinkedList"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b394dad-09ea-4248-bd9d-680896b4e6dc"
+                  name="Board"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="de0105e5-e087-4b6b-8142-0595e035129d"
+                  name="LinkedList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="32952828-10a8-41c3-9f57-6f1f39d371ce"
+            name="LinkedList&lt;Field&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3db74900-b651-4305-a203-99c72bcabdb9"
+        name="Pawn"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="615ad285-8552-4744-84df-9b082c0125c1"
+            name="Color"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b29b10ec-ef1b-4e6e-9d2a-180ebfa7435d"
+        name="Spawn"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="422b9a9b-7a44-4ef4-899f-455a68e79815"
+            isSubstitutable="false">
+            <classMoniker
+              Id="cbe5afdd-8f08-410a-ad80-41f599c7bd8c"
+              LastKnownName="Field"
+              LastKnownLocation="Models.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="33d99402-7266-4789-8a67-88931d6cbe20"
+            isDerived="false"
+            sourceEndRoleName="Spawn"
+            targetEndRoleName="Pawn"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3db74900-b651-4305-a203-99c72bcabdb9"
+              LastKnownName="Pawn"
+              LastKnownLocation="Models.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7e156962-a53f-49d5-9cef-97161d12d7cd"
+                  name="Spawn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc758465-e4ec-4b1e-b80d-daa2047835ec"
+                  name="Pawn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2448a6f1-df47-4d72-b5c6-a2b852652fbc"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="df8a4904-6e2e-4053-b556-90cc4ec9c8b8"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="394ea13b-57b5-418e-b73a-f1257fdc11cc"
+        name="Goal"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="6d11d36a-ffda-49a5-8191-43c2499f4ff8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="cbe5afdd-8f08-410a-ad80-41f599c7bd8c"
+              LastKnownName="Field"
+              LastKnownLocation="Models.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="a912ea86-70c1-4f9c-bd55-78b04fd5be61"
+            name="Color"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="290a54dd-100d-46c4-a2e5-dba622730a71"
+        name="LinkedList"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="9c23252c-0fc2-4205-95e6-49ed6f421887"
+            name="Link next"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9e9208f6-13ba-48c7-9b89-ef514cf65cb7"
+            name="Link previous"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="da93f511-249e-409c-a61e-bd73a366f848"
+            name="Link switch"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="81fa3a42-6a3b-49cf-bb19-d50b2748f209"
+            name="Field field"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
     name="Integer"

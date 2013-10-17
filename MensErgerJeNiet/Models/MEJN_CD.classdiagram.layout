@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MEJN_CD">
+  <logicalClassDesignerModelMoniker Id="825f0173-03a9-42d4-b938-91b718d41185" />
+  <nestedChildShapes>
+    <commentShape Id="91c3e5ab-bb11-41a9-9daa-9534af88ba38" absoluteBounds="5.75, 0.875, 1.25, 0.375" customColor="251, 247, 200">
+      <commentMoniker Id="84a35a8b-5e46-498c-8448-0b94c56954a6" />
+      <relativeChildShapes />
+    </commentShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

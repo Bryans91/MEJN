@@ -78,8 +78,9 @@ namespace MensErgerJeNiet.Model
                         spawns[6].nextF = newField;
                         spawns[7].nextF = newField;
                         spawns[8].nextF = newField;
+                        break;
                     case 28:
-                        if (theGame.playerList.length > 3)
+                        if (theGame.playerList.Length > 2)
                         {
                             temp = createGoals(theGame.playerList[2]);
                             newField.switchF = temp;
@@ -92,14 +93,16 @@ namespace MensErgerJeNiet.Model
                         spawns[10].nextF = newField;
                         spawns[11].nextF = newField;
                         spawns[12].nextF = newField;
+                        break;
                     case 38:
-                        if (theGame.playerList.length > 4)
+                        if (theGame.playerList.Length > 3)
                         {
                             temp = createGoals(theGame.playerList[3]);
                             newField.switchF = temp;
                             temp.previousF = newField;
                             temp = null;
                         }
+                        break;
                     case 39:
                         newField.nextF = last;
                         spawns[13].nextF = newField;

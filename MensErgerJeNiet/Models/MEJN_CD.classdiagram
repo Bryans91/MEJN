@@ -194,12 +194,38 @@ Switch Field</body>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="c11af963-ba4b-4450-be40-2696bfd98671" />
           </association>
+          <association Id="ae6ec92a-3d1f-4e36-82fc-206511ffa8f2" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Pawn" isLeaf="false" isAbstract="false">
+            <classMoniker Id="082a9452-b960-4189-a834-b4570b82910a" LastKnownName="Pawn" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c4b72536-1057-4c8c-a9df-ba1eec537077" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2424a26b-9599-46df-b7e1-59b2abf4915e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e399918a-eac0-4b4b-a6f5-f521befdbf1f" name="Pawn" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="a172bbaf-6306-4b8f-85be-7eb01ce49086" name="Lower" value="4">
+                      <elementDefinition Id="c9a70b0b-9894-42bc-b2cf-50482ad4cffc" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="689f5259-42d3-4b06-a521-02189a269ee9" name="Upper" value="4">
+                      <elementDefinition Id="258b7e17-f5dd-4e8d-9cfc-660d65e0c9a8" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="58ff3efd-ac42-4f4f-897c-aac933559f2c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ac3d5245-cc7d-4d8d-8a6e-d21357ce7abf" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="461a910f-8f92-4292-b648-e8964014f966" name="Field startingField" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7e17c4d6-e8b0-4c91-a287-452db45557cc" />
           </property>
-          <property Id="5a25b892-94b3-4c4d-bedd-01e48617d04f" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="5a25b892-94b3-4c4d-bedd-01e48617d04f" name="String color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="9d090a25-a7ad-4f69-b586-0de845044d0d" />
           </property>
           <property Id="c982fe6f-fb70-4268-9fb5-15995ad99878" name="Spawn[] spawn" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -207,6 +233,9 @@ Switch Field</body>
           </property>
           <property Id="dc5b5cb2-6be0-4be6-be54-ef9d5e6bdd7d" name="Int PawnsInGoal" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="149aee4e-3bd3-4bae-9830-fefab6ed01ab" />
+          </property>
+          <property Id="52165908-3795-4bf2-8e6b-9fcfc0a42826" name="Bool isHuman" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9c90be1e-5f59-4262-ab2f-143e3c8d3ef3" />
           </property>
         </ownedAttributesInternal>
       </class>
@@ -307,7 +336,7 @@ Switch Field</body>
       <class Id="082a9452-b960-4189-a834-b4570b82910a" name="Pawn" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="3db74900-b651-4305-a203-99c72bcabdb9" />
         <ownedAttributesInternal>
-          <property Id="2e7fb8a0-37fd-4e9b-b768-2741507bd7f3" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="2e7fb8a0-37fd-4e9b-b768-2741507bd7f3" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="615ad285-8552-4744-84df-9b082c0125c1" />
           </property>
         </ownedAttributesInternal>
@@ -322,34 +351,6 @@ Switch Field</body>
             <elementDefinition Id="422b9a9b-7a44-4ef4-899f-455a68e79815" />
           </generalization>
         </generalsInternal>
-        <targetEnds>
-          <association Id="db2d312d-5817-4047-965f-5196fb818c20" isDerived="false" sourceEndRoleName="Spawn" targetEndRoleName="Pawn" isLeaf="false" isAbstract="false">
-            <classMoniker Id="082a9452-b960-4189-a834-b4570b82910a" LastKnownName="Pawn" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="5732492c-2c4a-4a0a-bdc2-c6ebb67b574b" name="Spawn" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="7e156962-a53f-49d5-9cef-97161d12d7cd" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="7c586c6d-ac07-4760-a94a-9155d5141416" name="Pawn" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="ed801a75-577f-4a3e-9fdb-2f409f34691e" name="Lower" value="0">
-                      <elementDefinition Id="2448a6f1-df47-4d72-b5c6-a2b852652fbc" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="c50fe7f8-d365-4188-b647-1ea1ed325992" name="Upper" value="1">
-                      <elementDefinition Id="df8a4904-6e2e-4053-b556-90cc4ec9c8b8" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="cc758465-e4ec-4b1e-b80d-daa2047835ec" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="33d99402-7266-4789-8a67-88931d6cbe20" />
-          </association>
-        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -362,7 +363,7 @@ Switch Field</body>
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
-          <property Id="d38a148a-d051-4499-912e-c1b529eb40cf" name="Color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="d38a148a-d051-4499-912e-c1b529eb40cf" name="string color" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="a912ea86-70c1-4f9c-bd55-78b04fd5be61" />
           </property>
         </ownedAttributesInternal>

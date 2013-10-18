@@ -8,6 +8,13 @@ namespace MensErgerJeNiet.Model
 {
     class Board
     {
-        //testcomment
+        //list?
+
+        public Board()
+        {
+
+
+        }
+
     }
 }

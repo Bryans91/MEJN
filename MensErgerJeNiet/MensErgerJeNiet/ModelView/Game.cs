@@ -42,6 +42,13 @@ namespace MensErgerJeNiet.ModelView
             _diceRoll = 0;
             //pawn selected
 
+            if (!p.isHuman)
+            {
+                rollDice();
+                //select a pawn
+
+            }
+
             while (!turnFinished)
             {
                 if (_diceRoll != 0)

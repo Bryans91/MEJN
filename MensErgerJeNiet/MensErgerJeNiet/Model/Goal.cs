@@ -8,7 +8,18 @@ namespace MensErgerJeNiet.Model
 {
     class Goal : Field
     {
-        //Color?
+        private string _color;
+
+        public Goal(string c)
+        {
+            _color = c;
+        }
+
+        public string color
+        {
+            get { return _color; }
+        }
+        
 
     }
 }

@@ -9,7 +9,8 @@ namespace MensErgerJeNiet.Model
     class Field
     {
 
-        protected Field _nextF, _previousF, _switchF;
+        protected Field _nextF, _previousF;
+        protected Goal _switchF;
         protected Pawn _pawn;
 
         public Field(){
@@ -37,7 +38,7 @@ namespace MensErgerJeNiet.Model
             set{ _previousF = previousF;}
         }
 
-        public Field switchF
+        public Goal switchF
         {
             get { return _switchF; }
             set { _switchF = switchF; }

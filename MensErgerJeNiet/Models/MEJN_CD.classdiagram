@@ -34,7 +34,12 @@ Switch Field</body>
     <comment Id="da26aaf8-1328-447c-9079-d1eda822626a">
       <elementDefinition Id="00f68101-44df-405e-bd71-d980dda6d32e" />
       <body>TODO:
--move() checken, staat nu in field, afhankelijk van wat de method pawnclick terug geeft moet dit anders. Volgens deze structuur zou het ideaal zijn als je een bepaalde field terug krijgt bij pawnClick zodat je direct naar die field gaat en de pawn op dat veld selecteerd en naar voren schuift  1 positie vanuit handle turn, en dat een x aantal keer afhankelijk van je diceRoll</body>
+-move() checken, staat nu in field, afhankelijk van wat de method pawnclick terug geeft moet dit anders. Volgens deze structuur zou het ideaal zijn als je een bepaalde field terug krijgt bij pawnClick zodat je direct naar die field gaat en de pawn op dat veld selecteerd en naar voren schuift  1 positie vanuit handle turn, en dat een x aantal keer afhankelijk van je diceRoll
+^-- dit maakt dingen wel lastig
+
+-Speler laten weten waar zijn pawns zijn? ivm herkenning pawns spawn en goals
+
+</body>
     </comment>
   </ownedCommentsInternal>
   <packagedElements>
@@ -89,6 +94,32 @@ Switch Field</body>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="9ffa4907-eccd-4a19-9e6e-2f2cee6b34a4" />
           </association>
+          <association Id="f866f9ad-10f3-4733-bb55-555b8cfec504" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="Player" isLeaf="false" isAbstract="false">
+            <classMoniker Id="80204354-4714-4661-98dc-46ba0ff985af" LastKnownName="Player" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8b96cc66-9253-4f19-be14-86d263ab91c0" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="92ee0066-d6b3-4e02-8657-e3375124076d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="33232dfa-d5f6-47d6-89b5-22982f65b77c" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="12432b90-5faa-4207-a6cb-852406cdc924" name="Lower" value="2">
+                      <elementDefinition Id="ac60ec6d-4d6b-425f-b6e5-9a987ab41197" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="6f913a4a-3f34-4988-a6d7-c97ce41ca0e1" name="Upper" value="4">
+                      <elementDefinition Id="fa9ca50c-8098-47c7-b3e8-80d834f68bc9" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="3429a3ff-58c3-4e2e-af10-2e8ea1289814" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0f0416af-93ec-420e-8cc4-f503dd6c2466" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="b9571085-6d39-4821-8e9d-ed598c176a13" name="Int diceRoll" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -96,6 +127,12 @@ Switch Field</body>
           </property>
           <property Id="93303ebb-5c9a-4888-9953-5ba506395a8c" name="Field pawnSelected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="dd65215c-3bd1-4124-90c4-6377a9f52a81" />
+          </property>
+          <property Id="da698c8a-c895-445c-9568-b3419f35ac60" name="Int NrOfPlayers" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="696390b6-d483-4543-aeb9-e691e6d7946a" />
+          </property>
+          <property Id="85ca2734-6291-4d27-8c3d-93d731004d07" name="Int NrOfFields" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d365c052-b4ec-4e25-98f6-93c195dc8f06" />
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -189,7 +226,7 @@ Switch Field</body>
               <associationHasOwnedEnds>
                 <memberEnd Id="a39a084d-6eaf-4f83-af7c-1b60799aa67e" name="Field" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <lowerValueInternal>
-                    <literalString Id="a82ddd8f-ac48-4a4e-a87f-9fda548ec147" name="Lower" value="2">
+                    <literalString Id="a82ddd8f-ac48-4a4e-a87f-9fda548ec147" name="Lower" value="1">
                       <elementDefinition Id="19d453d3-449a-4348-ae23-c901e1747a9a" />
                     </literalString>
                   </lowerValueInternal>
@@ -257,32 +294,6 @@ Switch Field</body>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="02d4734f-5c23-4857-8e4e-5ce4ce1a18a0" />
-          </association>
-          <association Id="8df74ba1-548f-4a8b-8993-c2b79778b4aa" isDerived="false" sourceEndRoleName="Board" targetEndRoleName="Player" isLeaf="false" isAbstract="false">
-            <classMoniker Id="80204354-4714-4661-98dc-46ba0ff985af" LastKnownName="Player" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="d1f968b2-9888-4afe-bf5e-2be9fa692597" name="Board" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="053e6359-bc90-4f79-ab8d-f87b46ad3b44" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="51e9fc51-b0d0-44bc-bbcc-0471a76d8448" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="dcacfd83-d549-4d2c-83e1-f589c7ef1e3e" name="Lower" value="2">
-                      <elementDefinition Id="4f32f6ed-46ad-4aac-901d-e5097341c07b" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="65e22ea1-6599-4fa9-b28c-9d17a3951f4b" name="Upper" value="4">
-                      <elementDefinition Id="5cf644a2-aa0d-4066-bde1-0eeb136bf30c" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="c66af8db-fd3f-458c-b0f0-28478299b278" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="043f9ec8-b7b6-43e2-b396-fcd40d9b3f5c" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>

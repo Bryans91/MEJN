@@ -626,16 +626,6 @@ Switch Field</body>
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
-        <ownedOperationsInternal>
-          <operation
-            Id="8868c7f9-6c25-4f78-b6e4-aacb30918ecc"
-            name="move"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -750,7 +740,18 @@ Switch Field</body>
         <ownedAttributesInternal>
           <property
             Id="615ad285-8552-4744-84df-9b082c0125c1"
-            name="Player"
+            name="Player player"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="3e11c281-2d2d-41fc-bb53-a9c749225ea8"
+            name="Field currentField"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -760,6 +761,16 @@ Switch Field</body>
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="36458903-4f69-41e6-9d37-45fe25486b27"
+            name="move"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>

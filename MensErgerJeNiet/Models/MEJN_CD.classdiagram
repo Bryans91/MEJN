@@ -297,11 +297,6 @@ Switch Field</body>
             <elementDefinition Id="3d24f47b-739b-47d1-9612-a6b2c400f162" />
           </association>
         </targetEnds>
-        <ownedOperationsInternal>
-          <operation Id="fa54c76e-a0ac-4b7d-822e-432b08126c95" name="move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="8868c7f9-6c25-4f78-b6e4-aacb30918ecc" />
-          </operation>
-        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -336,10 +331,18 @@ Switch Field</body>
       <class Id="082a9452-b960-4189-a834-b4570b82910a" name="Pawn" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="3db74900-b651-4305-a203-99c72bcabdb9" />
         <ownedAttributesInternal>
-          <property Id="2e7fb8a0-37fd-4e9b-b768-2741507bd7f3" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="2e7fb8a0-37fd-4e9b-b768-2741507bd7f3" name="Player player" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="615ad285-8552-4744-84df-9b082c0125c1" />
           </property>
+          <property Id="50daf960-d801-4dea-8ebc-13b20b0dc181" name="Field currentField" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3e11c281-2d2d-41fc-bb53-a9c749225ea8" />
+          </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="fb22d335-5024-4249-87c6-0aa9090236fb" name="move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="36458903-4f69-41e6-9d37-45fe25486b27" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>

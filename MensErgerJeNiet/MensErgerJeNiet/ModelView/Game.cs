@@ -54,8 +54,8 @@ namespace MensErgerJeNiet.ModelView
                 if (_diceRoll != 0)
                 {
                     //if( pawn selected = true)
-                        //if(pawn == p.pawn?)
-                            //movePawn(roll, pawn);
+                        //if(pawn.player == p)
+                            //movePawn(roll);
                               turnFinished = true;
                 }
             }

@@ -10,28 +10,83 @@ namespace MensErgerJeNiet.ModelView
     class Game
     {
 
-        private int _nrOfPlayers, _nrOfFields, _diceRoll;
+        private int _diceRoll;
         private Random _random;
         private Board _board;
-        //private list players
+        private Player[] _playerList;
+        
 
         //Constructor: nr of fields evt af te leiden van nr of players? (aantal fields x spelers) of fixed aantal
-        public Game(int nrOfPlayers , int nrOfFields)
+        public Game()
         {
-            _nrOfPlayers = nrOfPlayers;
-            _nrOfFields = nrOfFields;
+           
             _random = new Random();
 
-            startGame(_nrOfPlayers, _nrOfFields);
+           
         }
 
         //Starts up the game
-        private void startGame(int nrPlayers , int nrFields)
+        private void startGame(int nrOfPlayers , int nrOfHumans)
         {
-            //add players to player list
+            _playerList = new Player[nrOfPlayers];
+            Player temp = null;
 
+            //add players to player list & sets human or computer player
+            for (int i = 0; i < nrOfPlayers; i++ )
+            {
+                string color = "";
+                switch (i)
+                {
+                    case 0:
+                        color = "green";
+                        break;
+                    case 1:
+                        color = "red";
+                        break;
+                    case 2:
+                        color = "blue";
+                        break;
+                    case 3:
+                        color = "yellow";
+                        break;
+                }
+
+
+                if (i > nrOfHumans)
+                {
+                    _playerList[i] = new Player(false, color , rollDice());
+                    temp.nextP = _playerList[i];
+                }
+                else
+                {
+                    _playerList[i] = new Player(true, color , rollDice());
+                    temp.nextP = _playerList[i];
+                }
+
+                temp = _playerList[i];
+
+                if (i == nrOfPlayers)
+                {
+                    _playerList[0].nextP = _playerList[i];
+                }
+            }
+            
             //create board
             //_board = new Board();
+           
+
+            //handle who may start the game
+            Player first = _playerList[0];
+
+            foreach (Player p in _playerList)
+            {
+                if (p.startRoll > first.startRoll)
+                {
+                    first = p;
+                }
+            }
+
+            handleTurn(first);
 
         }
 
@@ -44,7 +99,7 @@ namespace MensErgerJeNiet.ModelView
 
             if (!p.isHuman)
             {
-                rollDice();
+               _diceRoll = rollDice();
                 //select a pawn
 
             }
@@ -59,22 +114,33 @@ namespace MensErgerJeNiet.ModelView
                               turnFinished = true;
                 }
             }
-            
-            //if(player.pawnsingoal ==4)
-                //END GAME
-            //if(_diceRoll == 6)
-                //handleTurn(p);
-            //else
-                 //handleTurn(p.next);
 
+            if (p.pawnsInGoal == 4) { 
+                // end the game here
+            }
+            else if (_diceRoll == 6)
+            {
+                handleTurn(p);
+            }
+            else
+            {
+                handleTurn(p.nextP);
+            }
         }
 
         //Used by MainWindows EventHandler (click on dice)
-        public void rollDice()
+        public int rollDice()
         {
-            _diceRoll = _random.Next(1, 7);
+            return _random.Next(1, 7);
         }
 
+
+
+        //properties
+        public Player[] playerList
+        {
+            get { return _playerList; }
+        }
 
     }
 }

@@ -8,16 +8,16 @@ namespace MensErgerJeNiet.Model
 {
     class Goal : Field
     {
-        private string _color;
+        private Player _player;
 
-        public Goal(string c)
+        public Goal(Player p)
         {
-            _color = c;
+            _player = p;
         }
 
-        public string color
+        public Player player
         {
-            get { return _color; }
+            get { return _player; }
         }
         
 

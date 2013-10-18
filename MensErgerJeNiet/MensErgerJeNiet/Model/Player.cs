@@ -21,6 +21,24 @@ namespace MensErgerJeNiet.Model
 
         }
 
+        public void pawnToSpawn(Pawn p)
+        {
+           bool placed = false;
+
+          for (int i = 0; i < _spawns.Length; i++)
+          {
+                if (!placed)
+                {
+                   if (_spawns[i].pawn == null)
+                    {
+                        _spawns[i].pawn = p;
+                        placed = true;
+                    }
+                }
+            }
+        }
+
+
         //properties
         public Field startingField
         {

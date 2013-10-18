@@ -13,9 +13,10 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="359" Margin="10,36,0,0" VerticalAlignment="Top" Width="367"/>
         <Label Name ="Player1" Content="Player 1" Margin="299,111,163,304"/>
-        <Label Name ="Player2" Content="Player 2" Margin="299,291,163,124"/>
-        <Label Name ="Player3" Content="Player 3" Margin="29,291,433,124"/>
+        <Label Name ="Player2" Content="Player 2" Margin="299,288,163,127"/>
+        <Label Name ="Player3" Content="Player 3" Margin="29,288,433,127"/>
         <Label Name ="Player4" Content="Player 4" Margin="29,111,433,304"/>
         <Ellipse x:Name="switch1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="179,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="start1" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="209,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
@@ -98,7 +99,7 @@
         <Label Name="playerturn" Content="Playerturn" HorizontalAlignment="Left" Margin="438,51,0,0" VerticalAlignment="Top"/>
         <Label HorizontalAlignment="Left" Margin="324,111,0,0" VerticalAlignment="Top"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="359" Margin="10,36,0,0" VerticalAlignment="Top" Width="367"/>
+
 
 
 

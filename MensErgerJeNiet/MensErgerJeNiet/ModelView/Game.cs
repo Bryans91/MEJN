@@ -26,7 +26,7 @@ namespace MensErgerJeNiet.ModelView
         }
 
         //Starts up the game
-        private void startGame(int nrOfPlayers , int nrOfHumans)
+        public void startGame(int nrOfPlayers , int nrOfHumans)
         {
             _playerList = new Player[nrOfPlayers];
             Player temp = null;

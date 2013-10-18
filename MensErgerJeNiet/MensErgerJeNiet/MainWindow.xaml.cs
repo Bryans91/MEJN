@@ -1,4 +1,5 @@
-﻿using MensErgerJeNiet.View;
+﻿using MensErgerJeNiet.ModelView;
+using MensErgerJeNiet.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,16 @@ namespace MensErgerJeNiet
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Game theGame = new Game();
         public MainWindow()
         {
             InitializeComponent();
-            PreGameScreen = new PreGameScreen(this);
+            PreGameScreen pgs = new PreGameScreen(this);
+        }
+
+        public void startGame(int players, int humans)
+        {
+            theGame.startGame(players, humans);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

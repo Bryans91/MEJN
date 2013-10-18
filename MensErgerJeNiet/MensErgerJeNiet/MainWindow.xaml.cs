@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MensErgerJeNiet.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MensErgerJeNiet
         public MainWindow()
         {
             InitializeComponent();
+            PreGameScreen = new PreGameScreen(this);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

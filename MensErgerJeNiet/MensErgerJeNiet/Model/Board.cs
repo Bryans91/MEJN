@@ -19,6 +19,7 @@ namespace MensErgerJeNiet.Model
         {
             theGame = g;
             first = null;
+            last = null;
             createField();
 
 
@@ -37,11 +38,16 @@ namespace MensErgerJeNiet.Model
 
         private void createWalkingPath()
         {
+            Goal temp;
             int i = 0, s = 0;
             while (i < normalFields)
             {
                 Field newField = new Field();
                 newField.nextF = first;
+                if (first != null)
+                {
+                    first.previousF = newField;
+                }
                 first = newField;
 
                 switch (i)
@@ -50,8 +56,10 @@ namespace MensErgerJeNiet.Model
                         last = newField;
                         break;
                     case 8:
-                        Goal newGoal = new Goal(/*Game.getPlayer?*/);
-                        newField.switchF = newGoal;
+                        temp = createGoals(theGame.playerList[0]);
+                        newField.switchF = temp;
+                        temp.previousF = newField;
+                        temp = null;
                         break;
                     case 9:
                         spawns[1].nextF = newField;
@@ -60,8 +68,10 @@ namespace MensErgerJeNiet.Model
                         spawns[4].nextF = newField;
                         break;
                     case 18:
-                        Goal newGoal1 = new Goal(/*Game.getPlayer?*/);
-                        newField.switchF = newGoal1;
+                        temp = createGoals(theGame.playerList[1]);
+                        newField.switchF = temp;
+                        temp.previousF = newField;
+                        temp = null;
                         break;
                     case 19:
                         spawns[5].nextF = newField;
@@ -69,8 +79,13 @@ namespace MensErgerJeNiet.Model
                         spawns[7].nextF = newField;
                         spawns[8].nextF = newField;
                     case 28:
-                        Goal newGoal2 = new Goal(/*Game.getPlayer?*/);
-                        newField.switchF = newGoal2;
+                        if (theGame.playerList.length > 3)
+                        {
+                            temp = createGoals(theGame.playerList[2]);
+                            newField.switchF = temp;
+                            temp.previousF = newField;
+                            temp = null;
+                        }
                         break;
                     case 29:
                         spawns[9].nextF = newField;
@@ -78,9 +93,13 @@ namespace MensErgerJeNiet.Model
                         spawns[11].nextF = newField;
                         spawns[12].nextF = newField;
                     case 38:
-                        Goal newGoal3 = new Goal(/*Game.getPlayer?*/);
-                        newField.switchF = newGoal3;
-                        break;
+                        if (theGame.playerList.length > 4)
+                        {
+                            temp = createGoals(theGame.playerList[3]);
+                            newField.switchF = temp;
+                            temp.previousF = newField;
+                            temp = null;
+                        }
                     case 39:
                         newField.nextF = last;
                         spawns[13].nextF = newField;
@@ -102,6 +121,22 @@ namespace MensErgerJeNiet.Model
                 Spawn newSpawn = new Spawn();
                 spawns[i] = newSpawn;
             }
+        }
+
+        private Goal createGoals(Player p)
+        {
+            Goal newGoal1 = new Goal(p);
+            Goal newGoal2 = new Goal(p);
+            Goal newGoal3 = new Goal(p);
+            Goal newGoal4 = new Goal(p);
+            newGoal1.nextF = newGoal2;
+            newGoal2.nextF = newGoal3;
+            newGoal3.nextF = newGoal2;
+            newGoal4.nextF = null;//making sure it's null
+            newGoal2.previousF = newGoal1;
+            newGoal3.previousF = newGoal2;
+            newGoal4.previousF = newGoal3;
+            return newGoal1;
         }
 
     }

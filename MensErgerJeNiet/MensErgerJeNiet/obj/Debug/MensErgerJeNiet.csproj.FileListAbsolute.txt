@@ -8,3 +8,4 @@ C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\
 C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.g.resources
 C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.Properties.Resources.resources
 C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csproj.GenerateResource.Cache
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.exe.config

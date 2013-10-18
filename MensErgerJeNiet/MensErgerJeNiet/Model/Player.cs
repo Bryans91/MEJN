@@ -11,13 +11,15 @@ namespace MensErgerJeNiet.Model
         private Field _startingField;
         private Spawn[] _spawns;
         private bool _isHuman;
-        private int _pawnsInGoal;
+        private int _pawnsInGoal , _startRoll;
         private string _color;
+        private Player _nextP;
 
-        public Player(bool isHuman , string color)
+        public Player(bool isHuman , string color , int start)
         {
             _isHuman = isHuman;
             _color = color;
+            _startRoll = start;
 
         }
 
@@ -40,6 +42,20 @@ namespace MensErgerJeNiet.Model
 
 
         //properties
+        public int startRoll
+        {
+            get { return _startRoll; }
+            set{_startRoll = startRoll;}
+               
+        }
+
+        public Player nextP
+        {
+            get {return _nextP;}
+            set { _nextP = nextP; }
+        }
+
+
         public Field startingField
         {
             get { return _startingField; }

@@ -9,10 +9,15 @@ namespace MensErgerJeNiet.Model
     class Player
     {
         private Field _startingField;
-        private Spawn[] _spawns; 
+        private Spawn[] _spawns;
+        private bool _isHuman;
+        private int _pawnsInGoal;
+        private string _color;
 
-        public Player()
+        public Player(bool isHuman , string color)
         {
+            _isHuman = isHuman;
+            _color = color;
 
         }
 
@@ -23,11 +28,27 @@ namespace MensErgerJeNiet.Model
             set { _startingField = startingField; }
         }
 
+        public bool isHuman
+        {
+            get { return _isHuman; }
+            set { _isHuman = isHuman; }
+        }
+
         //test if writeprotected or not
         public Spawn[] spawns{
             get { return _spawns; }
         }
 
+        public int pawnsInGoal
+        {
+            get { return _pawnsInGoal; }
+            set { _pawnsInGoal = pawnsInGoal; }
+        }
+
+        public string color
+        {
+            get { return _color; }
+        }
         
     }
 }

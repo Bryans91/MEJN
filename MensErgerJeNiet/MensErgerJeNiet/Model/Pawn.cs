@@ -8,5 +8,19 @@ namespace MensErgerJeNiet.Model
 {
     class Pawn
     {
+
+        private Player _player;
+
+        public Pawn(Player p)
+        {
+            _player = p;
+
+        }
+
+        public Player player
+        {
+            get { return _player; }
+        }
+
     }
 }

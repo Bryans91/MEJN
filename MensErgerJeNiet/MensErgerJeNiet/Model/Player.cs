@@ -15,11 +15,11 @@ namespace MensErgerJeNiet.Model
         private string _color;
         private Player _nextP;
 
-        public Player(bool isHuman , string color , int start)
+        public Player(bool isHuman , string color)
         {
             _isHuman = isHuman;
             _color = color;
-            _startRoll = start;
+            _startRoll = -1;
 
         }
 

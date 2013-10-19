@@ -129,6 +129,7 @@ namespace MensErgerJeNiet.ModelView
         }
 
         //Used by MainWindows EventHandler (click on dice)
+        //edit2: implemented in mainwindow eventhandler
         public int rollDice()
         {
             return _random.Next(1, 7);

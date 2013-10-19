@@ -11,11 +11,25 @@ namespace MensErgerJeNiet.Model
 
         private Player _player;
         private Field _currentField;
+        private bool _canHit;
 
         public Pawn(Player p, Field firstField)
         {
             _player = p;
             _currentField = firstField;
+
+            bool inPawnList = false;
+            for (int i = 0; i < _player.pawns.Length; i++)
+            {
+                if (!inPawnList)
+                {
+                    if (_player.pawns[i] == null)
+                    {
+                        _player.pawns[i] = this;
+                        inPawnList = true;
+                    }
+                }
+            }
 
         }
 
@@ -63,15 +77,18 @@ namespace MensErgerJeNiet.Model
             {
                 if (goal.pawn.player != _player)
                 {
+                    _canHit = true;
                     return true;
                 }
                 else
                 {
+                    _canHit = false;
                     return false;
                 }
             }
             else
             {
+                _canHit = false;
                 return true;
             }                                  
         } //endmethod
@@ -195,10 +212,21 @@ namespace MensErgerJeNiet.Model
         } //end method
 
 
+        public bool canHit
+        {
+            get { return _canHit; }
+        }
+
 
         public Player player
         {
             get { return _player; }
+        }
+
+        public Field currentField
+        {
+            get { return _currentField; }
+            set { _currentField = currentField; }
         }
 
     }

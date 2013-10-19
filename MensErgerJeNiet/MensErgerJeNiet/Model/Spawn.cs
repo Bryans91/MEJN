@@ -8,7 +8,7 @@ namespace MensErgerJeNiet.Model
 {
     class Spawn : Field
     {
-        
+
 
     }
 }

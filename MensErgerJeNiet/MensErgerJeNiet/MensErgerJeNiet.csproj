@@ -116,6 +116,9 @@
     <Resource Include="Images\Image5.jpg" />
     <Resource Include="Images\Image6.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sounds\dice_throw.wav" />
+  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

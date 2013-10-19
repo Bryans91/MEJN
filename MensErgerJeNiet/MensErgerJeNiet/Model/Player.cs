@@ -38,6 +38,7 @@ namespace MensErgerJeNiet.Model
                     {
                         _spawns[i].pawn = p;
                         placed = true;
+                        p.onSpawn = true;
                     }
                 }
             }

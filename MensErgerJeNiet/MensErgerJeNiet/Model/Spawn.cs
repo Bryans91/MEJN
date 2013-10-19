@@ -8,7 +8,10 @@ namespace MensErgerJeNiet.Model
 {
     class Spawn : Field
     {
-
+        public Spawn(string fieldC)
+        {
+            fieldCode = fieldC;
+        }
 
     }
 }

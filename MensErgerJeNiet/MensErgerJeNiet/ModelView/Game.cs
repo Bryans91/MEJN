@@ -22,8 +22,6 @@ namespace MensErgerJeNiet.ModelView
         {
             _diceRoll = -1;
             _random = new Random();
-
-           
         }
 
         //Starts up the game
@@ -80,7 +78,7 @@ namespace MensErgerJeNiet.ModelView
             }
             
             //create board
-            _board = new Board(this);
+            _board = new Board(playerList);
            
 
             //handle who may start the game

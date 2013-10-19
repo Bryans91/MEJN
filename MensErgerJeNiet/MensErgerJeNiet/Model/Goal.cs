@@ -10,9 +10,10 @@ namespace MensErgerJeNiet.Model
     {
         private Player _player;
 
-        public Goal(Player p)
+        public Goal(Player p, string fieldC)
         {
             _player = p;
+            _fieldCode = fieldC;
         }
 
         public Player player

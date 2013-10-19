@@ -13,14 +13,14 @@ namespace MensErgerJeNiet.Model
         private Spawn[] spawns = new Spawn[16];
         private int normalFields = 40, numberOfSpawns = 4;
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
-        private Game theGame;
+        private Player[] _playerList;
         private Player currentPlayer;
-        private int createSpawnCounter = 0;
+        private int createSpawnCounter = 0, createGoalCounter = 1;
 
 
-        public Board(Game g)
+        public Board(Player[] plist)
         {
-            theGame = g;
+            playerList = plist;
             first = null;
             last = null;
             createField();
@@ -44,6 +44,7 @@ namespace MensErgerJeNiet.Model
             while (i < normalFields)
             {
                 Field newField = new Field();
+                newField.fieldCode = "f" + (i + 1);
                 newField.nextF = first;
                 if (first != null)
                 {
@@ -57,7 +58,7 @@ namespace MensErgerJeNiet.Model
                         last = newField;
                         break;
                     case 8:
-                        currentPlayer = theGame.playerList[player1];
+                        currentPlayer = playerList[player1];
                         createSpawns(currentPlayer);
                         temp = createGoals(currentPlayer);
                         newField.switchF = temp;
@@ -72,7 +73,7 @@ namespace MensErgerJeNiet.Model
                         spawns[3].nextF = newField;
                         break;
                     case 18:
-                        currentPlayer = theGame.playerList[player2];
+                        currentPlayer = playerList[player2];
                         createSpawns(currentPlayer);
                         temp = createGoals(currentPlayer);
                         newField.switchF = temp;
@@ -86,9 +87,9 @@ namespace MensErgerJeNiet.Model
                         spawns[7].nextF = newField;
                         break;
                     case 28:
-                        if (theGame.playerList.Length > 2)
+                        if (playerList.Length > 2)
                         {
-                            currentPlayer = theGame.playerList[player3];
+                            currentPlayer = playerList[player3];
                             createSpawns(currentPlayer);
                             temp = createGoals(currentPlayer);
                             newField.switchF = temp;
@@ -103,9 +104,9 @@ namespace MensErgerJeNiet.Model
                         spawns[11].nextF = newField;
                         break;
                     case 38:
-                        if (theGame.playerList.Length > 3)
+                        if (playerList.Length > 3)
                         {
-                            currentPlayer = theGame.playerList[player4];
+                            currentPlayer = playerList[player4];
                             createSpawns(currentPlayer);
                             temp = createGoals(currentPlayer);
                             newField.switchF = temp;
@@ -129,22 +130,26 @@ namespace MensErgerJeNiet.Model
         private void createSpawns(Player p)
         {
             int i;
+            int g = 1;
             switch (createSpawnCounter)
             {
-                case 0:
+                case 1:
                     i = 0;
                     break;
-                case 1:
+                case 2:
                     i = 4;
                     numberOfSpawns = 8;
-                    break;
-                case 2:
-                    i = 8;
-                    numberOfSpawns = 12;
+                    g = 1;
                     break;
                 case 3:
+                    i = 8;
+                    numberOfSpawns = 12;
+                    g = 1;
+                    break;
+                case 4:
                     i = 12;
                     numberOfSpawns = 16;
+                    g = 1;
                     break;
                 default:
                     i = 0;
@@ -153,9 +158,10 @@ namespace MensErgerJeNiet.Model
             }
             while (i < numberOfSpawns)
             {
-                Spawn newSpawn = new Spawn();
+                Spawn newSpawn = new Spawn("p" + createSpawnCounter + "spawn" + g);
                 newSpawn.pawn = new Pawn(p, newSpawn);
                 spawns[i] = newSpawn;
+                g++;
                 i++;
             }
             createSpawnCounter++;
@@ -163,10 +169,10 @@ namespace MensErgerJeNiet.Model
 
         private Goal createGoals(Player p)
         {
-            Goal newGoal1 = new Goal(p);
-            Goal newGoal2 = new Goal(p);
-            Goal newGoal3 = new Goal(p);
-            Goal newGoal4 = new Goal(p);
+            Goal newGoal1 = new Goal(p, "p" + createGoalCounter + "end1");
+            Goal newGoal2 = new Goal(p, "p" + createGoalCounter + "end2");
+            Goal newGoal3 = new Goal(p, "p" + createGoalCounter + "end3");
+            Goal newGoal4 = new Goal(p, "p" + createGoalCounter + "end4");
             newGoal1.nextF = newGoal2;
             newGoal2.nextF = newGoal3;
             newGoal3.nextF = newGoal2;
@@ -174,7 +180,20 @@ namespace MensErgerJeNiet.Model
             newGoal2.previousF = newGoal1;
             newGoal3.previousF = newGoal2;
             newGoal4.previousF = newGoal3;
+            createGoalCounter++;
             return newGoal1;
+        }
+
+        private Player[] playerList
+        {
+            get { return _playerList; }
+            set { _playerList = value; }
+        }
+
+        public Spawn[] Spawns
+        {
+            get { return spawns; }
+
         }
 
     }

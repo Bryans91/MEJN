@@ -12,36 +12,42 @@ namespace MensErgerJeNiet.Model
         protected Field _nextF, _previousF;
         protected Goal _switchF;
         protected Pawn _pawn;
+        protected string _fieldCode;
 
         public Field(){
 
 
         }
 
-
         //Properties
         public Pawn pawn
         {
             get { return _pawn; }
-            set { _pawn = pawn; }
-        }    
+            set { _pawn = value; }
+        }
+
+        public string fieldCode
+        {
+            get { return _fieldCode; }
+            set { _fieldCode = value; }
+        }
         
         public Field nextF
         {
             get { return _nextF; }
-            set { _nextF = nextF; }
+            set { _nextF = value; ; }
         }
 
         public Field previousF
         {
             get { return _previousF; }
-            set{ _previousF = previousF;}
+            set { _previousF = value;}
         }
 
         public Goal switchF
         {
             get { return _switchF; }
-            set { _switchF = switchF; }
+            set { _switchF = value; }
         }
 
         

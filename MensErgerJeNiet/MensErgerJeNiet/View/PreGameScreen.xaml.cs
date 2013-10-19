@@ -27,6 +27,7 @@ namespace MensErgerJeNiet.View
             InitializeComponent();
             main = m;
             this.Topmost = true;
+            this.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

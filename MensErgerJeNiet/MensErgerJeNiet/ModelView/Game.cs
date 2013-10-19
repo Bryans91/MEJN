@@ -84,12 +84,7 @@ namespace MensErgerJeNiet.ModelView
            
 
             //handle who may start the game
-<<<<<<< HEAD
-           // handleTurn(firstRoll(_playerList));
-=======
-            //handleTurn(firstRoll(_playerList));
->>>>>>> 11538455217a5470337763a27fb8f657cc146f2f
-
+            handleTurn(firstRoll(_playerList));
 
 
         }

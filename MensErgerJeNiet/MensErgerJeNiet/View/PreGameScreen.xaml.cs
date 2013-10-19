@@ -21,10 +21,12 @@ namespace MensErgerJeNiet.View
     {
         int players, humans;
         MainWindow main;
+
         public PreGameScreen(MainWindow m)
         {
             InitializeComponent();
             main = m;
+            this.Topmost = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,6 +48,8 @@ namespace MensErgerJeNiet.View
                 else if (humans < players && players > 2 && players < 5)
                 {
                     main.startGame(players, humans);
+                    this.Topmost = false;
+                    this.Close();
                 }
             }
             else

@@ -9,3 +9,19 @@ C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\
 C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.Properties.Resources.resources
 C:\_Projects\Git\MensErgerjeNiet\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csproj.GenerateResource.Cache
 C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.exe.config
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.exe
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.pdb
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csprojResolveAssemblyReference.cache
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MainWindow.baml
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MainWindow.g.cs
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\App.g.cs
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet_MarkupCompile.cache
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.g.resources
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.Properties.Resources.resources
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csproj.GenerateResource.Cache
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.exe
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.pdb
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.baml
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.g.cs
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.exe
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.pdb

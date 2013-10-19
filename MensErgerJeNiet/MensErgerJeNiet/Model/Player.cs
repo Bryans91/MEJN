@@ -14,12 +14,15 @@ namespace MensErgerJeNiet.Model
         private int _pawnsInGoal , _startRoll;
         private string _color;
         private Player _nextP;
+        private Pawn[] _pawns;
 
         public Player(bool isHuman , string color)
         {
             _isHuman = isHuman;
             _color = color;
             _startRoll = -1;
+
+            _pawns = new Pawn[4];
 
         }
 
@@ -42,6 +45,11 @@ namespace MensErgerJeNiet.Model
 
 
         //properties
+        public Pawn[] pawns
+        {
+            get { return _pawns; }
+        }
+
         public int startRoll
         {
             get { return _startRoll; }

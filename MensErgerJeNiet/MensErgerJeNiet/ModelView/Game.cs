@@ -14,6 +14,7 @@ namespace MensErgerJeNiet.ModelView
         private Random _random;
         private Board _board;
         private Player[] _playerList;
+        private Pawn _selected;
         
 
         //Constructor: nr of fields evt af te leiden van nr of players? (aantal fields x spelers) of fixed aantal
@@ -83,7 +84,11 @@ namespace MensErgerJeNiet.ModelView
            
 
             //handle who may start the game
+<<<<<<< HEAD
+           // handleTurn(firstRoll(_playerList));
+=======
             //handleTurn(firstRoll(_playerList));
+>>>>>>> 11538455217a5470337763a27fb8f657cc146f2f
 
 
 
@@ -161,7 +166,8 @@ namespace MensErgerJeNiet.ModelView
                     }
                     highest = newHigh;
                 } // end while
-                
+
+                first.pawns[0].currentField = first.startingField;
                 return first;
              }
                  
@@ -170,34 +176,99 @@ namespace MensErgerJeNiet.ModelView
         //handles individual turns
         private void handleTurn(Player p)
         {
-            bool turnFinished = false;
+            bool turnFinished = false , stuck = false;
             _diceRoll = 0;
-            //pawn selected
+            _selected = null;
 
+            //computerprep + check if not stuck
             if (!p.isHuman)
             {
-               _diceRoll = rollDice();
-                //select a pawn
 
-            }
-
-            while (!turnFinished)
-            {
-                if (_diceRoll != 0)
+                _diceRoll = rollDice();
+                bool select = false;
+                while (!select)
                 {
-                    //if( pawn selected = true)
-                        //if(pawn == p.pawn?)
-                            //movePawn(roll, pawn);
-                              turnFinished = true;
+                    foreach (Pawn pawn in p.pawns)
+                    {
+
+                        if (pawn.canMove(_diceRoll))
+                        {
+                            if (pawn.canHit)
+                            {
+                                _selected = pawn;
+                                select = true;
+                            }
+                        }
+                    }
+
+                    if (_selected == null)
+                    {
+                        foreach (Pawn pawn in p.pawns)
+                        {
+                            if (pawn.canMove(_diceRoll))
+                            {
+                                _selected = pawn;
+                                select = true;
+                            }
+                        }
+
+                        if (_selected == null)
+                        {
+                            stuck = true;
+                        }
+                    }
                 }
             }
-
-            if (p.pawnsInGoal == 4) { 
-                // end the game here
-            }
-            else if (_diceRoll == 6)
+            else
             {
-                handleTurn(p);
+                int moveablePawns = 0;
+               
+                while(_diceRoll == 0) {
+                    //Wait for diceroll
+                }
+
+                foreach (Pawn pawn in p.pawns)
+                {
+                    if (pawn.canMove(_diceRoll))
+                    {
+                        moveablePawns++;
+                    }                                   
+                }
+                if (moveablePawns == 0)
+                {
+                    stuck = true;
+                }
+            }
+            
+            //Actual move and stuck check
+            if(!stuck){
+                while (!turnFinished)
+                {
+                    if (_selected != null)
+                    {
+                        if (_selected.player == p)
+                        {
+                            if (_selected.canMove(_diceRoll))
+                            {
+                                _selected.move(_diceRoll);
+                                turnFinished = true;
+                            }
+                        }
+                    }
+                }
+
+                if (p.pawnsInGoal == 4)
+                {
+                    // end the game here
+                }
+                else if (_diceRoll == 6)
+                {
+                    handleTurn(p);
+                }
+                else
+                {
+                    handleTurn(p.nextP);
+                }
             }
             else
             {
@@ -215,6 +286,12 @@ namespace MensErgerJeNiet.ModelView
 
 
         //properties
+        public Pawn selected
+        {
+            get { return _selected; }
+            set { _selected = selected; }
+        }
+
         public Player[] playerList
         {
             get { return _playerList; }

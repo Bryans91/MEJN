@@ -2,6 +2,7 @@
 using MensErgerJeNiet.View;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,12 @@ namespace MensErgerJeNiet
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Game theGame = new Game();
+        private Game theGame;
         public MainWindow()
         {
             InitializeComponent();
             PreGameScreen pgs = new PreGameScreen(this);
+            theGame = new Game();
         }
 
         public void startGame(int players, int humans)
@@ -36,7 +38,23 @@ namespace MensErgerJeNiet
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            throw new NotImplementedException();
+        }
 
+        public void changeDice(int value)
+        {
+            System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
+            string path = thisExe.Location;
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            string folderName = dirInfo.Parent.FullName;
+            Uri uri = new Uri(folderName + "/Image" + value + ".jpg");
+            BitmapImage img = new BitmapImage(uri);
+            dice.Source = img;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            changeDice(theGame.rollDice());
         }
     }
 }

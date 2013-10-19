@@ -21,6 +21,7 @@ namespace MensErgerJeNiet.View
     {
         int players, humans;
         MainWindow main;
+
         public PreGameScreen(MainWindow m)
         {
             InitializeComponent();

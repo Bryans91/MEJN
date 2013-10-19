@@ -24,11 +24,21 @@ namespace MensErgerJeNiet
     public partial class MainWindow : Window
     {
         private Game theGame;
+        private PreGameScreen pgs;
+
         public MainWindow()
         {
             InitializeComponent();
-            PreGameScreen pgs = new PreGameScreen(this);
+            pgs = new PreGameScreen(this);
+            pgs.Visibility = Visibility.Visible;
             theGame = new Game();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
         }
 
         public void startGame(int players, int humans)

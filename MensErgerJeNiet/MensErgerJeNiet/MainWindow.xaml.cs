@@ -32,6 +32,8 @@ namespace MensErgerJeNiet
             pgs = new PreGameScreen(this);
             pgs.Visibility = Visibility.Visible;
             theGame = new Game();
+            dice.MouseLeftButtonUp += Button_Click;
+            startingDice();
         }
 
         protected override void OnClosed(EventArgs e)
@@ -49,6 +51,11 @@ namespace MensErgerJeNiet
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void startingDice()
+        {
+            changeDice(1);
         }
 
         public void changeDice(int value)

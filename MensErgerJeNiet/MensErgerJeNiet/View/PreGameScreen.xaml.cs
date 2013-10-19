@@ -32,7 +32,7 @@ namespace MensErgerJeNiet.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (humans != null || players != null)
+            if (humans != 0 || players != 0)
             {
                 if (humans > players)
                 {

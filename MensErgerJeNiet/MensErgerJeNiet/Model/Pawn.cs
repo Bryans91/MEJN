@@ -20,14 +20,11 @@ namespace MensErgerJeNiet.Model
         }
 
 
-        public void move(int steps)
+        public bool canMove(int steps)
         {
             Field goal = _currentField;
             bool direction = true;
-            bool canMove = false;
-
-
-
+         
             //check if possible to move
             for (int i = 0; i < steps; i++)
             {
@@ -38,39 +35,57 @@ namespace MensErgerJeNiet.Model
 
                 if (direction)
                 {
-                    goal = goal.nextF;
+                    if (goal.nextF.switchF != null)
+                    {
+                        if (goal.switchF.player == _player)
+                        {
+                            goal = goal.switchF;
+                        }
+                        else
+                        {
+                            goal = goal.nextF;
+                        }
+                    }
+                    else
+                    {
+                        goal = goal.nextF;
+                    }
                 }
                 else
                 {
                     goal = goal.previousF;
                 }
-
             }
+
 
             //check the goal location 
             if (goal.pawn != null)
             {
                 if (goal.pawn.player != _player)
                 {
-                    canMove = true;
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
+            else
+            {
+                return true;
+            }                                  
+        } //endmethod
+
+
+        public void move(int steps)
+        {
+
 
             //The actual move
-            direction = true;
-
-            if (canMove)
-            {
+            bool direction = true;
+            
                 for (int i = 0; i <= steps; i++)
                 {
-                    //check if spot is not filled
-                    if (i == steps)
-                    {
-                        if (goal.pawn != null)
-                        {
-                            goal.pawn.player.pawnToSpawn(goal.pawn);
-                        }
-                    }
 
                     if (_currentField.nextF == null)
                     {
@@ -83,30 +98,100 @@ namespace MensErgerJeNiet.Model
                         {
                             if (_currentField.switchF.player == this._player)
                             {
-                                _currentField = _currentField.switchF;
+                                //check if last move & is filled *switch*
+                                if (i == steps)
+                                {
+                                    if (_currentField.switchF.pawn != null)
+                                    {
+                                        _currentField.switchF.pawn.player.pawnToSpawn(_currentField.switchF.pawn);
+                                        _currentField = _currentField.switchF;
+                                        _currentField.pawn = this;
+                                    }
+                                    else 
+                                    {
+                                        _currentField = _currentField.switchF;
+                                        _currentField.pawn = this;
+                                    }
+                                }
+                                else
+                                {
+                                //normal move
+                                    _currentField = _currentField.switchF;
+                                }
                             }
                             else
                             {
-                                _currentField = _currentField.nextF;
+                                //check if last move & is filled *not a switch*
+                                if (i == steps)
+                                {
+                                    if (_currentField.nextF.pawn != null)
+                                    {
+                                        _currentField.nextF.pawn.player.pawnToSpawn(_currentField.nextF.pawn);
+                                        _currentField = _currentField.nextF;
+                                        _currentField.pawn = this;
+                                    }
+                                    else
+                                    {
+                                        _currentField = _currentField.nextF;
+                                        _currentField.pawn = this;
+                                    }
+                                }
+                                else
+                                {
+                                    //normal move
+                                    _currentField = _currentField.nextF;
+                                }
                             }
                         }
                         else
                         {
-                            _currentField = _currentField.nextF;
+                            //check if last move & is filled *no switch*
+                            if (i == steps)
+                            {
+                                if (_currentField.nextF.pawn != null)
+                                {
+                                    _currentField.nextF.pawn.player.pawnToSpawn(_currentField.nextF.pawn);
+                                    _currentField = _currentField.nextF;
+                                    _currentField.pawn = this;
+                                }
+                                else
+                                {
+                                    _currentField = _currentField.nextF;
+                                    _currentField.pawn = this;
+                                }
+                            }
+                            else
+                            {
+                                //normal move
+                                _currentField = _currentField.nextF;
+                            }                           
                         }
 
                     }
                     else
                     {
-                        _currentField = _currentField.previousF;
-                    }
-
-                    //set pawn on field
-                    _currentField.pawn = this;
+                        //check if last move & is filled *going backwards*
+                        if (i == steps)
+                        {
+                            if (_currentField.previousF.pawn != null)
+                            {
+                                _currentField.previousF.pawn.player.pawnToSpawn(_currentField.previousF.pawn);
+                                _currentField = _currentField.previousF;
+                                _currentField.pawn = this;
+                            }
+                            else
+                            {
+                                _currentField = _currentField.previousF;
+                                _currentField.pawn = this;
+                            }
+                        }
+                        else
+                        {
+                            //normal move
+                            _currentField = _currentField.previousF;
+                        }                      
+                    }        
                 }//endfor
-
-            } //endmove
-
         } //end method
 
 

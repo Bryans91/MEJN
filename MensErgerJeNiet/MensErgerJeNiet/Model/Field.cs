@@ -24,7 +24,7 @@ namespace MensErgerJeNiet.Model
         {
             get { return _pawn; }
             set { _pawn = pawn; }
-        }
+        }    
         
         public Field nextF
         {

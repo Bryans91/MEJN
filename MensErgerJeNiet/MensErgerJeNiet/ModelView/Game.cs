@@ -19,7 +19,7 @@ namespace MensErgerJeNiet.ModelView
         //Constructor: nr of fields evt af te leiden van nr of players? (aantal fields x spelers) of fixed aantal
         public Game()
         {
-           
+            _diceRoll = -1;
             _random = new Random();
 
            
@@ -54,13 +54,20 @@ namespace MensErgerJeNiet.ModelView
 
                 if (i > nrOfHumans)
                 {
-                    _playerList[i] = new Player(false, color , rollDice());
-                    temp.nextP = _playerList[i];
+                    _playerList[i] = new Player(false, color);
+                    if (temp != null)
+                    {
+                        temp.nextP = _playerList[i];
+                    }
+                    
                 }
                 else
                 {
-                    _playerList[i] = new Player(true, color , rollDice());
-                    temp.nextP = _playerList[i];
+                    _playerList[i] = new Player(true, color);
+                    if (temp != null)
+                    {
+                        temp.nextP = _playerList[i];
+                    }
                 }
 
                 temp = _playerList[i];
@@ -76,19 +83,86 @@ namespace MensErgerJeNiet.ModelView
            
 
             //handle who may start the game
-            Player first = _playerList[0];
+            handleTurn(firstRoll(_playerList));
 
-            foreach (Player p in _playerList)
-            {
-                if (p.startRoll > first.startRoll)
-                {
-                    first = p;
-                }
-            }
 
-            handleTurn(first);
 
         }
+
+        private Player firstRoll(Player[] players)
+        {
+
+            Player first = null;
+            int outOfComp = 0 , highest = 0;
+
+            //Players first roll        
+                foreach (Player p in players)
+                {
+                    if (p.isHuman)
+                    {
+                        while (p.startRoll == -1)
+                        {
+                            if (_diceRoll != -1)
+                            {
+                                p.startRoll = _diceRoll;
+                                _diceRoll = -1;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        p.startRoll = rollDice();
+                    }
+
+                    if (p.startRoll > highest)
+                    {
+                        highest = p.startRoll;
+                    }
+                 }//end first roll
+
+                while (outOfComp != players.Length - 1)
+                {
+                    int newHigh = 0;
+
+                    foreach(Player p in players){
+                        if (p.startRoll < highest)
+                        {
+                            p.startRoll = 0;
+                            outOfComp++;
+                        }
+                        else
+                        {
+                            if (!p.isHuman)
+                            {
+                                p.startRoll = rollDice();
+                            }
+                            else
+                            {
+                                while (p.startRoll == -1)
+                                {
+                                    if (_diceRoll != -1)
+                                    {
+                                        p.startRoll = _diceRoll;
+                                        _diceRoll = -1;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (p.startRoll > newHigh)
+                        {
+                            newHigh = p.startRoll;
+                            first = p;
+                        }
+                    }
+
+                    highest = newHigh;
+                } // end while
+                
+                return first;
+             }
+                 
+
 
         //handles individual turns
         private void handleTurn(Player p)

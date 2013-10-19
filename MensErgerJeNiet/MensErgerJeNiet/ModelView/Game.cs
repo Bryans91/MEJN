@@ -124,38 +124,41 @@ namespace MensErgerJeNiet.ModelView
                 {
                     int newHigh = 0;
 
-                    foreach(Player p in players){
-                        if (p.startRoll < highest)
+                    foreach (Player p in players)
+                    {
+                        if (p.startRoll != 0)
                         {
-                            p.startRoll = 0;
-                            outOfComp++;
-                        }
-                        else
-                        {
-                            if (!p.isHuman)
+                            if (p.startRoll < highest)
                             {
-                                p.startRoll = rollDice();
+                                p.startRoll = 0;
+                                outOfComp++;
                             }
                             else
                             {
-                                while (p.startRoll == -1)
+                                if (!p.isHuman)
                                 {
-                                    if (_diceRoll != -1)
+                                    p.startRoll = rollDice();
+                                }
+                                else
+                                {
+                                    while (p.startRoll == -1)
                                     {
-                                        p.startRoll = _diceRoll;
-                                        _diceRoll = -1;
+                                        if (_diceRoll != -1)
+                                        {
+                                            p.startRoll = _diceRoll;
+                                            _diceRoll = -1;
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        if (p.startRoll > newHigh)
-                        {
-                            newHigh = p.startRoll;
-                            first = p;
+                            if (p.startRoll > newHigh)
+                            {
+                                newHigh = p.startRoll;
+                                first = p;
+                            }
                         }
                     }
-
                     highest = newHigh;
                 } // end while
                 

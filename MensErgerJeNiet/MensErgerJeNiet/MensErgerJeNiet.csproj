@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enums\PlayerColor.cs" />
     <Compile Include="View\PreGameScreen.xaml.cs">
       <DependentUpon>PreGameScreen.xaml</DependentUpon>
     </Compile>
@@ -114,6 +115,9 @@
     <Resource Include="Images\Image4.jpg" />
     <Resource Include="Images\Image5.jpg" />
     <Resource Include="Images\Image6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sounds\dice_throw.wav" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -48,7 +49,17 @@ namespace MensErgerJeNiet
             theGame.startGame(players, humans);
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }
@@ -67,6 +78,8 @@ namespace MensErgerJeNiet
             Uri uri = new Uri(folderName + "/Image" + value + ".jpg");
             BitmapImage img = new BitmapImage(uri);
             dice.Source = img;
+            SoundPlayer player = new SoundPlayer(Properties.Resources.dice_throw);
+            player.Play();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

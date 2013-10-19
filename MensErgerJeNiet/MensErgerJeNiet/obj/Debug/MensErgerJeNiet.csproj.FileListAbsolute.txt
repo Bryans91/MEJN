@@ -25,3 +25,4 @@ C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreG
 C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.g.cs
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.exe
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.pdb
+C:\_Projects\Git\DINGES\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet_Content.g.cs

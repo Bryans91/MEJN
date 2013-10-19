@@ -24,27 +24,26 @@ namespace MensErgerJeNiet
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Game theGame;
+        private ModelView.Game theGame;
         private PreGameScreen pgs;
-        private Model.Board b;
+        private Model.Board board;
 
-        public MainWindow(Model.Board Board)
+        public MainWindow()
         {
             InitializeComponent();
             pgs = new PreGameScreen(this);
             theGame = new Game();
             dice.MouseLeftButtonUp += Button_Click;
             startingDice();
-            b = Board;
+            board = theGame.board;
         }
 
         private void addEllipses()
         {
             int i = 0;
-            while (i < b.Spawns.Length)
+            while (i < board.Spawns.Length)
             {
-                Ellipse temp = getFieldEllipse(b.Spawns[i].fieldCode);
-                //kom er hier niet meer uit
+                getFieldEllipse(board.Spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
             }
         }
 

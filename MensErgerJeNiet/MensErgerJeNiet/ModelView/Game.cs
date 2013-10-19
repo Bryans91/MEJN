@@ -285,6 +285,11 @@ namespace MensErgerJeNiet.ModelView
             set { _selected = selected; }
         }
 
+        public Board board
+        {
+            get { return _board; }
+        }
+
         public Player[] playerList
         {
             get { return _playerList; }

@@ -1,4 +1,5 @@
-﻿using MensErgerJeNiet.ModelView;
+﻿using MensErgerJeNiet.Model;
+using MensErgerJeNiet.ModelView;
 using MensErgerJeNiet.View;
 using System;
 using System.Collections.Generic;
@@ -26,25 +27,23 @@ namespace MensErgerJeNiet
     {
         private Game theGame;
         private PreGameScreen pgs;
-        private Model.Board b;
 
-        public MainWindow(Model.Board Board)
+        public MainWindow()
         {
             InitializeComponent();
             pgs = new PreGameScreen(this);
             theGame = new Game();
             dice.MouseLeftButtonUp += Button_Click;
             startingDice();
-            b = Board;
+            //drawEllipses();
         }
 
-        private void addEllipses()
+        private void drawEllipses(Board board)
         {
             int i = 0;
-            while (i < b.Spawns.Length)
+            while (i < board.Spawns.Length)
             {
-                Ellipse temp = getFieldEllipse(b.Spawns[i].fieldCode);
-                //kom er hier niet meer uit
+                getFieldEllipse(board.Spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
             }
         }
 

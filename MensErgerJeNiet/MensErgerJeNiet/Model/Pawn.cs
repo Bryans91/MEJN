@@ -11,12 +11,14 @@ namespace MensErgerJeNiet.Model
 
         private Player _player;
         private Field _currentField;
-        private bool _canHit;
+        private bool _canHit , _onSpawn;
+        
 
         public Pawn(Player p, Field firstField)
         {
             _player = p;
             _currentField = firstField;
+            _onSpawn = true;
 
             bool inPawnList = false;
             for (int i = 0; i < _player.pawns.Length; i++)
@@ -38,7 +40,18 @@ namespace MensErgerJeNiet.Model
         {
             Field goal = _currentField;
             bool direction = true;
-         
+
+            if (_onSpawn && steps != 6)
+            {
+                return false;
+            }
+            else
+            {
+                goal = player.startingField;
+            }
+
+
+
             //check if possible to move
             for (int i = 0; i < steps; i++)
             {
@@ -71,35 +84,39 @@ namespace MensErgerJeNiet.Model
                 }
             }
 
-
-            //check the goal location 
-            if (goal.pawn != null)
-            {
-                if (goal.pawn.player != _player)
+            
+            //check the goal location
+                if (goal.pawn != null)
                 {
-                    _canHit = true;
-                    return true;
+                    if (goal.pawn.player != _player)
+                    {
+                        _canHit = true;
+                        return true;
+                    }
+                    else
+                    {
+                        _canHit = false;
+                        return false;
+                    }
                 }
                 else
                 {
                     _canHit = false;
-                    return false;
-                }
-            }
-            else
-            {
-                _canHit = false;
-                return true;
-            }                                  
+                    return true;
+                }                                  
         } //endmethod
 
 
         public void move(int steps)
         {
-
-
             //The actual move
             bool direction = true;
+
+            if (_onSpawn)
+            {
+                _currentField = _player.startingField;
+                _onSpawn = false;
+            }
             
                 for (int i = 0; i <= steps; i++)
                 {
@@ -218,6 +235,13 @@ namespace MensErgerJeNiet.Model
             get { return _currentField; }
             set { _currentField = currentField; }
         }
+
+        public bool onSpawn
+        {
+            get { return _onSpawn; }
+            set { _onSpawn = onSpawn; }
+        }
+
 
     }
 }

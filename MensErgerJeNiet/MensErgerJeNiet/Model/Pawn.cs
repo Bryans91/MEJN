@@ -115,26 +115,8 @@ namespace MensErgerJeNiet.Model
                         {
                             if (_currentField.switchF.player == this._player)
                             {
-                                //check if last move & is filled *switch*
-                                if (i == steps)
-                                {
-                                    if (_currentField.switchF.pawn != null)
-                                    {
-                                        _currentField.switchF.pawn.player.pawnToSpawn(_currentField.switchF.pawn);
-                                        _currentField = _currentField.switchF;
-                                        _currentField.pawn = this;
-                                    }
-                                    else 
-                                    {
-                                        _currentField = _currentField.switchF;
-                                        _currentField.pawn = this;
-                                    }
-                                }
-                                else
-                                {
-                                //normal move
-                                    _currentField = _currentField.switchF;
-                                }
+                                _currentField = _currentField.switchF;
+                                _player.pawnsInGoal++;
                             }
                             else
                             {
@@ -206,8 +188,16 @@ namespace MensErgerJeNiet.Model
                         {
                             //normal move
                             _currentField = _currentField.previousF;
-                        }                      
-                    }        
+                        }
+
+                            if (_currentField.switchF != null)
+                            {
+                                if (_currentField.switchF.player == _player)
+                                {
+                                    _player.pawnsInGoal--;
+                                }
+                            }
+                      }   // end if else      
                 }//endfor
         } //end method
 

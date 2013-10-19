@@ -39,16 +39,16 @@ namespace MensErgerJeNiet.ModelView
                 switch (i)
                 {
                     case 0:
-                        color = "green";
+                        color = PlayerColor.GREEN;
                         break;
                     case 1:
-                        color = "red";
+                        color = PlayerColor.RED;
                         break;
                     case 2:
-                        color = "blue";
+                        color = PlayerColor.BLUE;
                         break;
                     case 3:
-                        color = "yellow";
+                        color = PlayerColor.YELLOW;
                         break;
                 }
 
@@ -80,11 +80,15 @@ namespace MensErgerJeNiet.ModelView
             }
             
             //create board
-            //_board = new Board();
+            _board = new Board(this);
            
 
             //handle who may start the game
+<<<<<<< HEAD
            // handleTurn(firstRoll(_playerList));
+=======
+            //handleTurn(firstRoll(_playerList));
+>>>>>>> 11538455217a5470337763a27fb8f657cc146f2f
 
 
 

@@ -45,7 +45,7 @@ namespace MensErgerJeNiet.View
                 {
                     MessageBox.Show("You are currently playing with less than 1 human player.");
                 }
-                else if (humans < players && players > 2 && players < 5)
+                else if (humans < players && players > 2 && players < 5 || humans == players && players > 2 && players < 5)
                 {
                     main.startGame(players, humans);
                     this.Topmost = false;

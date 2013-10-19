@@ -48,7 +48,17 @@ namespace MensErgerJeNiet
             theGame.startGame(players, humans);
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }

@@ -1,15 +1,15 @@
 ﻿<Window x:Class="MensErgerJeNiet.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Mens Erger Je Niet" Height="485" Width="551">
+        Title="Mens Erger Je Niet" Height="495" Width="551" ResizeMode="NoResize">
 
     <Grid Margin="0,0,0,2" Background="White">
         <DockPanel VerticalAlignment="Top">
             <Menu DockPanel.Dock="Top" Height="24">
-                <MenuItem Header="_File" Click="MenuItem_Click">
-                    <MenuItem Header="_Open"/>
-                    <MenuItem Header="_Close"/>
-                    <MenuItem Header="_Save"/>
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open" Click="Open_Click"/>
+                    <MenuItem Header="_Close" Click="Close_Click"/>
+                    <MenuItem Header="_Save" Click="Save_Click"/>
                 </MenuItem>
             </Menu>
         </DockPanel>

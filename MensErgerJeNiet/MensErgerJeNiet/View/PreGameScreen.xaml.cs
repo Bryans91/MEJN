@@ -75,5 +75,10 @@ namespace MensErgerJeNiet.View
             else
                 MessageBox.Show("This is not a number!");
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

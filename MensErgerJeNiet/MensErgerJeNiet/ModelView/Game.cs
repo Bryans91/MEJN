@@ -333,5 +333,9 @@ namespace MensErgerJeNiet.ModelView
             get { return _playerList; }
         }
 
+        private void setPlayerTurn()
+        {
+            main.changePlayerTurn(playerTurn.color);
+        }
     }
 }

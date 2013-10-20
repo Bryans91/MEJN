@@ -49,6 +49,7 @@ namespace MensErgerJeNiet.View
                 else if (humans < players && players >= 2 && players <= 4 || humans == players && players >= 2 && players <= 4)
                 {
                     main.startGame(players, humans);
+                    main.enableRollButton();
                     this.Topmost = false;
                     this.Close();
                 }

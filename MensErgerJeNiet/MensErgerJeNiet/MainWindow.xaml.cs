@@ -34,7 +34,7 @@ namespace MensErgerJeNiet
             pgs = new PreGameScreen(this);
             theGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
-            startingDice();
+            rollbutton.IsEnabled = false;
         }
 
         private void colorEllipses()
@@ -114,9 +114,9 @@ namespace MensErgerJeNiet
             throw new NotImplementedException();
         }
 
-        private void startingDice()
+        public void enableRollButton()
         {
-            changeDice(1);
+            rollbutton.IsEnabled = true;
         }
 
         public void changeDice(int value)
@@ -135,6 +135,25 @@ namespace MensErgerJeNiet
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             changeDice(theGame.rollDice());
+        }
+
+        public void changePlayerTurn(String c)
+        {
+            switch (c)
+            {
+                case PlayerColor.GREEN:
+                    playerturn.Content = "Player 1";
+                    break;
+                case PlayerColor.RED:
+                    playerturn.Content = "Player 2";
+                    break;
+                case PlayerColor.BLUE:
+                    playerturn.Content = "Player 3";
+                    break;
+                case PlayerColor.YELLOW:
+                    playerturn.Content = "Player 4";
+                    break;
+            }
         }
 
         private Ellipse getFieldEllipse(String field)

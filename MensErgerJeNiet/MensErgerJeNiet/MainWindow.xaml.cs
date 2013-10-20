@@ -34,7 +34,7 @@ namespace MensErgerJeNiet
             pgs = new PreGameScreen(this);
             theGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
-            startingDice();
+            rollButton.IsEnabled = false;
         }
 
         private void colorEllipses()
@@ -87,7 +87,7 @@ namespace MensErgerJeNiet
 
         protected override void OnClosed(EventArgs e)
         {
-            base.OnClosed(e);
+            spawn.OnClosed(e);
 
             Application.Current.Shutdown();
         }
@@ -114,9 +114,9 @@ namespace MensErgerJeNiet
             throw new NotImplementedException();
         }
 
-        private void startingDice()
+        public void enableRollButton()
         {
-            changeDice(1);
+            rollButton.IsEnabled = true;
         }
 
         public void changeDice(int value)
@@ -141,42 +141,61 @@ namespace MensErgerJeNiet
             }
         }
 
+        public void changePlayerTurn(String c)
+        {
+            switch (c)
+            {
+                case PlayerColor.GREEN:
+                    playerturn.Content = "Player 1";
+                    break;
+                case PlayerColor.RED:
+                    playerturn.Content = "Player 2";
+                    break;
+                case PlayerColor.BLUE:
+                    playerturn.Content = "Player 3";
+                    break;
+                case PlayerColor.YELLOW:
+                    playerturn.Content = "Player 4";
+                    break;
+            }
+        }
+
         private Ellipse getFieldEllipse(String field)
         {
             switch (field)
             {
                 case "p1spawn1":
-                    return p1_base1;
+                    return p1spawn1;
                 case "p1spawn2":
-                    return p1_base2;
+                    return p1spawn2;
                 case "p1spawn3":
-                    return p1_base3;
+                    return p1spawn3;
                 case "p1spawn4":
-                    return p1_base4;
+                    return p1spawn4;
                 case "p2spawn1":
-                    return p2_base1;
+                    return p2spawn1;
                 case "p2spawn2":
-                    return p2_base2;
+                    return p2spawn2;
                 case "p2spawn3":
-                    return p2_base3;
+                    return p2spawn3;
                 case "p2spawn4":
-                    return p2_base4;
+                    return p2spawn4;
                 case "p3spawn1":
-                    return p3_base1;
+                    return p3spawn1;
                 case "p3spawn2":
-                    return p3_base2;
+                    return p3spawn2;
                 case "p3spawn3":
-                    return p3_base3;
+                    return p3spawn3;
                 case "p3spawn4":
-                    return p3_base4;
+                    return p3spawn4;
                 case "p4spawn1":
-                    return p4_base1;
+                    return p4spawn1;
                 case "p4spawn2":
-                    return p4_base2;
+                    return p4spawn2;
                 case "p4spawn3":
-                    return p4_base3;
+                    return p4spawn3;
                 case "p4spawn4":
-                    return p4_base4;
+                    return p4spawn4;
                 case "f1":
                     return field1;
                 case "f2":
@@ -242,37 +261,37 @@ namespace MensErgerJeNiet
                 case "f32":
                     return field32;
                 case "p1end1":
-                    return p1_end1;
+                    return p1end1;
                 case "p1end2":
-                    return p1_end2;
+                    return p1end2;
                 case "p1end3":
-                    return p1_end3;
+                    return p1end3;
                 case "p1end4":
-                    return p1_end4;
+                    return p1end4;
                 case "p2end1":
-                    return p2_end1;
+                    return p2end1;
                 case "p2end2":
-                    return p2_end2;
+                    return p2end2;
                 case "p2end3":
-                    return p2_end3;
+                    return p2end3;
                 case "p2end4":
-                    return p2_end4;
+                    return p2end4;
                 case "p3end1":
-                    return p3_end1;
+                    return p3end1;
                 case "p3end2":
-                    return p3_end2;
+                    return p3end2;
                 case "p3end3":
-                    return p3_end3;
+                    return p3end3;
                 case "p3end4":
-                    return p3_end4;
+                    return p3end4;
                 case "p4end1":
-                    return p4_end1;
+                    return p4end1;
                 case "p4end2":
-                    return p4_end2;
+                    return p4end2;
                 case "p4end3":
-                    return p4_end3;
+                    return p4end3;
                 case "p4end4":
-                    return p4_end4;
+                    return p4end4;
                 default:
                     return new Ellipse();
             }
@@ -281,6 +300,12 @@ namespace MensErgerJeNiet
         public void showEndMessage()
         {
             MessageBox.Show("The game has ended!");//to be edited
+        }
+
+        private void handleClick(object sender, MouseButtonEventArgs e)
+        {
+            Ellipse clicked = (Ellipse)sender;
+            theGame.recieveClickedEllipse(clicked.Name);
         }
     }
 }

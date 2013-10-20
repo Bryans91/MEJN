@@ -44,7 +44,7 @@ namespace MensErgerJeNiet.Model
             while (i < normalFields)
             {
                 Field newField = new Field();
-                newField.fieldCode = "f" + (i + 1);
+                newField.fieldCode = "field" + (i + 1);
                 newField.nextF = _first;
                 if (first != null)
                 {
@@ -87,7 +87,7 @@ namespace MensErgerJeNiet.Model
                         spawns[7].nextF = newField;
                         break;
                     case 28:
-                        if (playerList.Length > 2)
+                        if (playerList.Length >= 3)
                         {
                             currentPlayer = playerList[player3];
                             createSpawns(currentPlayer);
@@ -98,7 +98,7 @@ namespace MensErgerJeNiet.Model
                         }
                         break;
                     case 29:
-                        if (playerList.Length > 2)
+                        if (playerList.Length >= 3)
                         {
                             spawns[8].nextF = newField;
                             spawns[9].nextF = newField;
@@ -107,7 +107,7 @@ namespace MensErgerJeNiet.Model
                         }
                         break;
                     case 38:
-                        if (playerList.Length > 3)
+                        if (playerList.Length >= 4)
                         {
                             currentPlayer = playerList[player4];
                             createSpawns(currentPlayer);
@@ -119,7 +119,7 @@ namespace MensErgerJeNiet.Model
                         break;
                     case 39:
                         newField.nextF = _last;
-                        if (playerList.Length > 3)
+                        if (playerList.Length >= 4)
                         {
                             spawns[12].nextF = newField;
                             spawns[13].nextF = newField;

@@ -134,7 +134,11 @@ namespace MensErgerJeNiet
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            changeDice(theGame.rollDice());
+            if (theGame.playersTurn.isHuman)
+            {
+                changeDice(theGame.rollDice());
+                theGame.playerPrep(theGame.playersTurn);
+            }
         }
 
         private Ellipse getFieldEllipse(String field)

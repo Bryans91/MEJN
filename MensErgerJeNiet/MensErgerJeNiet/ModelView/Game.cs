@@ -15,9 +15,10 @@ namespace MensErgerJeNiet.ModelView
         private Random _random;
         private Board _board;
         private Player[] _playerList;
+        private Player _playersTurn;
         private Pawn _selected;
         private MainWindow main;
-        
+
 
         //Constructor: nr of fields evt af te leiden van nr of players? (aantal fields x spelers) of fixed aantal
         public Game(MainWindow mainwindow)
@@ -28,13 +29,13 @@ namespace MensErgerJeNiet.ModelView
         }
 
         //Starts up the game
-        public void startGame(int nrOfPlayers , int nrOfHumans)
+        public void startGame(int nrOfPlayers, int nrOfHumans)
         {
             _playerList = new Player[nrOfPlayers];
             Player temp = null;
 
             //add players to player list & sets human or computer player
-            for (int i = 0; i < nrOfPlayers; i++ )
+            for (int i = 0; i < nrOfPlayers; i++)
             {
                 string color = "";
                 switch (i)
@@ -61,7 +62,7 @@ namespace MensErgerJeNiet.ModelView
                     {
                         temp.nextP = _playerList[i];
                     }
-                    
+
                 }
                 else
                 {
@@ -79,16 +80,151 @@ namespace MensErgerJeNiet.ModelView
                     _playerList[0].nextP = _playerList[i];
                 }
             }
-            
+
             //create board
             _board = new Board(playerList);
 
+
             //handle who may start the game
-            handleTurn(firstRoll(_playerList));
+            //handleTurn(firstRoll(_playerList));
 
 
         }
 
+        //Checks if ANY moves are possible
+        public bool canMakeMove(Player p)
+        {
+            int moveablePawns = 0;
+            bool stuck = true;
+
+            foreach (Pawn pawn in p.pawns)
+            {
+                if (pawn.canMove(_diceRoll))
+                {
+                    moveablePawns++;
+                }
+            }
+
+            if (moveablePawns == 0)
+            {
+                stuck = false;
+            }
+
+            return stuck;
+        }
+
+        public void playerPrep(Player p)
+        {
+            if (!canMakeMove(p))
+            {
+                _playersTurn = p.nextP;
+
+                if (!_playersTurn.isHuman)
+                {
+                    computerPrep(_playersTurn);
+                }
+
+                _diceRoll = 0;
+            }
+            else
+            {
+                main.rollButton.IsEnabled = false;
+            }
+
+        }
+
+
+        //Prepares a turn for the computer
+        public void computerPrep(Player p)
+        {
+
+            _diceRoll = rollDice();
+            bool select = false;
+
+
+            if (canMakeMove(p))
+            {
+
+                while (!select)
+                {
+                    foreach (Pawn pawn in p.pawns)
+                    {
+
+                        if (pawn.canMove(_diceRoll))
+                        {
+                            if (pawn.canHit)
+                            {
+                                _selected = pawn;
+                                select = true;
+                                sendFieldCode(_selected.currentField);
+                            }
+                        }
+                    }
+
+                    if (_selected == null)
+                    {
+                        foreach (Pawn pawn in p.pawns)
+                        {
+                            if (pawn.canMove(_diceRoll))
+                            {
+                                _selected = pawn;
+                                select = true;
+                                sendFieldCode(_selected.currentField);
+                            }
+                        }
+                    }
+                }
+
+                handleTurn(p);
+
+            }  // end if
+            else
+            {
+                //computer cant move, next players turn
+                _playersTurn = p.nextP;
+
+                if (!_playersTurn.isHuman)
+                {
+                    computerPrep(_playersTurn);
+                }
+
+                _diceRoll = 0;
+            }
+        }
+
+
+        public void handleTurn(Player p)
+        {
+
+            _selected.move(_diceRoll);
+
+
+            if (p.pawnsInGoal == 4)
+            {
+                main.showEndMessage();
+                // end the game here
+            }
+            else if (_diceRoll == 6)
+            {
+                _playersTurn = p;
+            }
+            else
+            {
+                _playersTurn = p.nextP;
+            }
+
+            if (!_playersTurn.isHuman)
+            {
+                computerPrep(_playersTurn);
+            }
+
+            _selected = null;
+            _diceRoll = 0;
+
+            main.rollButton.IsEnabled = true;
+            sendFieldCode(_selected.currentField);
+        }
+        /*
         private Player firstRoll(Player[] players)
         {
 
@@ -166,119 +302,9 @@ namespace MensErgerJeNiet.ModelView
                 sendFieldCode(first.startingField);
                 return first;
              }
-                 
+                 */
 
 
-        //handles individual turns
-        private void handleTurn(Player p)
-        {
-            bool turnFinished = false , stuck = false;
-            _diceRoll = 0;
-            _selected = null;
-
-            //computerprep + check if not stuck
-            if (!p.isHuman)
-            {
-
-                _diceRoll = rollDice();
-                bool select = false;
-                while (!select && !stuck)
-                {
-                    foreach (Pawn pawn in p.pawns)
-                    {
-
-                        if (pawn.canMove(_diceRoll))
-                        {
-                            if (pawn.canHit)
-                            {
-                                _selected = pawn;
-                                select = true;
-                                sendFieldCode(_selected.currentField);
-                            }
-                        }
-                    }
-
-                    if (_selected == null)
-                    {
-                        foreach (Pawn pawn in p.pawns)
-                        {
-                            if (pawn.canMove(_diceRoll))
-                            {
-                                _selected = pawn;
-                                select = true;
-                                sendFieldCode(_selected.currentField);
-                            }
-                        }
-
-                        if (_selected == null)
-                        {
-                            stuck = true;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                int moveablePawns = 0;
-               
-                while(_diceRoll == 0) {
-                    //Wait for diceroll
-                }
-
-                foreach (Pawn pawn in p.pawns)
-                {
-                    if (pawn.canMove(_diceRoll))
-                    {
-                        moveablePawns++;
-                    }                                   
-                }
-                if (moveablePawns == 0)
-                {
-                    stuck = true;
-                }
-            }
-            
-            //Actual move and stuck check
-            if(!stuck){
-                while (!turnFinished)
-                {
-                    if (_selected != null)
-                    {
-                        if (_selected.player == p)
-                        {
-                            if (_selected.canMove(_diceRoll))
-                            {
-                                _selected.move(_diceRoll);
-                                turnFinished = true;
-                                sendFieldCode(_selected.currentField);
-                            }
-                        }
-                    }
-                }
-
-                if (p.pawnsInGoal == 4)
-                {
-                    main.showEndMessage();
-                    // end the game here
-                }
-                else if (_diceRoll == 6)
-                {
-                    handleTurn(p);
-                }
-                else
-                {
-                    handleTurn(p.nextP);
-                }
-            }
-            else
-            {
-                handleTurn(p.nextP);
-            }
-            sendFieldCode(_selected.currentField);
-            
-        }
-
-        
 
         //Used by MainWindows EventHandler (click on dice)
         //edit2: implemented in mainwindow eventhandler
@@ -316,7 +342,13 @@ namespace MensErgerJeNiet.ModelView
         }
 
 
-        //properties
+        //properties\
+
+        public Player playersTurn
+        {
+            get { return _playersTurn; }
+            set { _playersTurn = playersTurn; }
+        }
         public Pawn selected
         {
             get { return _selected; }

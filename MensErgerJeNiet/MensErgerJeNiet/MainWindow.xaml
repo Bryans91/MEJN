@@ -94,7 +94,9 @@
         <Ellipse x:Name="p4_end3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="119,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="p4_end4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="149,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
 
-        <Button Name="rollbutton" Content="Roll" HorizontalAlignment="Left" Margin="422,84,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        <Button Name ="rollButton" Content="Roll" HorizontalAlignment="Left" Margin="422,84,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
         <Label Content="Turn: " HorizontalAlignment="Left" Margin="411,51,0,0" VerticalAlignment="Top"/>
         <Label Name="playerturn" Content="" HorizontalAlignment="Left" Margin="448,51,0,0" VerticalAlignment="Top"/>
         <Label HorizontalAlignment="Left" Margin="324,111,0,0" VerticalAlignment="Top"/>

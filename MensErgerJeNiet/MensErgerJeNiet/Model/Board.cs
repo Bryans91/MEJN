@@ -208,10 +208,10 @@ namespace MensErgerJeNiet.Model
             private set { _first = value; }
         }
 
-        private Field last
+        public Field last
         {
             get { return _last; }
-            set { _last = value; }
+            private set { _last = value; }
         }
 
     }

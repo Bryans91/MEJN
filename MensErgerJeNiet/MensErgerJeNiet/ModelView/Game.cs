@@ -367,7 +367,45 @@ namespace MensErgerJeNiet.ModelView
 
         private void setPlayerTurn()
         {
-            main.changePlayerTurn(playerTurn.color);
+            main.changePlayerTurn(playersTurn.color);
+        }
+
+        public void recieveClickedEllipse(string p)
+        {
+            Field current = board.first;
+            Field temp = null;
+            int i = 0, g = 0;
+            while (current.fieldCode != p && i < 50)
+            {
+                if (current.switchF != null)
+                {
+                    temp = current.nextF;
+                    current = current.switchF;
+                }
+                if (current.nextF == null)
+                {
+                    current = temp;
+                }
+                current = current.nextF;
+                i++;
+            }
+            while (g < board.Spawns.Length)
+            {
+                if (board.Spawns[g].fieldCode == p)
+                {
+                    current = board.Spawns[g];
+                    break;
+                }
+                g++;
+            }
+            if (current.pawn != null)
+            {
+                if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))
+                {
+                    _selected = current.pawn;
+                    handleTurn(playersTurn);
+                }
+            }
         }
     }
 }

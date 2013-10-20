@@ -82,14 +82,40 @@ namespace MensErgerJeNiet.ModelView
             }
 
             //create board
-            _board = new Board(playerList);
+            _board = new Board(_playerList);
 
 
             //handle who may start the game
-            //handleTurn(firstRoll(_playerList));
+            firstRoll(_playerList);
 
 
         }
+
+        private void firstRoll(Player[] players)
+        {
+            Player first = null;
+            int highest = 0;
+
+            foreach (Player p in players)
+            {
+                p.startRoll = rollDice();
+
+                if (p.startRoll > highest)
+                {
+                    highest = p.startRoll;
+                    first = p;
+                }
+            }
+            
+            _playersTurn = first;
+
+            if (!_playersTurn.isHuman)
+            {
+                computerPrep(_playersTurn);
+            }
+        }
+
+
 
         //Checks if ANY moves are possible
         public bool canMakeMove(Player p)
@@ -224,86 +250,7 @@ namespace MensErgerJeNiet.ModelView
             main.rollButton.IsEnabled = true;
             sendFieldCode(_selected.currentField);
         }
-        /*
-        private Player firstRoll(Player[] players)
-        {
-
-            Player first = null;
-            int outOfComp = 0 , highest = 0;
-
-            //Players first roll        
-                foreach (Player p in players)
-                {
-                    if (p.isHuman)
-                    {
-                        while (p.startRoll == -1)
-                        {
-                            if (_diceRoll != -1)
-                            {
-                                p.startRoll = _diceRoll;
-                                _diceRoll = -1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        p.startRoll = rollDice();
-                    }
-
-                    if (p.startRoll > highest)
-                    {
-                        highest = p.startRoll;
-                    }
-                 }//end first roll
-
-                while (outOfComp != players.Length - 1)
-                {
-                    int newHigh = 0;
-
-                    foreach (Player p in players)
-                    {
-                        if (p.startRoll != 0)
-                        {
-                            if (p.startRoll < highest)
-                            {
-                                p.startRoll = 0;
-                                outOfComp++;
-                            }
-                            else
-                            {
-                                if (!p.isHuman)
-                                {
-                                    p.startRoll = rollDice();
-                                }
-                                else
-                                {
-                                    while (p.startRoll == -1)
-                                    {
-                                        if (_diceRoll != -1)
-                                        {
-                                            p.startRoll = _diceRoll;
-                                            _diceRoll = -1;
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (p.startRoll > newHigh)
-                            {
-                                newHigh = p.startRoll;
-                                first = p;
-                            }
-                        }
-                    }
-                    highest = newHigh;
-                } // end while
-
-                first.pawns[0].currentField = first.startingField;
-                sendFieldCode(first.startingField);
-                return first;
-             }
-                 */
-
+        
 
 
         //Used by MainWindows EventHandler (click on dice)

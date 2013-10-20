@@ -15,13 +15,15 @@ namespace MensErgerJeNiet.ModelView
         private Board _board;
         private Player[] _playerList;
         private Pawn _selected;
+        private MainWindow main;
         
 
         //Constructor: nr of fields evt af te leiden van nr of players? (aantal fields x spelers) of fixed aantal
-        public Game()
+        public Game(MainWindow mainwindow)
         {
             _diceRoll = -1;
             _random = new Random();
+            main = mainwindow;
         }
 
         //Starts up the game
@@ -82,7 +84,7 @@ namespace MensErgerJeNiet.ModelView
            
 
             //handle who may start the game
-            handleTurn(firstRoll(_playerList));
+            //handleTurn(firstRoll(_playerList));
 
 
         }
@@ -190,6 +192,7 @@ namespace MensErgerJeNiet.ModelView
                             {
                                 _selected = pawn;
                                 select = true;
+                                sendFieldCode(_selected.currentField.fieldCode);
                             }
                         }
                     }
@@ -202,6 +205,7 @@ namespace MensErgerJeNiet.ModelView
                             {
                                 _selected = pawn;
                                 select = true;
+                                sendFieldCode(_selected.currentField.fieldCode);
                             }
                         }
 
@@ -245,6 +249,7 @@ namespace MensErgerJeNiet.ModelView
                             {
                                 _selected.move(_diceRoll);
                                 turnFinished = true;
+                                sendFieldCode(_selected.currentField.fieldCode);
                             }
                         }
                     }
@@ -252,6 +257,7 @@ namespace MensErgerJeNiet.ModelView
 
                 if (p.pawnsInGoal == 4)
                 {
+                    main.showEndMessage();
                     // end the game here
                 }
                 else if (_diceRoll == 6)
@@ -267,6 +273,7 @@ namespace MensErgerJeNiet.ModelView
             {
                 handleTurn(p.nextP);
             }
+            sendFieldCode(_selected.currentField.fieldCode);
         }
 
         //Used by MainWindows EventHandler (click on dice)
@@ -276,6 +283,10 @@ namespace MensErgerJeNiet.ModelView
             return _random.Next(1, 7);
         }
 
+        private void sendFieldCode(String fieldc)
+        {
+            main.refreshField(fieldc);
+        }
 
 
         //properties

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MensErgerJeNiet.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Mens Erger Je Niet" Height="495" Width="551" ResizeMode="NoResize">
+        Title="Mens Erger Je Niet" Height="495" Width="551" >
 
     <Grid Margin="0,0,0,2" Background="White">
         <DockPanel VerticalAlignment="Top">
@@ -19,7 +19,7 @@
         <Label Name ="Player3" Content="Player 3" Margin="29,288,433,127"/>
         <Label Name ="Player4" Content="Player 4" Margin="29,111,433,304"/>
         <Ellipse x:Name="switch1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="179,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="start1" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="209,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="start1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="209,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
@@ -29,7 +29,7 @@
         <Ellipse x:Name="field7" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="299,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field8" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="329,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="switch2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="329,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="start2" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="329,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="start2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field9" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="299,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field10" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="269,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field11" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="239,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
@@ -39,7 +39,7 @@
         <Ellipse x:Name="field15" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field16" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="switch3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="179,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="start3" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="149,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="start3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="149,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field17" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field18" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field19" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
@@ -49,7 +49,7 @@
         <Ellipse x:Name="field23" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="59,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field24" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="29,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="switch4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="29,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="start4" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="29,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="start4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field25" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="59,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field26" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="89,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
         <Ellipse x:Name="field27" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="119,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
@@ -60,39 +60,39 @@
         <Ellipse x:Name="field32" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
 
 
-        <Ellipse x:Name="p1_base1" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="299,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p1_base2" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="329,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p1_base3" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="299,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p1_base4" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="329,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_base1" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="299,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_base2" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="329,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_base3" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="299,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_base4" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="329,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_base1" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="29,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_base2" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="59,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_base3" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="29,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_base4" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="59,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_base1" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="29,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_base2" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="59,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_base3" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="29,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_base4" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="59,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_base1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_base2" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="329,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_base3" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_base4" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="329,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_base1" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_base2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_base3" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_base4" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_base1" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="29,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_base2" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="59,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_base3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="29,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_base4" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="59,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_base1" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_base2" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_base3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_base4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
 
-        <Ellipse x:Name="p1_end1" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="179,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p1_end2" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="179,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p1_end3" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="179,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p1_end4" Fill="#00FF00" HorizontalAlignment="Left" Height="25" Margin="179,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_end1" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="299,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_end2" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="269,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_end3" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="239,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p2_end4" Fill="#FF0000" HorizontalAlignment="Left" Height="25" Margin="209,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_end1" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="179,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_end2" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="179,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_end3" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="179,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p3_end4" Fill="#0000FF" HorizontalAlignment="Left" Height="25" Margin="179,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_end1" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="59,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_end2" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="89,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_end3" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="119,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
-        <Ellipse x:Name="p4_end4" Fill="#FFFF00" HorizontalAlignment="Left" Height="25" Margin="149,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_end1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_end2" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_end3" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p1_end4" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_end1" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_end2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="269,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_end3" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="239,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p2_end4" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="209,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_end1" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_end2" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_end3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p3_end4" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_end1" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_end2" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="89,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_end3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="119,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
+        <Ellipse x:Name="p4_end4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="149,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25"/>
 
         <Button Content="Roll" HorizontalAlignment="Left" Margin="422,84,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Label Content="Turn: " HorizontalAlignment="Left" Margin="411,51,0,0" VerticalAlignment="Top"/>

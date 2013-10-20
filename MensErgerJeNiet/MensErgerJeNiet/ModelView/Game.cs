@@ -82,7 +82,6 @@ namespace MensErgerJeNiet.ModelView
             
             //create board
             _board = new Board(playerList);
-           
 
             //handle who may start the game
             handleTurn(firstRoll(_playerList));
@@ -164,6 +163,7 @@ namespace MensErgerJeNiet.ModelView
                 } // end while
 
                 first.pawns[0].currentField = first.startingField;
+                sendFieldCode(first.startingField);
                 return first;
              }
                  
@@ -278,6 +278,8 @@ namespace MensErgerJeNiet.ModelView
             
         }
 
+        
+
         //Used by MainWindows EventHandler (click on dice)
         //edit2: implemented in mainwindow eventhandler
         public int rollDice()
@@ -287,37 +289,29 @@ namespace MensErgerJeNiet.ModelView
 
         private void sendFieldCode(Field f)
         {
-            if (f.fieldCode.StartsWith("p1") && f.pawn != null)
+            if (f.pawn != null && f.pawn.player.color == PlayerColor.GREEN)
             {
                 main.fillField(f.fieldCode, Colors.LawnGreen);
             }
-            else if (f.fieldCode.StartsWith("p1") && f.pawn == null)
-            {
-                main.fillField(f.fieldCode, Colors.White);
-            }
-            else if (f.fieldCode.StartsWith("p2") && f.pawn != null)
+            else if (f.pawn != null && f.pawn.player.color == PlayerColor.RED)
             {
                 main.fillField(f.fieldCode, Colors.Red);
             }
-            else if (f.fieldCode.StartsWith("p2") && f.pawn == null)
-            {
-                main.fillField(f.fieldCode, Colors.DarkRed);
-            }
-            else if (f.fieldCode.StartsWith("p3") && f.pawn != null)
+            else if (f.pawn != null && f.pawn.player.color == PlayerColor.BLUE)
             {
                 main.fillField(f.fieldCode, Colors.Blue);
             }
-            else if (f.fieldCode.StartsWith("p3") && f.pawn == null)
-            {
-                main.fillField(f.fieldCode, Colors.DarkBlue);
-            }
-            else if (f.fieldCode.StartsWith("p4") && f.pawn != null)
+            else if (f.pawn != null && f.pawn.player.color == PlayerColor.YELLOW)
             {
                 main.fillField(f.fieldCode, Colors.Yellow);
             }
-            else if (f.fieldCode.StartsWith("p4") && f.pawn == null)
+            else if (f.pawn == null)
             {
-                main.fillField(f.fieldCode, Colors.Goldenrod);
+                main.fillField(f.fieldCode, Colors.White);
+            }
+            else
+            {
+                main.fillField(f.fieldCode, Colors.White);
             }
         }
 

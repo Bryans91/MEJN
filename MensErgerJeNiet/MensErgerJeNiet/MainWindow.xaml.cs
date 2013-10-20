@@ -26,7 +26,7 @@ namespace MensErgerJeNiet
     {
         private ModelView.Game theGame;
         private PreGameScreen pgs;
-        private Model.Board board;
+        private Model.Spawn[] spawns;
 
         public MainWindow()
         {
@@ -35,15 +35,49 @@ namespace MensErgerJeNiet
             theGame = new Game();
             dice.MouseLeftButtonUp += Button_Click;
             startingDice();
-            board = theGame.board;
+            spawns = theGame.board.Spawns;
+            colorEllipses();
         }
 
-        private void addEllipses()
+        private void colorEllipses()
         {
+
+            //color all the spawns
             int i = 0;
-            while (i < board.Spawns.Length)
+            while (i < spawns.Length)
             {
-                getFieldEllipse(board.Spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
+                if (spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn != null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Green);
+                }
+                else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkGreen);
+                }
+                else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Red);
+                }
+                else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
+                }
+                else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Blue);
+                }
+                else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
+                }
+                else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
+                }
+                else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
+                {
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkGoldenrod);
+                }
             }
         }
 

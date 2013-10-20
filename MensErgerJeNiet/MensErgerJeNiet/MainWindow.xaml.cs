@@ -87,8 +87,6 @@ namespace MensErgerJeNiet
 
         protected override void OnClosed(EventArgs e)
         {
-            spawn.OnClosed(e);
-
             Application.Current.Shutdown();
         }
 

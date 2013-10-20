@@ -98,7 +98,8 @@ namespace MensErgerJeNiet.ModelView
 
             foreach (Player p in players)
             {
-                p.startRoll = rollDice();
+                int temp = rollDice();
+                p.startRoll = temp;
 
                 if (p.startRoll > highest)
                 {

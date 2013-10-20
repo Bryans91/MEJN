@@ -54,27 +54,27 @@ namespace MensErgerJeNiet.Model
         public int startRoll
         {
             get { return _startRoll; }
-            set{_startRoll = startRoll;}
+            set { _startRoll = value; }
                
         }
 
         public Player nextP
         {
             get {return _nextP;}
-            set { _nextP = nextP; }
+            set { _nextP = value; }
         }
 
 
         public Field startingField
         {
             get { return _startingField; }
-            set { _startingField = startingField; }
+            set { _startingField = value; }
         }
 
         public bool isHuman
         {
             get { return _isHuman; }
-            set { _isHuman = isHuman; }
+            set { _isHuman = value; }
         }
 
         //test if writeprotected or not
@@ -85,7 +85,7 @@ namespace MensErgerJeNiet.Model
         public int pawnsInGoal
         {
             get { return _pawnsInGoal; }
-            set { _pawnsInGoal = pawnsInGoal; }
+            set { _pawnsInGoal = value; }
         }
 
         public string color

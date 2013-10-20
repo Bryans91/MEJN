@@ -98,10 +98,13 @@ namespace MensErgerJeNiet.Model
                         }
                         break;
                     case 29:
-                        spawns[8].nextF = newField;
-                        spawns[9].nextF = newField;
-                        spawns[10].nextF = newField;
-                        spawns[11].nextF = newField;
+                        if (playerList.Length > 2)
+                        {
+                            spawns[8].nextF = newField;
+                            spawns[9].nextF = newField;
+                            spawns[10].nextF = newField;
+                            spawns[11].nextF = newField;
+                        }
                         break;
                     case 38:
                         if (playerList.Length > 3)
@@ -116,10 +119,13 @@ namespace MensErgerJeNiet.Model
                         break;
                     case 39:
                         newField.nextF = last;
-                        spawns[12].nextF = newField;
-                        spawns[13].nextF = newField;
-                        spawns[14].nextF = newField;
-                        spawns[15].nextF = newField;
+                        if (playerList.Length > 3)
+                        {
+                            spawns[12].nextF = newField;
+                            spawns[13].nextF = newField;
+                            spawns[14].nextF = newField;
+                            spawns[15].nextF = newField;
+                        }
                         break;
                 }
                 i++;

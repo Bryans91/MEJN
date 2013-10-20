@@ -46,7 +46,7 @@ namespace MensErgerJeNiet.View
                 {
                     MessageBox.Show("You are currently playing with less than 1 human player.");
                 }
-                else if (humans < players && players > 2 && players < 5 || humans == players && players > 2 && players < 5)
+                else if (humans < players && players >= 2 && players <= 4 || humans == players && players >= 2 && players <= 4)
                 {
                     main.startGame(players, humans);
                     this.Topmost = false;
@@ -62,18 +62,14 @@ namespace MensErgerJeNiet.View
         private void n_ofPlayers_TextChanged(object sender, TextChangedEventArgs e)
         {
             String temp = n_ofPlayers.Text;
-            if(!Convert.ToInt32(temp).Equals(null))
-                players = Convert.ToInt32(temp);
-            else
+            if (!Int32.TryParse(temp, out players))
                 MessageBox.Show("This is not a number!");
         }
 
         private void n_ofHumans_TextChanged(object sender, TextChangedEventArgs e)
         {
             String temp = n_ofHumans.Text;
-            if (!Convert.ToInt32(temp).Equals(null))
-                humans = Convert.ToInt32(temp);
-            else
+            if (!Int32.TryParse(temp, out humans))
                 MessageBox.Show("This is not a number!");
         }
 

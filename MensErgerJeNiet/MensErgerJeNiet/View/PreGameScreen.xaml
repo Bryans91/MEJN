@@ -5,8 +5,8 @@
     <Grid>
         <Label Content="Total number of Players(max. 4):" HorizontalAlignment="Left" Margin="30,63,0,0" VerticalAlignment="Top"/>
         <Label Content="Number of Human Players:" HorizontalAlignment="Left" Margin="55,88,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="n_ofPlayers" HorizontalAlignment="Left" Height="23" Margin="201,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TextChanged="n_ofPlayers_TextChanged"/>
-        <TextBox Name="n_ofHumans" HorizontalAlignment="Left" Height="23" Margin="201,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TextChanged="n_ofHumans_TextChanged"/>
+        <TextBox Name="n_ofPlayers" HorizontalAlignment="Left" Height="23" Margin="201,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TextChanged="n_ofPlayers_TextChanged" MaxLength="1"/>
+        <TextBox Name="n_ofHumans" HorizontalAlignment="Left" Height="23" Margin="201,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TextChanged="n_ofHumans_TextChanged" MaxLength="1"/>
         <Label Content="Enter the total number of players below." HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.722,-0.36"/>
         <Label Content="The number of human players can't be higher than " HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
         <Label Content="the total number of players" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>

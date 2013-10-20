@@ -162,7 +162,6 @@ namespace MensErgerJeNiet.Model
                 Spawn newSpawn = new Spawn("p" + createSpawnCounter + "spawn" + g);
                 newSpawn.pawn = new Pawn(p, newSpawn);
                 spawns[i] = newSpawn;
-                Console.WriteLine("code: " + spawns[i].fieldCode);
                 g++;
                 i++;
             }

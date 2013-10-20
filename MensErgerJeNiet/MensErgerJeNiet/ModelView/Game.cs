@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MensErgerJeNiet.ModelView
 {
@@ -84,7 +85,7 @@ namespace MensErgerJeNiet.ModelView
            
 
             //handle who may start the game
-            //handleTurn(firstRoll(_playerList));
+            handleTurn(firstRoll(_playerList));
 
 
         }
@@ -181,7 +182,7 @@ namespace MensErgerJeNiet.ModelView
 
                 _diceRoll = rollDice();
                 bool select = false;
-                while (!select)
+                while (!select && !stuck)
                 {
                     foreach (Pawn pawn in p.pawns)
                     {
@@ -192,7 +193,7 @@ namespace MensErgerJeNiet.ModelView
                             {
                                 _selected = pawn;
                                 select = true;
-                                sendFieldCode(_selected.currentField.fieldCode);
+                                sendFieldCode(_selected.currentField);
                             }
                         }
                     }
@@ -205,7 +206,7 @@ namespace MensErgerJeNiet.ModelView
                             {
                                 _selected = pawn;
                                 select = true;
-                                sendFieldCode(_selected.currentField.fieldCode);
+                                sendFieldCode(_selected.currentField);
                             }
                         }
 
@@ -249,7 +250,7 @@ namespace MensErgerJeNiet.ModelView
                             {
                                 _selected.move(_diceRoll);
                                 turnFinished = true;
-                                sendFieldCode(_selected.currentField.fieldCode);
+                                sendFieldCode(_selected.currentField);
                             }
                         }
                     }
@@ -273,7 +274,8 @@ namespace MensErgerJeNiet.ModelView
             {
                 handleTurn(p.nextP);
             }
-            sendFieldCode(_selected.currentField.fieldCode);
+            sendFieldCode(_selected.currentField);
+            
         }
 
         //Used by MainWindows EventHandler (click on dice)
@@ -283,9 +285,40 @@ namespace MensErgerJeNiet.ModelView
             return _random.Next(1, 7);
         }
 
-        private void sendFieldCode(String fieldc)
+        private void sendFieldCode(Field f)
         {
-            main.refreshField(fieldc);
+            if (f.fieldCode.StartsWith("p1") && f.pawn != null)
+            {
+                main.fillField(f.fieldCode, Colors.LawnGreen);
+            }
+            else if (f.fieldCode.StartsWith("p1") && f.pawn == null)
+            {
+                main.fillField(f.fieldCode, Colors.White);
+            }
+            else if (f.fieldCode.StartsWith("p2") && f.pawn != null)
+            {
+                main.fillField(f.fieldCode, Colors.Red);
+            }
+            else if (f.fieldCode.StartsWith("p2") && f.pawn == null)
+            {
+                main.fillField(f.fieldCode, Colors.DarkRed);
+            }
+            else if (f.fieldCode.StartsWith("p3") && f.pawn != null)
+            {
+                main.fillField(f.fieldCode, Colors.Blue);
+            }
+            else if (f.fieldCode.StartsWith("p3") && f.pawn == null)
+            {
+                main.fillField(f.fieldCode, Colors.DarkBlue);
+            }
+            else if (f.fieldCode.StartsWith("p4") && f.pawn != null)
+            {
+                main.fillField(f.fieldCode, Colors.Yellow);
+            }
+            else if (f.fieldCode.StartsWith("p4") && f.pawn == null)
+            {
+                main.fillField(f.fieldCode, Colors.Goldenrod);
+            }
         }
 
 

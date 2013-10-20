@@ -289,35 +289,6 @@ namespace MensErgerJeNiet.ModelView
             }
         }
 
-
-        //properties\
-
-        public Player playersTurn
-        {
-            get { return _playersTurn; }
-            set { _playersTurn = playersTurn; }
-        }
-        public Pawn selected
-        {
-            get { return _selected; }
-            set { _selected = selected; }
-        }
-
-        public Board board
-        {
-            get { return _board; }
-        }
-
-        public Player[] playerList
-        {
-            get { return _playerList; }
-        }
-
-        private void setPlayerTurn()
-        {
-            main.changePlayerTurn(playersTurn.color);
-        }
-
         public void recieveClickedEllipse(string p)
         {
             Field current = board.first;
@@ -325,6 +296,7 @@ namespace MensErgerJeNiet.ModelView
             int i = 0, g = 0;
             while (current.fieldCode != p && i < 50)
             {
+                Console.WriteLine(current.fieldCode);
                 if (current.switchF != null)
                 {
                     temp = current.nextF;
@@ -334,7 +306,10 @@ namespace MensErgerJeNiet.ModelView
                 {
                     current = temp;
                 }
-                current = current.nextF;
+                else
+                {
+                    current = current.nextF;
+                }
                 i++;
             }
             while (g < board.Spawns.Length)
@@ -354,6 +329,34 @@ namespace MensErgerJeNiet.ModelView
                     handleTurn(playersTurn);
                 }
             }
+        }
+
+        private void setPlayerTurn()
+        {
+            main.changePlayerTurn(playersTurn.color);
+        }
+
+        //properties
+
+        public Player playersTurn
+        {
+            get { return _playersTurn; }
+            set { _playersTurn = value; }
+        }
+        public Pawn selected
+        {
+            get { return _selected; }
+            set { _selected = value; }
+        }
+
+        public Board board
+        {
+            get { return _board; }
+        }
+
+        public Player[] playerList
+        {
+            get { return _playerList; }
         }
     }
 }

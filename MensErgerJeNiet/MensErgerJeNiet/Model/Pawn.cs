@@ -233,13 +233,13 @@ namespace MensErgerJeNiet.Model
         public Field currentField
         {
             get { return _currentField; }
-            set { _currentField = currentField; }
+            set { _currentField = value; }
         }
 
         public bool onSpawn
         {
             get { return _onSpawn; }
-            set { _onSpawn = onSpawn; }
+            set { _onSpawn = value; }
         }
 
 

@@ -9,7 +9,7 @@ namespace MensErgerJeNiet.Model
 {
     class Board
     {
-        private Field first, last;
+        private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
         private int normalFields = 40, numberOfSpawns = 4;
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
@@ -45,7 +45,7 @@ namespace MensErgerJeNiet.Model
             {
                 Field newField = new Field();
                 newField.fieldCode = "f" + (i + 1);
-                newField.nextF = first;
+                newField.nextF = _first;
                 if (first != null)
                 {
                     first.previousF = newField;
@@ -118,7 +118,7 @@ namespace MensErgerJeNiet.Model
                         }
                         break;
                     case 39:
-                        newField.nextF = last;
+                        newField.nextF = _last;
                         if (playerList.Length > 3)
                         {
                             spawns[12].nextF = newField;
@@ -200,7 +200,18 @@ namespace MensErgerJeNiet.Model
         public Spawn[] Spawns
         {
             get { return spawns; }
+        }
 
+        public Field first
+        {
+            get { return _first; }
+            private set { _first = value; }
+        }
+
+        private Field last
+        {
+            get { return _last; }
+            set { _last = value; }
         }
 
     }

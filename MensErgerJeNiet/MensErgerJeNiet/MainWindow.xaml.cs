@@ -32,11 +32,9 @@ namespace MensErgerJeNiet
         {
             InitializeComponent();
             pgs = new PreGameScreen(this);
-            theGame = new Game();
+            theGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
             startingDice();
-            spawns = theGame.board.Spawns;
-            colorEllipses();
         }
 
         private void colorEllipses()
@@ -44,41 +42,147 @@ namespace MensErgerJeNiet
 
             //color all the spawns
             int i = 0;
+            Console.WriteLine("i =" + spawns.Length);
             while (i < spawns.Length)
             {
                 if (spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Green);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.LawnGreen);
+                    Console.WriteLine("Green");
                 }
                 else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkGreen);
+                    Console.WriteLine("DarkGreen");
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Red);
+                    Console.WriteLine("Red");
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
+                    Console.WriteLine("DarkRed");
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Blue);
+                    Console.WriteLine("Blue");
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
+                    Console.WriteLine("DarkBlue");
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
+                    Console.WriteLine("Yellow");
                 }
-                else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkGoldenrod);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
+                    Console.WriteLine("LightGoldenrodYellow");
                 }
+                i++;
             }
+        }
+
+        public void refreshField(String fieldCode)
+        {
+            if (fieldCode.StartsWith("p1") && spawns[i].pawn != null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.LawnGreen);
+                Console.WriteLine("Green");
+            }
+            else if (fieldCode.StartsWith("p1") && spawns[i].pawn == null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.DarkGreen);
+                Console.WriteLine("DarkGreen");
+            }
+            else if (fieldCode.StartsWith("p2") && spawns[i].pawn != null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.Red);
+                Console.WriteLine("Red");
+            }
+            else if (fieldCode.StartsWith("p2") && spawns[i].pawn == null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
+                Console.WriteLine("DarkRed");
+            }
+            else if (fieldCode.StartsWith("p3") && spawns[i].pawn != null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.Blue);
+                Console.WriteLine("Blue");
+            }
+            else if (fieldCode.StartsWith("p3") && spawns[i].pawn == null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
+                Console.WriteLine("DarkBlue");
+            }
+            else if (fieldCode.StartsWith("p4") && spawns[i].pawn != null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
+                Console.WriteLine("Yellow");
+            }
+            else if (fieldCode.StartsWith("p4") && spawns[i].pawn == null)
+            {
+                getFieldEllipse(fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
+                Console.WriteLine("LightGoldenrodYellow");
+            }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
+        public void startGame(int players, int humans)
+        {
+            theGame.startGame(players, humans);
+            spawns = theGame.board.Spawns;
+            colorEllipses();
+        }
+
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void startingDice()
+        {
+            changeDice(1);
+        }
+
+        public void changeDice(int value)
+        {
+            System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
+            string path = thisExe.Location;
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            string folderName = dirInfo.Parent.FullName;
+            Uri uri = new Uri(folderName + "/Image" + value + ".jpg");
+            BitmapImage img = new BitmapImage(uri);
+            dice.Source = img;
+            SoundPlayer player = new SoundPlayer(Properties.Resources.dice_throw);
+            player.Play();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            changeDice(theGame.rollDice());
         }
 
         private Ellipse getFieldEllipse(String field)
@@ -218,54 +322,9 @@ namespace MensErgerJeNiet
             }
         }
 
-        protected override void OnClosed(EventArgs e)
+        public void showEndMessage()
         {
-            base.OnClosed(e);
-
-            Application.Current.Shutdown();
-        }
-
-        public void startGame(int players, int humans)
-        {
-            theGame.startGame(players, humans);
-        }
-
-        private void Open_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void startingDice()
-        {
-            changeDice(1);
-        }
-
-        public void changeDice(int value)
-        {
-            System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
-            string path = thisExe.Location;
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            string folderName = dirInfo.Parent.FullName;
-            Uri uri = new Uri(folderName + "/Image" + value + ".jpg");
-            BitmapImage img = new BitmapImage(uri);
-            dice.Source = img;
-            SoundPlayer player = new SoundPlayer(Properties.Resources.dice_throw);
-            player.Play();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            changeDice(theGame.rollDice());
+            MessageBox.Show("The game has ended!");//to be edited
         }
     }
 }

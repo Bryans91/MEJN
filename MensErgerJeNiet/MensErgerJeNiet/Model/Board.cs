@@ -15,7 +15,7 @@ namespace MensErgerJeNiet.Model
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
         private Player[] _playerList;
         private Player currentPlayer;
-        private int createSpawnCounter = 0, createGoalCounter = 1;
+        private int createSpawnCounter = 1, createGoalCounter = 1;
 
 
         public Board(Player[] plist)
@@ -135,6 +135,7 @@ namespace MensErgerJeNiet.Model
             {
                 case 1:
                     i = 0;
+                    numberOfSpawns = 4;
                     break;
                 case 2:
                     i = 4;
@@ -161,6 +162,7 @@ namespace MensErgerJeNiet.Model
                 Spawn newSpawn = new Spawn("p" + createSpawnCounter + "spawn" + g);
                 newSpawn.pawn = new Pawn(p, newSpawn);
                 spawns[i] = newSpawn;
+                Console.WriteLine("code: " + spawns[i].fieldCode);
                 g++;
                 i++;
             }

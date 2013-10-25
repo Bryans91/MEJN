@@ -26,7 +26,7 @@ namespace MensErgerJeNiet.Model
             createField();
         }
 
-        private void createField()
+        public void createField()
         {
             //in case we want to change it to getting the path from .txt files we got a 2nd method
             createWalkingPath();
@@ -137,6 +137,11 @@ namespace MensErgerJeNiet.Model
 
         }
 
+        private Boolean isEmpty()
+        {
+            return first == null;
+        }
+
         private void createWalkingPath()
         {
             Goal temp;
@@ -145,18 +150,19 @@ namespace MensErgerJeNiet.Model
             {
                 Field newField = new Field();
                 newField.fieldCode = "field" + (i + 1);
-                newField.nextF = _first;
-                if (first != null)
+                if (isEmpty())
+                {
+                    last = newField;
+                }
+                else
                 {
                     first.previousF = newField;
                 }
+                newField.nextF = first;
                 first = newField;
-
+                
                 switch (i)
                 {
-                    case 0:
-                        last = newField;
-                        break;
                     case 8:
                         currentPlayer = playerList[player1];
                         createSpawns(currentPlayer);
@@ -218,7 +224,6 @@ namespace MensErgerJeNiet.Model
                         }
                         break;
                     case 39:
-                        newField.nextF = _last;
                         if (playerList.Length >= 4)
                         {
                             spawns[12].nextF = newField;
@@ -230,6 +235,31 @@ namespace MensErgerJeNiet.Model
                 }
                 i++;
             }
+        }
+
+        public Field getFieldFromPath(String fieldcode)
+        {
+            Field current = first;
+            while (current.fieldCode != fieldcode)
+            {
+                current = current.nextF;
+                if (current == null)
+                {
+                    return null;
+                }
+            }
+            if (current == first)
+                first = current.nextF;
+            else
+            {
+                current.previousF.nextF = current.nextF;
+            }
+            if (current == last)
+                last = current.previousF;
+            else
+                current.nextF.previousF = current.previousF;
+            return current;
+
         }
 
 

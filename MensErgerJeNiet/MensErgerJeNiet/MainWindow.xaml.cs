@@ -42,6 +42,7 @@ namespace MensErgerJeNiet
 
             //color all the spawns
             int i = 0;
+            if(spawns!=null)
             while (i < spawns.Length)
             {
                 if (spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn != null)
@@ -92,8 +93,9 @@ namespace MensErgerJeNiet
 
         public void startGame(int players, int humans)
         {
+            theGame.startGame(players, humans);
             theGame.createPlayers(players, humans);
-            spawns = theGame.board.Spawns;
+            //spawns = theGame.board.Spawns;
             colorEllipses();
         }
 

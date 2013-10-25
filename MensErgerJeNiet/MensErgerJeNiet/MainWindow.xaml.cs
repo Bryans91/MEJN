@@ -92,7 +92,7 @@ namespace MensErgerJeNiet
 
         public void startGame(int players, int humans)
         {
-            theGame.startGame(players, humans);
+            theGame.createPlayers(players, humans);
             spawns = theGame.board.Spawns;
             colorEllipses();
         }

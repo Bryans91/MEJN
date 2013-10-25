@@ -32,9 +32,72 @@ namespace MensErgerJeNiet.Model
             createWalkingPath();
         }
 
-        private void createField(String filename)
+        public void createField(String field)
         {
-            throw new NotImplementedException();
+            char[] charField = new char[field.Length];
+            charField = field.ToCharArray();
+            
+            
+            for (int i = 0; i < charField.Length; i++)
+            {
+                switch (charField[i])
+                {
+                    case 'o':
+                        //new field
+                        break;
+
+                    case 'G':
+                        //new field
+                        //new pawn
+                        //pawn set player
+                        //
+                        break;
+
+                    case 'R':
+                        //new field
+                        //new pawn
+                        //pawn set player
+                        break;
+                    case 'B':
+                        //new field
+                        //new pawn
+                        //pawn set player
+                        //pawn set currentfield
+                        break;
+                    case 'Y':
+                        //new field
+                        //new pawn
+                        //pawn set player
+                        //pawn set currentfield
+                        break;
+                    case '1':
+                        //new field
+                        //switch
+                        //FIXEN: wat als player op switch staat
+                        break;
+                    case '2':
+                        //new field
+                        //switch
+                        //FIXEN: wat als player op switch staat
+                        break;
+                    case '3':
+                        //new field
+                        //switch
+                        //FIXEN: wat als player op switch staat
+                        break;
+                    case '4':
+                        //new field
+                        //switch
+                        //FIXEN: wat als player op switch staat
+                        break;
+
+                }
+                //Fields koppelen aan elkaar
+
+
+
+            }
+
         }
 
         private void createWalkingPath()

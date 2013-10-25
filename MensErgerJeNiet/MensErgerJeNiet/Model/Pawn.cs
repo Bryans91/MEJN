@@ -38,7 +38,13 @@ namespace MensErgerJeNiet.Model
 
         public bool canMove(int steps)
         {
+            
             Field goal = _currentField;
+            Spawn goal1 = (Spawn) _currentField;
+
+            Console.WriteLine(goal1 + "<---");
+
+           
             bool direction = true;
 
             if (_onSpawn && steps != 6)
@@ -49,8 +55,8 @@ namespace MensErgerJeNiet.Model
             {
                 goal = player.startingField;
             }
-
-
+            Console.WriteLine(_currentField + "<---");
+            Console.WriteLine(goal + " <-----");
 
             //check if possible to move
             for (int i = 0; i < steps; i++)

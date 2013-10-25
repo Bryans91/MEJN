@@ -102,7 +102,7 @@ namespace MensErgerJeNiet
         private void ALEX_STARTUP(int players, int humans)
         {
             theGame.startGame(players, humans);
-            theGame.createPlayers(players, humans);
+           
             spawns = theGame.board.Spawns;
             colorEllipses();
         }
@@ -142,6 +142,7 @@ namespace MensErgerJeNiet
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             if (theGame.playersTurn.isHuman)
             {
                 changeDice(theGame.rollDice());

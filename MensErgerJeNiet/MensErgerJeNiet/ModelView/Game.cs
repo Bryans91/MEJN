@@ -28,8 +28,44 @@ namespace MensErgerJeNiet.ModelView
             main = mainwindow;
         }
 
+        public void startFromFile(String[] file)
+        {
+            //TEST STRINGARRAY
+            string[] strings = new string[4];
+            strings[0] = "NrPlayers=4";
+            strings[1] = "NrHumans=2";
+            strings[2] = "Turn=RED";
+            strings[3] = "oooooooRooooo1ooooGooooooRooo2ooooooBoooooo3ooooooYoooooo4"; //incomplete
+            //TEST STRINGARRAY
+
+
+            //Strings == files later on
+            int NrofPlayers = Convert.ToInt32(strings[0].Substring(strings[0].IndexOf('='), 1));
+            int NrofHumans = Convert.ToInt32(strings[1].Substring(strings[0].IndexOf('='), 1));
+
+            createPlayers(NrofPlayers, NrofHumans);
+
+            foreach (Player p in _playerList)
+            {
+                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('='), 1)))
+                {
+                    playersTurn = p;
+                }
+
+                //create spawns for players? (nu we toch in een loop zitten)
+                //evt ook goals?
+
+            }
+           
+            _board.createField(strings[3]);
+
+
+        }
+        
+
+
         //Starts up the game
-        public void startGame(int nrOfPlayers, int nrOfHumans)
+        public void createPlayers(int nrOfPlayers, int nrOfHumans)
         {
             _playerList = new Player[nrOfPlayers];
             Player temp = null;
@@ -80,15 +116,6 @@ namespace MensErgerJeNiet.ModelView
                     _playerList[0].nextP = _playerList[i];
                 }
             }
-
-            //create board
-            _board = new Board(_playerList);
-
-
-            //handle who may start the game
-            firstRoll(_playerList);
-
-
         }
 
         private void firstRoll(Player[] players)

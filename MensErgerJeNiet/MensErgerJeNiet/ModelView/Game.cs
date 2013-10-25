@@ -61,7 +61,13 @@ namespace MensErgerJeNiet.ModelView
 
 
         }
-        
+
+        public void startGame(int players, int humans)
+        {
+            createPlayers(players, humans);
+            _board = new Board(_playerList);
+            
+        }
 
 
         //Starts up the game
@@ -318,48 +324,32 @@ namespace MensErgerJeNiet.ModelView
 
         public void recieveClickedEllipse(string p)
         {
-            Field current = board.first;
-            Field temp = null;
-            int i = 0, g = 0;
-
-            while (i < 50)
+            Field current = null;
+            
+            current = board.getFieldFromPath(p);
+            if (current == null)
+            {
+                int g = 0;
+                while (g < board.Spawns.Length)
+                {
+                    if (board.Spawns[g].fieldCode == p)
+                    {
+                        current = board.Spawns[g];
+                        break;
+                    }
+                    g++;
+                }
+            }
+            if (current != null)
             {
                 Console.WriteLine(current.fieldCode);
-                Console.WriteLine(current.nextF.fieldCode);
-                if (current.fieldCode != p)
+                if (current.pawn != null)
                 {
-                    if (current.switchF != null)
+                    if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))
                     {
-                        temp = current.nextF;
-                        current = current.switchF;
+                        _selected = current.pawn;
+                        handleTurn(playersTurn);
                     }
-                    if (current.nextF == null)
-                    {
-                        current = temp;
-                    }
-                    //else
-                    //{
-                        current = current.nextF;
-                    //}
-                    i++;
-                }
-                
-            }
-            while (g < board.Spawns.Length)
-            {
-                if (board.Spawns[g].fieldCode == p)
-                {
-                    current = board.Spawns[g];
-                    break;
-                }
-                g++;
-            }
-            if (current.pawn != null)
-            {
-                if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))
-                {
-                    _selected = current.pawn;
-                    handleTurn(playersTurn);
                 }
             }
         }

@@ -37,6 +37,7 @@ namespace MensErgerJeNiet.Model
                    if (_spawns[i].pawn == null)
                     {
                         _spawns[i].pawn = p;
+                        p.currentField = _spawns[i];
                         placed = true;
                         p.onSpawn = true;
                     }

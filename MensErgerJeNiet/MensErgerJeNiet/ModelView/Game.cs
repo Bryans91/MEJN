@@ -294,23 +294,29 @@ namespace MensErgerJeNiet.ModelView
             Field current = board.first;
             Field temp = null;
             int i = 0, g = 0;
-            while (current.fieldCode != p && i < 50)
+
+            while (i < 50)
             {
                 Console.WriteLine(current.fieldCode);
-                if (current.switchF != null)
+                Console.WriteLine(current.nextF.fieldCode);
+                if (current.fieldCode != p)
                 {
-                    temp = current.nextF;
-                    current = current.switchF;
+                    if (current.switchF != null)
+                    {
+                        temp = current.nextF;
+                        current = current.switchF;
+                    }
+                    if (current.nextF == null)
+                    {
+                        current = temp;
+                    }
+                    //else
+                    //{
+                        current = current.nextF;
+                    //}
+                    i++;
                 }
-                if (current.nextF == null)
-                {
-                    current = temp;
-                }
-                else
-                {
-                    current = current.nextF;
-                }
-                i++;
+                
             }
             while (g < board.Spawns.Length)
             {

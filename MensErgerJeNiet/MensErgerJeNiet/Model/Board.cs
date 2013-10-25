@@ -42,7 +42,7 @@ namespace MensErgerJeNiet.Model
 
             int[] greenPawns = null, redPawns = null, bluePawns = null, yellowPawns = null;
             int g = 0, r = 0, b = 0, y = 0;
-            int gEnd = 10, rEnd = 10, bEnd = 10; yEnd = 10;
+            int gEnd = 10, rEnd = 10, bEnd = 10 , yEnd = 10;
 
             //charfield is normal field
             charField = field[3].ToCharArray();
@@ -83,7 +83,7 @@ namespace MensErgerJeNiet.Model
 
             for (int i = 0; i < charGGoal.Length; i++)
             {
-                switch(charGGoal.Length)
+                switch (charGGoal.Length) { };
 
             }
 

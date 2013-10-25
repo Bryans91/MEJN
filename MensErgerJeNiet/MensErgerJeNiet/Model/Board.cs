@@ -32,71 +32,108 @@ namespace MensErgerJeNiet.Model
             createWalkingPath();
         }
 
-        public void createField(String field)
+        public void createField(String[] field)
         {
-            char[] charField = new char[field.Length];
-            charField = field.ToCharArray();
+            char[] charField = new char[field[3].Length];
+            char[] charGGoal = new char[field[4].Length];
+            char[] charRGoal = new char[field[5].Length];
+            char[] charBGoal = new char[field[6].Length];
+            char[] charYGoal = new char[field[7].Length];
+
+            //charfield is normal field
+            charField = field[3].ToCharArray();
+            charGGoal = field[4].ToCharArray();
+            charRGoal = field[5].ToCharArray();
+            charBGoal = field[6].ToCharArray();
+            charYGoal = field[7].ToCharArray();
             
             
             for (int i = 0; i < charField.Length; i++)
             {
+               
+
                 switch (charField[i])
                 {
-                    case 'o':
-                        //new field
-                        break;
-
+                        //count pawns of players
                     case 'G':
-                        //new field
-                        //new pawn
-                        //pawn set player
-                        //
+                        //field with Green pawn
                         break;
-
                     case 'R':
-                        //new field
-                        //new pawn
-                        //pawn set player
+                        //field with red pawn
                         break;
                     case 'B':
-                        //new field
-                        //new pawn
-                        //pawn set player
-                        //pawn set currentfield
+                        //field with blue pawn
                         break;
                     case 'Y':
-                        //new field
-                        //new pawn
-                        //pawn set player
-                        //pawn set currentfield
+                        //field with yellow pawn
                         break;
-                    case '1':
-                        //new field
-                        //switch
-                        //FIXEN: wat als player op switch staat
+                    default:
+                        //normal field
                         break;
-                    case '2':
-                        //new field
-                        //switch
-                        //FIXEN: wat als player op switch staat
+          
+                }
+
+                //Switches zetten en goals maken
+                switch (i)
+                {
+                        //set switches at each case:
+                    case 9:
+                        //charRGoals
+                        //connect to normal field
+                        //create goalfields
+                        //create pawns if any
+                        //set pawncounter for player
                         break;
-                    case '3':
-                        //new field
-                        //switch
-                        //FIXEN: wat als player op switch staat
+                    case 19:
+                        //charBGoals
+                        //connect to normal field
+                        //create goalfields
+                        //create pawns if any
+                        //set pawncounter for player
                         break;
-                    case '4':
-                        //new field
-                        //switch
-                        //FIXEN: wat als player op switch staat
+                    case 29:
+                        //charYGoals
+                        //connect to normal field
+                        //create goalfields
+                        //create pawns if any
+                        //set pawncounter for player                      
+                        break;
+                    case 39:
+                        //charGGoals
+                        //connect to normal field
+                        //create goalfields
+                        //create pawns if any
+                        //set pawncounter for player
+                        break;
+                   
+                   //set starfields
+                    case 0:
+                        //set this field to startfield of player
+                        break;
+                    case 10:
+                        //set this field to startfield of player
+                        break;
+                    case 20:
+                        //set this field to startfield of player
+                        break;
+                    case 30:
+                        //set this field to startfield of player
                         break;
 
+                    default:
+                        //donothing
+                        break;
                 }
+
                 //Fields koppelen aan elkaar
 
 
-
             }
+
+            //counted pawns of players: if pawncount < 4 set difference to spawn (spawn is already created)
+
+
+          
 
         }
 

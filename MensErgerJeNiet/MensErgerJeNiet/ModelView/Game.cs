@@ -142,6 +142,7 @@ namespace MensErgerJeNiet.ModelView
             }
             
             _playersTurn = first;
+            _playersTurn.pawns[0].currentField = _playersTurn.startingField;
 
             if (!_playersTurn.isHuman)
             {

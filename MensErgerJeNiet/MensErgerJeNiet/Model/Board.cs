@@ -40,95 +40,53 @@ namespace MensErgerJeNiet.Model
             char[] charBGoal = new char[field[6].Length];
             char[] charYGoal = new char[field[7].Length];
 
+            int[] greenPawns = null, redPawns = null, bluePawns = null, yellowPawns = null;
+            int g = 0, r = 0, b = 0, y = 0;
+            int gEnd = 10, rEnd = 10, bEnd = 10; yEnd = 10;
+
             //charfield is normal field
             charField = field[3].ToCharArray();
             charGGoal = field[4].ToCharArray();
             charRGoal = field[5].ToCharArray();
             charBGoal = field[6].ToCharArray();
             charYGoal = field[7].ToCharArray();
-            
+
+
+            if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
+                createWalkingPath();
             
             for (int i = 0; i < charField.Length; i++)
             {
-               
-
                 switch (charField[i])
                 {
                         //count pawns of players
                     case 'G':
-                        //field with Green pawn
+                        greenPawns[g] = i;
+                        g++;
                         break;
                     case 'R':
-                        //field with red pawn
+                        redPawns[r] = i;
+                        r++;
                         break;
                     case 'B':
-                        //field with blue pawn
+                        bluePawns[b] = i;
+                        b++;
                         break;
                     case 'Y':
-                        //field with yellow pawn
+                        yellowPawns[y] = i;
+                        y++;
                         break;
                     default:
-                        //normal field
-                        break;
-          
-                }
-
-                //Switches zetten en goals maken
-                switch (i)
-                {
-                        //set switches at each case:
-                    case 9:
-                        //charRGoals
-                        //connect to normal field
-                        //create goalfields
-                        //create pawns if any
-                        //set pawncounter for player
-                        break;
-                    case 19:
-                        //charBGoals
-                        //connect to normal field
-                        //create goalfields
-                        //create pawns if any
-                        //set pawncounter for player
-                        break;
-                    case 29:
-                        //charYGoals
-                        //connect to normal field
-                        //create goalfields
-                        //create pawns if any
-                        //set pawncounter for player                      
-                        break;
-                    case 39:
-                        //charGGoals
-                        //connect to normal field
-                        //create goalfields
-                        //create pawns if any
-                        //set pawncounter for player
-                        break;
-                   
-                   //set starfields
-                    case 0:
-                        //set this field to startfield of player
-                        break;
-                    case 10:
-                        //set this field to startfield of player
-                        break;
-                    case 20:
-                        //set this field to startfield of player
-                        break;
-                    case 30:
-                        //set this field to startfield of player
-                        break;
-
-                    default:
-                        //donothing
                         break;
                 }
+            }
 
-                //Fields koppelen aan elkaar
-
+            for (int i = 0; i < charGGoal.Length; i++)
+            {
+                switch(charGGoal.Length)
 
             }
+
 
             //counted pawns of players: if pawncount < 4 set difference to spawn (spawn is already created)
 

@@ -42,7 +42,8 @@ namespace MensErgerJeNiet.Model
 
             int[] greenPawns = null, redPawns = null, bluePawns = null, yellowPawns = null;
             int g = 0, r = 0, b = 0, y = 0;
-            int gEnd = 10, rEnd = 10, bEnd = 10; yEnd = 10;
+            int[] pawnsAtGreenEnd = null, pawnsAtRedEnd = null, pawnsAtBlueEnd = null, pawnsAtYellowEnd = null;
+            int gEnd = 0, rEnd = 0, bEnd = 0, yEnd = 0;
 
             //charfield is normal field
             charField = field[3].ToCharArray();
@@ -83,10 +84,44 @@ namespace MensErgerJeNiet.Model
 
             for (int i = 0; i < charGGoal.Length; i++)
             {
-                switch(charGGoal.Length)
+                if (charGGoal[i] == 'G')
+                {
+                    pawnsAtGreenEnd[gEnd] = i;
+                    gEnd++;
+                }
+                if (charRGoal[i] == 'R')
+                {
+                    pawnsAtRedEnd[rEnd] = i;
+                    rEnd++;
+                }
+                if (charBGoal[i] == 'B')
+                {
+                    pawnsAtBlueEnd[bEnd] = i;
+                    bEnd++;
+                } 
+                if(charYGoal[i] == 'Y')
+                {
+                    pawnsAtYellowEnd[yEnd] = i;
+                    yEnd++;
+                }
 
             }
-
+            if (g > 0)
+                getFieldFromPath("field" + greenPawns[g + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[g + 1]));
+            if (r > 0)
+                getFieldFromPath("field" + greenPawns[r + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[r + 1]));
+            if (b > 0)
+                getFieldFromPath("field" + greenPawns[b + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[b + 1]));
+            if (y > 0)
+                getFieldFromPath("field" + greenPawns[y + 1]).pawn = new Pawn(playerList[player4], getFieldFromPath("field" + greenPawns[y + 1]));
+            if (gEnd > 0)
+                getFieldFromPath("p1end" + greenPawns[gEnd + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("p1end" + greenPawns[gEnd + 1]));
+            if (rEnd > 0)
+                getFieldFromPath("p2end" + greenPawns[rEnd + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("p2end" + greenPawns[rEnd + 1]));
+            if (bEnd > 0)
+                getFieldFromPath("p3end" + greenPawns[bEnd + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("p3end" + greenPawns[bEnd + 1]));
+            if (yEnd > 0)
+                getFieldFromPath("p4end" + greenPawns[yEnd + 1]).pawn = new Pawn(playerList[player4], getFieldFromPath("p4end" + greenPawns[yEnd + 1]));
 
             //counted pawns of players: if pawncount < 4 set difference to spawn (spawn is already created)
 

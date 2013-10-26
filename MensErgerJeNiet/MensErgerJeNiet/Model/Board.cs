@@ -162,7 +162,7 @@ namespace MensErgerJeNiet.Model
                     case 8:
                         currentPlayer = playerList[player1];
                         if(newGame)
-                            createSpawns(currentPlayer, numberOfSpawns);
+                            createSpawns(currentPlayer, 4);
                         temp = createGoals(currentPlayer);
                         newField.switchF = temp;
                         temp.previousF = newField;
@@ -178,7 +178,7 @@ namespace MensErgerJeNiet.Model
                     case 18:
                         currentPlayer = playerList[player2];
                         if(newGame)
-                        createSpawns(currentPlayer, numberOfSpawns);
+                            createSpawns(currentPlayer, 4);
                         temp = createGoals(currentPlayer);
                         newField.switchF = temp;
                         temp.previousF = newField;
@@ -195,7 +195,7 @@ namespace MensErgerJeNiet.Model
                         {
                             currentPlayer = playerList[player3];
                             if (newGame)
-                            createSpawns(currentPlayer, numberOfSpawns);
+                                createSpawns(currentPlayer, 4);
                             temp = createGoals(currentPlayer);
                             newField.switchF = temp;
                             temp.previousF = newField;
@@ -216,7 +216,7 @@ namespace MensErgerJeNiet.Model
                         {
                             currentPlayer = playerList[player4];
                             if (newGame)
-                            createSpawns(currentPlayer, numberOfSpawns);
+                                createSpawns(currentPlayer, 4);
                             temp = createGoals(currentPlayer);
                             newField.switchF = temp;
                             temp.previousF = newField;
@@ -272,6 +272,7 @@ namespace MensErgerJeNiet.Model
                 case 1:
                     i = 0;
                     numberOfSpawns = 4;
+                    g = 1;
                     break;
                 case 2:
                     i = 4;
@@ -293,10 +294,11 @@ namespace MensErgerJeNiet.Model
                     break;
                 
             }
-            while (i < numberOfPawns)
+            while (i < numberOfSpawns)
             {
                 Spawn newSpawn = new Spawn("p" + createSpawnCounter + "spawn" + g);
-                newSpawn.pawn = new Pawn(p, newSpawn);
+                if(g <= numberOfPawns)
+                    newSpawn.pawn = new Pawn(p, newSpawn);
                 spawns[i] = newSpawn;
                 g++;
                 i++;

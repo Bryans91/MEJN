@@ -98,9 +98,10 @@ namespace MensErgerJeNiet.ModelView
                 }
 
 
-                if (i > nrOfHumans)
+                if (i >= nrOfHumans)
                 {
                     _playerList[i] = new Player(false, color);
+                    
                     if (temp != null)
                     {
                         temp.nextP = _playerList[i];
@@ -140,12 +141,17 @@ namespace MensErgerJeNiet.ModelView
             }
             
             _playersTurn = first;
-            _playersTurn.pawns[0].currentField = _playersTurn.startingField;
+         
 
-            Console.WriteLine(playersTurn.color);
-
+            Console.WriteLine("First: " + playersTurn.color);
+            //place first pawn on board
+            playersTurn.pawns[0].currentField = playersTurn.pawns[0].currentField.nextF;
+            sendFieldCode(_playersTurn.pawns[0].currentField);
+            Console.WriteLine(playersTurn.pawns[0].currentField + " THIS IS THE FIRST FIELD");
+            
             if (!_playersTurn.isHuman)
             {
+                
                 computerPrep(_playersTurn);
             }
         }
@@ -155,11 +161,14 @@ namespace MensErgerJeNiet.ModelView
         //Checks if ANY moves are possible
         public bool canMakeMove(Player p)
         {
+            Console.WriteLine("Checking for move player: " + p.color + " roll: " + _diceRoll);
+
             int moveablePawns = 0;
             bool stuck = true;
 
             foreach (Pawn pawn in p.pawns)
             {
+                
                 if (pawn.canMove(_diceRoll))
                 {
                     moveablePawns++;
@@ -176,12 +185,16 @@ namespace MensErgerJeNiet.ModelView
 
         public void playerPrep(Player p)
         {
+            
             if (!canMakeMove(p))
             {
-                _playersTurn = p.nextP;
+              
+                _playersTurn = _playersTurn.nextP;
 
+                Console.WriteLine(_playersTurn.color + " " + playersTurn.isHuman);
                 if (!_playersTurn.isHuman)
                 {
+                    
                     computerPrep(_playersTurn);
                 }
 
@@ -205,12 +218,14 @@ namespace MensErgerJeNiet.ModelView
 
             if (canMakeMove(p))
             {
-
+                
                 while (!select)
                 {
+
+                    
                     foreach (Pawn pawn in p.pawns)
                     {
-
+                        
                         if (pawn.canMove(_diceRoll))
                         {
                             if (pawn.canHit)
@@ -226,6 +241,7 @@ namespace MensErgerJeNiet.ModelView
                     {
                         foreach (Pawn pawn in p.pawns)
                         {
+                            
                             if (pawn.canMove(_diceRoll))
                             {
                                 _selected = pawn;
@@ -234,6 +250,9 @@ namespace MensErgerJeNiet.ModelView
                             }
                         }
                     }
+
+                    select = true;
+                    Console.WriteLine("Selected: " + _selected);
                 }
 
                 handleTurn(p);
@@ -278,12 +297,16 @@ namespace MensErgerJeNiet.ModelView
             {
                 computerPrep(_playersTurn);
             }
-
+            
+            //nullies
+            sendFieldCode(_selected.currentField);
             _selected = null;
             _diceRoll = 0;
 
             main.rollButton.IsEnabled = true;
-            sendFieldCode(_selected.currentField);
+
+            //NULLPOINTER
+           
         }
         
 
@@ -367,6 +390,11 @@ namespace MensErgerJeNiet.ModelView
         }
 
         //properties
+        public int diceRoll
+        {
+            get { return _diceRoll; }
+            set{ _diceRoll = value;}
+        }
 
         public Player playersTurn
         {

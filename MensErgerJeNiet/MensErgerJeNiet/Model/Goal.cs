@@ -19,6 +19,7 @@ namespace MensErgerJeNiet.Model
         public Player player
         {
             get { return _player; }
+            set { _player = value; }
         }
         
 

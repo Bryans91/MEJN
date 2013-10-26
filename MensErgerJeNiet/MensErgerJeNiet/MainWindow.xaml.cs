@@ -1,5 +1,6 @@
 ﻿using MensErgerJeNiet.ModelView;
 using MensErgerJeNiet.View;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -126,7 +127,29 @@ namespace MensErgerJeNiet
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string[] lines = new string[8];
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = @"C:\"; //fix
+            dialog.DefaultExt = "MEJN files |*.mejn";
+            dialog.Title = "Mens Erger Je Niet Loadgame";
+
+            if(dialog.ShowDialog() == DialogResult)
+            {
+                StreamReader stream = new StreamReader(dialog.FileName);
+                string line;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    line = stream.ReadLine();
+                    lines[i] = line;
+                    Console.WriteLine(line);
+                }
+               
+            }
+
+
+
+         //   throw new NotImplementedException();
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -146,6 +169,7 @@ namespace MensErgerJeNiet
 
         public void changeDice(int value)
         {
+            theGame.diceRoll = value;
             System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
             string path = thisExe.Location;
             DirectoryInfo dirInfo = new DirectoryInfo(path);

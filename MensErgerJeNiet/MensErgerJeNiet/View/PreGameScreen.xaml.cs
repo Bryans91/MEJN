@@ -43,11 +43,13 @@ namespace MensErgerJeNiet.View
         private void Nieuw_Click(object sender, RoutedEventArgs e)
         {
             PreGameScreenv2 pgsv2 = new PreGameScreenv2(new MainWindow());
+            this.Close();
         }
 
         private void Laad_Click(object sender, RoutedEventArgs e)
         {
-
+            //openfiledialog
+            this.Close();
         }
     }
 }

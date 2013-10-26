@@ -165,7 +165,7 @@ namespace MensErgerJeNiet.Model
                 switch (i)
                 {
                     case 8:
-                        currentPlayer = playerList[player1];
+                        currentPlayer = playerList[player2];
                         if(newGame)
                             createSpawns(currentPlayer, 4);
                         temp = createGoals(currentPlayer);
@@ -181,21 +181,6 @@ namespace MensErgerJeNiet.Model
                         spawns[3].nextF = newField;
                         break;
                     case 18:
-                        currentPlayer = playerList[player2];
-                        if(newGame)
-                            createSpawns(currentPlayer, 4);
-                        temp = createGoals(currentPlayer);
-                        newField.switchF = temp;
-                        temp.previousF = newField;
-                        temp = null;
-                        break;
-                    case 19:
-                        spawns[4].nextF = newField;
-                        spawns[5].nextF = newField;
-                        spawns[6].nextF = newField;
-                        spawns[7].nextF = newField;
-                        break;
-                    case 28:
                         if (playerList.Length >= 3)
                         {
                             currentPlayer = playerList[player3];
@@ -207,16 +192,24 @@ namespace MensErgerJeNiet.Model
                             temp = null;
                         }
                         break;
-                    case 29:
-                        if (playerList.Length >= 3)
+                    case 19:
+                        if(spawns[4] == null)
                         {
-                            spawns[8].nextF = newField;
-                            spawns[9].nextF = newField;
-                            spawns[10].nextF = newField;
-                            spawns[11].nextF = newField;
+                            spawns[4] = new Spawn("No Current Player");
+                            spawns[5] = new Spawn("No Current Player");
+                            spawns[6] = new Spawn("No Current Player");
+                            spawns[7] = new Spawn("No Current Player");
+                            createSpawnCounter++;
+                        }
+                        if (playerList.Length >= 4)
+                        {
+                            spawns[4].nextF = newField;
+                            spawns[5].nextF = newField;
+                            spawns[6].nextF = newField;
+                            spawns[7].nextF = newField;
                         }
                         break;
-                    case 38:
+                    case 28:
                         if (playerList.Length >= 4)
                         {
                             currentPlayer = playerList[player4];
@@ -228,14 +221,37 @@ namespace MensErgerJeNiet.Model
                             temp = null;
                         }
                         break;
-                    case 39:
+                    case 29:
+                        if (spawns[8] == null)
+                        {
+                            spawns[8] = new Spawn("No Current Player");
+                            spawns[9] = new Spawn("No Current Player");
+                            spawns[10] = new Spawn("No Current Player");
+                            spawns[11] = new Spawn("No Current Player");
+                            createSpawnCounter++;
+                        }
                         if (playerList.Length >= 4)
                         {
-                            spawns[12].nextF = newField;
-                            spawns[13].nextF = newField;
-                            spawns[14].nextF = newField;
-                            spawns[15].nextF = newField;
+                            spawns[8].nextF = newField;
+                            spawns[9].nextF = newField;
+                            spawns[10].nextF = newField;
+                            spawns[11].nextF = newField;
                         }
+                        break;
+                    case 38:
+                        currentPlayer = playerList[player1];
+                        if (newGame)
+                            createSpawns(currentPlayer, 4);
+                        temp = createGoals(currentPlayer);
+                        newField.switchF = temp;
+                        temp.previousF = newField;
+                        temp = null;
+                        break;
+                    case 39:
+                        spawns[12].nextF = newField;
+                        spawns[13].nextF = newField;
+                        spawns[14].nextF = newField;
+                        spawns[15].nextF = newField;
                         newField.nextF = first;
                         first.previousF = newField;
                         break;

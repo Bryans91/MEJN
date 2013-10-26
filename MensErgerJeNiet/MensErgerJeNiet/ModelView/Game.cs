@@ -354,11 +354,17 @@ namespace MensErgerJeNiet.ModelView
             if (current == null)
             {
                 int g = 0;
-                while (g < board.Spawns.Length)
+                Console.WriteLine(board.Spawns.Length);
+                while (g < 16)
                 {
                     if (board.Spawns[g].fieldCode == p)
                     {
                         current = board.Spawns[g];
+                        break;
+                    }
+                    if (board.Goals[g].fieldCode == p)
+                    {
+                        current = board.Goals[g];
                         break;
                     }
                     g++;
@@ -367,6 +373,7 @@ namespace MensErgerJeNiet.ModelView
             if (current != null)
             {
                 Console.WriteLine(current.fieldCode);
+                Console.WriteLine("Next: " + current.nextF.fieldCode);
                 if (current.pawn != null)
                 {
                     if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))

@@ -11,11 +11,12 @@ namespace MensErgerJeNiet.Model
     {
         private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
-        private int normalFields = 40, numberOfSpawns = 4;
+        private int normalFields = 40, numberOfSpawns = 4, numberOfCurrentGoals = 0;
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
         private Player[] _playerList;
         private Player currentPlayer;
         private int createSpawnCounter = 1, createGoalCounter = 1;
+        private Goal[] goals = new Goal[16];
 
 
         public Board(Player[] plist)
@@ -53,8 +54,7 @@ namespace MensErgerJeNiet.Model
             charYGoal = field[7].ToCharArray();
 
 
-            if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
-                createWalkingPath(false);
+
             
             for (int i = 0; i < charField.Length; i++)
             {
@@ -106,6 +106,15 @@ namespace MensErgerJeNiet.Model
                 }
 
             }
+            //counted pawns of players: if pawncount < 4 set difference to spawn
+            // create all the pawns on the spawns for players
+            createSpawns(playerList[player1], (4 - g - gEnd));
+            createSpawns(playerList[player2], (4 - r - rEnd));
+            createSpawns(playerList[player3], (4 - b - bEnd));
+            createSpawns(playerList[player4], (4 - y - yEnd));
+
+            if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
+                createWalkingPath(false);
             if (g > 0)
                 getFieldFromPath("field" + greenPawns[g + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[g + 1]));
             if (r > 0)
@@ -123,13 +132,9 @@ namespace MensErgerJeNiet.Model
             if (yEnd > 0)
                 getFieldFromPath("p4end" + greenPawns[yEnd + 1]).pawn = new Pawn(playerList[player4], getFieldFromPath("p4end" + greenPawns[yEnd + 1]));
 
-            //counted pawns of players: if pawncount < 4 set difference to spawn (spawn is already created)
 
-            // create all the pawns on the spawns for players
-            createSpawns(playerList[player1], (4 - g - gEnd));
-            createSpawns(playerList[player2], (4 - r - rEnd));
-            createSpawns(playerList[player3], (4 - b - bEnd));
-            createSpawns(playerList[player4], (4 - y - yEnd));
+
+
 
         }
 
@@ -148,19 +153,19 @@ namespace MensErgerJeNiet.Model
                 newField.fieldCode = "field" + (i + 1);
                 if (isEmpty())
                 {
-                    last = newField;
+                    first = newField;
                 }
                 else
                 {
-                    first.previousF = newField;
+                    last.nextF = newField;
                 }
-                newField.nextF = first;
-                first = newField;
+                newField.previousF = last;
+                last = newField;
                 
                 switch (i)
                 {
                     case 8:
-                        currentPlayer = playerList[player1];
+                        currentPlayer = playerList[player2];
                         if(newGame)
                             createSpawns(currentPlayer, 4);
                         temp = createGoals(currentPlayer);
@@ -176,21 +181,6 @@ namespace MensErgerJeNiet.Model
                         spawns[3].nextF = newField;
                         break;
                     case 18:
-                        currentPlayer = playerList[player2];
-                        if(newGame)
-                            createSpawns(currentPlayer, 4);
-                        temp = createGoals(currentPlayer);
-                        newField.switchF = temp;
-                        temp.previousF = newField;
-                        temp = null;
-                        break;
-                    case 19:
-                        spawns[4].nextF = newField;
-                        spawns[5].nextF = newField;
-                        spawns[6].nextF = newField;
-                        spawns[7].nextF = newField;
-                        break;
-                    case 28:
                         if (playerList.Length >= 3)
                         {
                             currentPlayer = playerList[player3];
@@ -202,16 +192,24 @@ namespace MensErgerJeNiet.Model
                             temp = null;
                         }
                         break;
-                    case 29:
-                        if (playerList.Length >= 3)
+                    case 19:
+                        if(spawns[4] == null)
                         {
-                            spawns[8].nextF = newField;
-                            spawns[9].nextF = newField;
-                            spawns[10].nextF = newField;
-                            spawns[11].nextF = newField;
+                            spawns[4] = new Spawn("No Current Player");
+                            spawns[5] = new Spawn("No Current Player");
+                            spawns[6] = new Spawn("No Current Player");
+                            spawns[7] = new Spawn("No Current Player");
+                            createSpawnCounter++;
+                        }
+                        if (playerList.Length >= 4)
+                        {
+                            spawns[4].nextF = newField;
+                            spawns[5].nextF = newField;
+                            spawns[6].nextF = newField;
+                            spawns[7].nextF = newField;
                         }
                         break;
-                    case 38:
+                    case 28:
                         if (playerList.Length >= 4)
                         {
                             currentPlayer = playerList[player4];
@@ -223,14 +221,39 @@ namespace MensErgerJeNiet.Model
                             temp = null;
                         }
                         break;
-                    case 39:
+                    case 29:
+                        if (spawns[8] == null)
+                        {
+                            spawns[8] = new Spawn("No Current Player");
+                            spawns[9] = new Spawn("No Current Player");
+                            spawns[10] = new Spawn("No Current Player");
+                            spawns[11] = new Spawn("No Current Player");
+                            createSpawnCounter++;
+                        }
                         if (playerList.Length >= 4)
                         {
-                            spawns[12].nextF = newField;
-                            spawns[13].nextF = newField;
-                            spawns[14].nextF = newField;
-                            spawns[15].nextF = newField;
+                            spawns[8].nextF = newField;
+                            spawns[9].nextF = newField;
+                            spawns[10].nextF = newField;
+                            spawns[11].nextF = newField;
                         }
+                        break;
+                    case 38:
+                        currentPlayer = playerList[player1];
+                        if (newGame)
+                            createSpawns(currentPlayer, 4);
+                        temp = createGoals(currentPlayer);
+                        newField.switchF = temp;
+                        temp.previousF = newField;
+                        temp = null;
+                        break;
+                    case 39:
+                        spawns[12].nextF = newField;
+                        spawns[13].nextF = newField;
+                        spawns[14].nextF = newField;
+                        spawns[15].nextF = newField;
+                        newField.nextF = first;
+                        first.previousF = newField;
                         break;
                 }
                 i++;
@@ -240,13 +263,15 @@ namespace MensErgerJeNiet.Model
         public Field getFieldFromPath(String fieldcode)
         {
             Field current = first;
-            while (current.fieldCode != fieldcode)
+            int i = 0;
+            while (current.fieldCode != fieldcode && i < 50)
             {
                 current = current.nextF;
-                if (current == null)
+                if (current == null || i >= 49)
                 {
                     return null;
                 }
+                i++;
             }
             if (current == first)
                 first = current.nextF;
@@ -319,6 +344,14 @@ namespace MensErgerJeNiet.Model
             newGoal2.previousF = newGoal1;
             newGoal3.previousF = newGoal2;
             newGoal4.previousF = newGoal3;
+            goals[numberOfCurrentGoals] = newGoal1;
+            numberOfCurrentGoals++;
+            goals[numberOfCurrentGoals] = newGoal2;
+            numberOfCurrentGoals++;
+            goals[numberOfCurrentGoals] = newGoal3;
+            numberOfCurrentGoals++;
+            goals[numberOfCurrentGoals] = newGoal4;
+            numberOfCurrentGoals++;
             createGoalCounter++;
             return newGoal1;
         }
@@ -344,6 +377,11 @@ namespace MensErgerJeNiet.Model
         {
             get { return _last; }
             private set { _last = value; }
+        }
+
+        public Goal[] Goals
+        {
+            get { return goals; }
         }
 
     }

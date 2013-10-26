@@ -338,6 +338,11 @@ namespace MensErgerJeNiet.ModelView
                         current = board.Spawns[g];
                         break;
                     }
+                    if (board.Goals[g].fieldCode == p)
+                    {
+                        current = board.Goals[g];
+                        break;
+                    }
                     g++;
                 }
             }

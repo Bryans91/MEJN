@@ -66,7 +66,7 @@ namespace MensErgerJeNiet.ModelView
         {
             createPlayers(players, humans);
             _board = new Board(_playerList);
-            
+            firstRoll(_playerList);
         }
 
 
@@ -76,6 +76,7 @@ namespace MensErgerJeNiet.ModelView
             _playerList = new Player[nrOfPlayers];
             Player temp = null;
 
+            Console.WriteLine(nrOfPlayers + " " + nrOfHumans);
             //add players to player list & sets human or computer player
             for (int i = 0; i < nrOfPlayers; i++)
             {
@@ -116,12 +117,9 @@ namespace MensErgerJeNiet.ModelView
                 }
 
                 temp = _playerList[i];
-
-                if (i == nrOfPlayers)
-                {
-                    _playerList[0].nextP = _playerList[i];
-                }
             }
+
+            _playerList[_playerList.Length -1].nextP = _playerList[0];
         }
 
         private void firstRoll(Player[] players)
@@ -143,6 +141,8 @@ namespace MensErgerJeNiet.ModelView
             
             _playersTurn = first;
             _playersTurn.pawns[0].currentField = _playersTurn.startingField;
+
+            Console.WriteLine(playersTurn.color);
 
             if (!_playersTurn.isHuman)
             {

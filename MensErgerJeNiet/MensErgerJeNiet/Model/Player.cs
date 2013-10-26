@@ -23,7 +23,7 @@ namespace MensErgerJeNiet.Model
             _startRoll = -1;
 
             _pawns = new Pawn[4];
-
+            Console.WriteLine("PLAYER CREATED:" + _isHuman + " " + _color);
         }
 
         public void pawnToSpawn(Pawn p)

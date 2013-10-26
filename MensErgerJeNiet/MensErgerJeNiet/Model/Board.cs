@@ -42,8 +42,12 @@ namespace MensErgerJeNiet.Model
 
             int[] greenPawns = null, redPawns = null, bluePawns = null, yellowPawns = null;
             int g = 0, r = 0, b = 0, y = 0;
+<<<<<<< HEAD
+            int gEnd = 10, rEnd = 10, bEnd = 10 , yEnd = 10;
+=======
             int[] pawnsAtGreenEnd = null, pawnsAtRedEnd = null, pawnsAtBlueEnd = null, pawnsAtYellowEnd = null;
             int gEnd = 0, rEnd = 0, bEnd = 0, yEnd = 0;
+>>>>>>> 3e0695f972c0d7419537af43a6b5ecf55eb96242
 
             //charfield is normal field
             charField = field[3].ToCharArray();
@@ -84,6 +88,9 @@ namespace MensErgerJeNiet.Model
 
             for (int i = 0; i < charGGoal.Length; i++)
             {
+<<<<<<< HEAD
+                switch (charGGoal.Length) { };
+=======
                 if (charGGoal[i] == 'G')
                 {
                     pawnsAtGreenEnd[gEnd] = i;
@@ -104,6 +111,7 @@ namespace MensErgerJeNiet.Model
                     pawnsAtYellowEnd[yEnd] = i;
                     yEnd++;
                 }
+>>>>>>> 3e0695f972c0d7419537af43a6b5ecf55eb96242
 
             }
             if (g > 0)

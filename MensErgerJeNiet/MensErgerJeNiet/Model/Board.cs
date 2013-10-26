@@ -29,7 +29,7 @@ namespace MensErgerJeNiet.Model
         public void createField()
         {
             //in case we want to change it to getting the path from .txt files we got a 2nd method
-            createWalkingPath();
+            createWalkingPath(true);
         }
 
         public void createField(String[] field)
@@ -42,12 +42,8 @@ namespace MensErgerJeNiet.Model
 
             int[] greenPawns = null, redPawns = null, bluePawns = null, yellowPawns = null;
             int g = 0, r = 0, b = 0, y = 0;
-<<<<<<< HEAD
-            int gEnd = 10, rEnd = 10, bEnd = 10 , yEnd = 10;
-=======
             int[] pawnsAtGreenEnd = null, pawnsAtRedEnd = null, pawnsAtBlueEnd = null, pawnsAtYellowEnd = null;
             int gEnd = 0, rEnd = 0, bEnd = 0, yEnd = 0;
->>>>>>> 3e0695f972c0d7419537af43a6b5ecf55eb96242
 
             //charfield is normal field
             charField = field[3].ToCharArray();
@@ -58,7 +54,7 @@ namespace MensErgerJeNiet.Model
 
 
             if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
-                createWalkingPath();
+                createWalkingPath(false);
             
             for (int i = 0; i < charField.Length; i++)
             {
@@ -88,9 +84,6 @@ namespace MensErgerJeNiet.Model
 
             for (int i = 0; i < charGGoal.Length; i++)
             {
-<<<<<<< HEAD
-                switch (charGGoal.Length) { };
-=======
                 if (charGGoal[i] == 'G')
                 {
                     pawnsAtGreenEnd[gEnd] = i;
@@ -111,7 +104,6 @@ namespace MensErgerJeNiet.Model
                     pawnsAtYellowEnd[yEnd] = i;
                     yEnd++;
                 }
->>>>>>> 3e0695f972c0d7419537af43a6b5ecf55eb96242
 
             }
             if (g > 0)
@@ -133,8 +125,11 @@ namespace MensErgerJeNiet.Model
 
             //counted pawns of players: if pawncount < 4 set difference to spawn (spawn is already created)
 
-
-          
+            // create all the pawns on the spawns for players
+            createSpawns(playerList[player1], (4 - g - gEnd));
+            createSpawns(playerList[player2], (4 - r - rEnd));
+            createSpawns(playerList[player3], (4 - b - bEnd));
+            createSpawns(playerList[player4], (4 - y - yEnd));
 
         }
 
@@ -143,7 +138,7 @@ namespace MensErgerJeNiet.Model
             return first == null;
         }
 
-        private void createWalkingPath()
+        private void createWalkingPath(Boolean newGame)
         {
             Goal temp;
             int i = 0;
@@ -166,7 +161,8 @@ namespace MensErgerJeNiet.Model
                 {
                     case 8:
                         currentPlayer = playerList[player1];
-                        createSpawns(currentPlayer);
+                        if(newGame)
+                            createSpawns(currentPlayer, numberOfSpawns);
                         temp = createGoals(currentPlayer);
                         newField.switchF = temp;
                         temp.previousF = newField;
@@ -181,7 +177,8 @@ namespace MensErgerJeNiet.Model
                         break;
                     case 18:
                         currentPlayer = playerList[player2];
-                        createSpawns(currentPlayer);
+                        if(newGame)
+                        createSpawns(currentPlayer, numberOfSpawns);
                         temp = createGoals(currentPlayer);
                         newField.switchF = temp;
                         temp.previousF = newField;
@@ -197,7 +194,8 @@ namespace MensErgerJeNiet.Model
                         if (playerList.Length >= 3)
                         {
                             currentPlayer = playerList[player3];
-                            createSpawns(currentPlayer);
+                            if (newGame)
+                            createSpawns(currentPlayer, numberOfSpawns);
                             temp = createGoals(currentPlayer);
                             newField.switchF = temp;
                             temp.previousF = newField;
@@ -217,7 +215,8 @@ namespace MensErgerJeNiet.Model
                         if (playerList.Length >= 4)
                         {
                             currentPlayer = playerList[player4];
-                            createSpawns(currentPlayer);
+                            if (newGame)
+                            createSpawns(currentPlayer, numberOfSpawns);
                             temp = createGoals(currentPlayer);
                             newField.switchF = temp;
                             temp.previousF = newField;
@@ -264,7 +263,7 @@ namespace MensErgerJeNiet.Model
         }
 
 
-        private void createSpawns(Player p)
+        private void createSpawns(Player p, int numberOfPawns)
         {
             int i;
             int g = 1;
@@ -294,7 +293,7 @@ namespace MensErgerJeNiet.Model
                     break;
                 
             }
-            while (i < numberOfSpawns)
+            while (i < numberOfPawns)
             {
                 Spawn newSpawn = new Spawn("p" + createSpawnCounter + "spawn" + g);
                 newSpawn.pawn = new Pawn(p, newSpawn);

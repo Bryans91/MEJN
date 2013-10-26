@@ -125,7 +125,7 @@ namespace MensErgerJeNiet
                 {
                     line = stream.ReadLine();
                     lines[i] = line;
-
+                    Console.WriteLine(line);
                 }
                
             }
@@ -152,6 +152,7 @@ namespace MensErgerJeNiet
 
         public void changeDice(int value)
         {
+            theGame.diceRoll = value;
             System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
             string path = thisExe.Location;
             DirectoryInfo dirInfo = new DirectoryInfo(path);

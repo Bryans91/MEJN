@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,6 +59,9 @@
     <Compile Include="View\PreGameScreen.xaml.cs">
       <DependentUpon>PreGameScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PreGameScreenv2.xaml.cs">
+      <DependentUpon>PreGameScreenv2.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +75,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\PreGameScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PreGameScreenv2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,6 +126,7 @@
     <Resource Include="Images\Image6.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\background.jpg" />
     <Content Include="Sounds\dice_throw.wav" />
   </ItemGroup>
   <ItemGroup />

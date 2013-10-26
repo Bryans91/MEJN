@@ -153,14 +153,14 @@ namespace MensErgerJeNiet.Model
                 newField.fieldCode = "field" + (i + 1);
                 if (isEmpty())
                 {
-                    last = newField;
+                    first = newField;
                 }
                 else
                 {
-                    first.previousF = newField;
+                    last.nextF = newField;
                 }
-                newField.nextF = first;
-                first = newField;
+                newField.previousF = last;
+                last = newField;
                 
                 switch (i)
                 {
@@ -236,6 +236,8 @@ namespace MensErgerJeNiet.Model
                             spawns[14].nextF = newField;
                             spawns[15].nextF = newField;
                         }
+                        newField.nextF = first;
+                        first.previousF = newField;
                         break;
                 }
                 i++;

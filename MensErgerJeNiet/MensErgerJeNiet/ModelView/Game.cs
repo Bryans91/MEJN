@@ -298,7 +298,7 @@ namespace MensErgerJeNiet.ModelView
                 computerPrep(_playersTurn);
             }
             
-            //nullies
+            //null soms
             sendFieldCode(_selected.currentField);
             _selected = null;
             _diceRoll = 0;

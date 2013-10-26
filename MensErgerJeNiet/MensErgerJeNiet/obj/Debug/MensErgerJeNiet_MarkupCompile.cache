@@ -9,12 +9,21 @@ MensErgerJeNiet
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
+C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\App.xaml
+3171048130
+1-2080616385
+15-1987059366
+141699980697
+MainWindow.xaml;View\PreGameScreen.xaml;View\PreGameScreenv2.xaml;
+=======
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\App.xaml
 2769931977
 1-2080616385
 14-412026534
 12-1401562060
 MainWindow.xaml;View\PreGameScreen.xaml;
+>>>>>>> b45f468cf7c822abfec52a18bdae5109cd829be0
 
 False
 

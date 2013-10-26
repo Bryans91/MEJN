@@ -361,12 +361,18 @@ namespace MensErgerJeNiet.ModelView
                         current = board.Spawns[g];
                         break;
                     }
+                    if (board.Goals[g].fieldCode == p)
+                    {
+                        current = board.Goals[g];
+                        break;
+                    }
                     g++;
                 }
             }
             if (current != null)
             {
                 Console.WriteLine(current.fieldCode);
+                Console.WriteLine("Next: " + current.nextF.fieldCode);
                 if (current.pawn != null)
                 {
                     if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))

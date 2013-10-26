@@ -11,11 +11,12 @@ namespace MensErgerJeNiet.Model
     {
         private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
-        private int normalFields = 40, numberOfSpawns = 4;
+        private int normalFields = 40, numberOfSpawns = 4, numberOfCurrentGoals = 0;
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
         private Player[] _playerList;
         private Player currentPlayer;
         private int createSpawnCounter = 1, createGoalCounter = 1;
+        private Goal[] goals = new Goal[16];
 
 
         public Board(Player[] plist)
@@ -53,8 +54,7 @@ namespace MensErgerJeNiet.Model
             charYGoal = field[7].ToCharArray();
 
 
-            if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
-                createWalkingPath(false);
+
             
             for (int i = 0; i < charField.Length; i++)
             {
@@ -106,6 +106,15 @@ namespace MensErgerJeNiet.Model
                 }
 
             }
+            //counted pawns of players: if pawncount < 4 set difference to spawn
+            // create all the pawns on the spawns for players
+            createSpawns(playerList[player1], (4 - g - gEnd));
+            createSpawns(playerList[player2], (4 - r - rEnd));
+            createSpawns(playerList[player3], (4 - b - bEnd));
+            createSpawns(playerList[player4], (4 - y - yEnd));
+
+            if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
+                createWalkingPath(false);
             if (g > 0)
                 getFieldFromPath("field" + greenPawns[g + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[g + 1]));
             if (r > 0)
@@ -123,13 +132,9 @@ namespace MensErgerJeNiet.Model
             if (yEnd > 0)
                 getFieldFromPath("p4end" + greenPawns[yEnd + 1]).pawn = new Pawn(playerList[player4], getFieldFromPath("p4end" + greenPawns[yEnd + 1]));
 
-            //counted pawns of players: if pawncount < 4 set difference to spawn (spawn is already created)
 
-            // create all the pawns on the spawns for players
-            createSpawns(playerList[player1], (4 - g - gEnd));
-            createSpawns(playerList[player2], (4 - r - rEnd));
-            createSpawns(playerList[player3], (4 - b - bEnd));
-            createSpawns(playerList[player4], (4 - y - yEnd));
+
+
 
         }
 
@@ -148,14 +153,14 @@ namespace MensErgerJeNiet.Model
                 newField.fieldCode = "field" + (i + 1);
                 if (isEmpty())
                 {
-                    last = newField;
+                    first = newField;
                 }
                 else
                 {
-                    first.previousF = newField;
+                    last.nextF = newField;
                 }
-                newField.nextF = first;
-                first = newField;
+                newField.previousF = last;
+                last = newField;
                 
                 switch (i)
                 {
@@ -231,6 +236,8 @@ namespace MensErgerJeNiet.Model
                             spawns[14].nextF = newField;
                             spawns[15].nextF = newField;
                         }
+                        newField.nextF = first;
+                        first.previousF = newField;
                         break;
                 }
                 i++;
@@ -319,6 +326,14 @@ namespace MensErgerJeNiet.Model
             newGoal2.previousF = newGoal1;
             newGoal3.previousF = newGoal2;
             newGoal4.previousF = newGoal3;
+            goals[numberOfCurrentGoals] = newGoal1;
+            numberOfCurrentGoals++;
+            goals[numberOfCurrentGoals] = newGoal2;
+            numberOfCurrentGoals++;
+            goals[numberOfCurrentGoals] = newGoal3;
+            numberOfCurrentGoals++;
+            goals[numberOfCurrentGoals] = newGoal4;
+            numberOfCurrentGoals++;
             createGoalCounter++;
             return newGoal1;
         }
@@ -344,6 +359,11 @@ namespace MensErgerJeNiet.Model
         {
             get { return _last; }
             private set { _last = value; }
+        }
+
+        public Goal[] Goals
+        {
+            get { return goals; }
         }
 
     }

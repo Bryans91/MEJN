@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MensErgerJeNiet.View;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace MensErgerJeNiet
     /// </summary>
     public partial class App : Application
     {
+
+        private void ApplicationStart(object sender, StartupEventArgs e)
+        {
+            Current.MainWindow = new PreGameScreen();
+        }
     }
 }

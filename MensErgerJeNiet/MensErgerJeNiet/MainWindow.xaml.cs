@@ -26,13 +26,14 @@ namespace MensErgerJeNiet
     public partial class MainWindow : Window
     {
         private ModelView.Game theGame;
-        private PreGameScreen pgs;
+        private PreGameScreenv2 pgs;
+        private PreGameScreen pg;
         private Model.Spawn[] spawns;
 
         public MainWindow()
         {
             InitializeComponent();
-            pgs = new PreGameScreen(this);
+            this.Visibility = Visibility.Hidden;
             theGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
             rollButton.IsEnabled = false;
@@ -48,35 +49,51 @@ namespace MensErgerJeNiet
             {
                 if (spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.LawnGreen);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.LawnGreen);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
                 }
                 else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkGreen);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Red);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Red);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Blue);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Blue);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Yellow);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
+                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
                 }
                 i++;
             }

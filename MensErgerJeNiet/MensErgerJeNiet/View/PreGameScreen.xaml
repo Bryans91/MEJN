@@ -1,17 +1,10 @@
 ﻿<Window x:Class="MensErgerJeNiet.View.PreGameScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PreGameScreen" Height="189" Width="300" ResizeMode="NoResize">
+        Title="PreGameScreen" Height="480" Width="640">
     <Grid>
-        <Label Content="Total number of Players(max. 4):" HorizontalAlignment="Left" Margin="30,63,0,0" VerticalAlignment="Top"/>
-        <Label Content="Number of Human Players:" HorizontalAlignment="Left" Margin="55,88,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="n_ofPlayers" HorizontalAlignment="Left" Height="23" Margin="201,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TextChanged="n_ofPlayers_TextChanged" MaxLength="1"/>
-        <TextBox Name="n_ofHumans" HorizontalAlignment="Left" Height="23" Margin="201,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" TextChanged="n_ofHumans_TextChanged" MaxLength="1"/>
-        <Label Content="Enter the total number of players below." HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.722,-0.36"/>
-        <Label Content="The number of human players can't be higher than " HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
-        <Label Content="the total number of players" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="121,122,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="207,122,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="464,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Language="nl-nl" Text="Gemaakt door:"/><LineBreak/><Run Language="nl-nl" Text="Alexander van Doorn 2059821"/><LineBreak/><Run Language="nl-nl" Text="Bryan Schreuder 2052387"/></TextBlock>
+        <Button Content="Nieuw Spel" HorizontalAlignment="Left" Margin="165,310,0,0" VerticalAlignment="Top" Width="130" Height="45" FontSize="14.667" FontWeight="Bold" Click="Nieuw_Click"/>
+        <Button Content="Laad Spel" HorizontalAlignment="Left" Margin="345,310,0,0" VerticalAlignment="Top" Width="130" Height="45" FontSize="14.667" FontWeight="Bold" Click="Laad_Click"/>
     </Grid>
 </Window>

@@ -39,11 +39,8 @@ namespace MensErgerJeNiet.Model
         public bool canMove(int steps)
         {
             
-            Field goal = _currentField;
-            Spawn goal1 = (Spawn) _currentField;
-
-            Console.WriteLine(goal1 + "<---");
-
+            Field goal = null;
+            goal = _currentField;
            
             bool direction = true;
 
@@ -53,14 +50,18 @@ namespace MensErgerJeNiet.Model
             }
             else
             {
-                goal = player.startingField;
+                //This fix
+                goal = _currentField.nextF;
             }
-            Console.WriteLine(_currentField + "<---");
-            Console.WriteLine(goal + " <-----");
 
+            //goal is null
+
+            
             //check if possible to move
             for (int i = 0; i < steps; i++)
             {
+                Console.Write(i + " ");
+              
                 if (goal.nextF == null)
                 {
                     direction = false;
@@ -68,8 +69,10 @@ namespace MensErgerJeNiet.Model
 
                 if (direction)
                 {
-                    if (goal.nextF.switchF != null)
+                    //REMOVED:goal.nextf.switch
+                    if (goal.switchF != null)
                     {
+                   
                         if (goal.switchF.player == _player)
                         {
                             goal = goal.switchF;
@@ -120,13 +123,13 @@ namespace MensErgerJeNiet.Model
 
             if (_onSpawn)
             {
-                _currentField = _player.startingField;
+                _currentField = _currentField.nextF;
                 _onSpawn = false;
             }
-            
+            Console.WriteLine("MOVE");
                 for (int i = 0; i <= steps; i++)
                 {
-
+                    Console.WriteLine(i + " ");
                     if (_currentField.nextF == null)
                     {
                         direction = false;

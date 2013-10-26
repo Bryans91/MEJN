@@ -263,13 +263,15 @@ namespace MensErgerJeNiet.Model
         public Field getFieldFromPath(String fieldcode)
         {
             Field current = first;
-            while (current.fieldCode != fieldcode)
+            int i = 0;
+            while (current.fieldCode != fieldcode && i < 50)
             {
                 current = current.nextF;
-                if (current == null)
+                if (current == null || i >= 49)
                 {
                     return null;
                 }
+                i++;
             }
             if (current == first)
                 first = current.nextF;

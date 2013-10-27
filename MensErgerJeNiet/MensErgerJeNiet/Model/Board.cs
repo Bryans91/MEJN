@@ -33,6 +33,8 @@ namespace MensErgerJeNiet.Model
             createWalkingPath(true);
         }
 
+
+
         public void createField(String[] field)
         {
             char[] charField = new char[field[3].Length];

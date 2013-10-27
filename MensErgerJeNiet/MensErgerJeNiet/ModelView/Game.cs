@@ -26,6 +26,14 @@ namespace MensErgerJeNiet.ModelView
             _diceRoll = -1;
             _random = new Random();
             main = mainwindow;
+
+        }
+
+        private void addPawn()
+        {
+            Field temp = board.first.nextF.nextF.nextF;
+            temp.pawn = new Pawn(playerList[0], temp);
+            sendFieldCode(temp);
         }
 
         public void startFromFile(String[] file)
@@ -67,6 +75,7 @@ namespace MensErgerJeNiet.ModelView
             createPlayers(players, humans);
             _board = new Board(_playerList);
             firstRoll(_playerList);
+            addPawn();
         }
 
 
@@ -326,29 +335,36 @@ namespace MensErgerJeNiet.ModelView
 
         private void sendFieldCode(Field f)
         {
-            if (f.pawn != null && f.pawn.player.color == PlayerColor.GREEN)
+            Field temp = f;
+            if (temp.pawn != null && temp.pawn.player.color == PlayerColor.GREEN)
             {
-                main.fillField(f.fieldCode, Colors.LawnGreen);
+                Console.WriteLine("hij komt hier");
+                main.fillField(temp.fieldCode, Colors.LawnGreen);
             }
-            else if (f.pawn != null && f.pawn.player.color == PlayerColor.RED)
+            else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.RED)
             {
-                main.fillField(f.fieldCode, Colors.Red);
+                main.fillField(temp.fieldCode, Colors.Red);
+                Console.WriteLine("hij komt hier2");
             }
-            else if (f.pawn != null && f.pawn.player.color == PlayerColor.BLUE)
+            else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.BLUE)
             {
-                main.fillField(f.fieldCode, Colors.Blue);
+                main.fillField(temp.fieldCode, Colors.Blue);
+                Console.WriteLine("hij komt hier3");
             }
-            else if (f.pawn != null && f.pawn.player.color == PlayerColor.YELLOW)
+            else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.YELLOW)
             {
-                main.fillField(f.fieldCode, Colors.Yellow);
+                main.fillField(temp.fieldCode, Colors.Yellow);
+                Console.WriteLine("hij komt hier4");
             }
-            else if (f.pawn == null)
+            else if (temp.pawn == null)
             {
-                main.fillField(f.fieldCode, Colors.White);
+                main.fillField(temp.fieldCode, Colors.White);
+                Console.WriteLine("witte ding");
             }
             else
             {
-                main.fillField(f.fieldCode, Colors.White);
+                main.fillField(temp.fieldCode, Colors.White);
+                Console.WriteLine("witte v2");
             }
         }
 

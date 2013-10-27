@@ -75,7 +75,7 @@ namespace MensErgerJeNiet.ModelView
             createPlayers(players, humans);
             _board = new Board(_playerList);
             firstRoll(_playerList);
-            addPawn();
+            //addPawn();
         }
 
 

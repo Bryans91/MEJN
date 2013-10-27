@@ -354,7 +354,6 @@ namespace MensErgerJeNiet.ModelView
             if (current == null)
             {
                 int g = 0;
-                Console.WriteLine(board.Spawns.Length);
                 while (g < 16)
                 {
                     if (board.Spawns[g].fieldCode == p)

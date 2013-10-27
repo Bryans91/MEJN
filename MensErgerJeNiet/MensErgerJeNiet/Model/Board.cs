@@ -292,7 +292,7 @@ namespace MensErgerJeNiet.Model
 
         private void createSpawns(Player p, int numberOfPawns)
         {
-            int i;
+            int i, pNR = 0;
             int g = 1;
             switch (createSpawnCounter)
             {
@@ -321,9 +321,25 @@ namespace MensErgerJeNiet.Model
                     break;
                 
             }
+
+            switch (p.color)
+            {
+                case PlayerColor.GREEN:
+                    pNR = 1;
+                    break;
+                case PlayerColor.RED:
+                    pNR = 2;
+                    break;
+                case PlayerColor.BLUE:
+                    pNR = 3;
+                    break;
+                case PlayerColor.YELLOW:
+                    pNR = 4;
+                    break;
+            }
             while (i < numberOfSpawns)
             {
-                Spawn newSpawn = new Spawn("p" + createSpawnCounter + "spawn" + g);
+                Spawn newSpawn = new Spawn("p" + pNR + "spawn" + g);
                 if(g <= numberOfPawns)
                     newSpawn.pawn = new Pawn(p, newSpawn);
                 spawns[i] = newSpawn;

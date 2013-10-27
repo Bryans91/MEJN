@@ -26,6 +26,13 @@ namespace MensErgerJeNiet.ModelView
             _diceRoll = -1;
             _random = new Random();
             main = mainwindow;
+
+        }
+
+        private void addPawn()
+        {
+            board.first.nextF.nextF.nextF.pawn = new Pawn(playerList[1], board.first.nextF.nextF.nextF);
+            sendFieldCode(board.first.nextF.nextF.nextF);
         }
 
         public void startFromFile(String[] file)
@@ -67,6 +74,7 @@ namespace MensErgerJeNiet.ModelView
             createPlayers(players, humans);
             _board = new Board(_playerList);
             firstRoll(_playerList);
+            addPawn();
         }
 
 

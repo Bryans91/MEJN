@@ -155,10 +155,12 @@ namespace MensErgerJeNiet.ModelView
             Console.WriteLine("First: " + playersTurn.color);
             //place first pawn on board
             //playersTurn.pawns[0].currentField = playersTurn.pawns[0].currentField.nextF;
+            Field temporary = playersTurn.pawns[0].currentField;
+
             playersTurn.pawns[0].move(1);
 
             //Won't draw
-
+            sendFieldCode(temporary);
             sendFieldCode(_playersTurn.pawns[0].currentField);
             
             
@@ -288,7 +290,7 @@ namespace MensErgerJeNiet.ModelView
 
         public void handleTurn(Player p)
         {
-
+            Field start = _selected.currentField;
             _selected.move(_diceRoll);
 
 
@@ -300,6 +302,7 @@ namespace MensErgerJeNiet.ModelView
             else if (_diceRoll == 6)
             {
                 _playersTurn = p;
+                _diceRoll = -0;
             }
             else
             {
@@ -308,17 +311,27 @@ namespace MensErgerJeNiet.ModelView
 
             if (!_playersTurn.isHuman)
             {
+                sendFieldCode(start);
+                sendFieldCode(_selected.currentField);
                 computerPrep(_playersTurn);
             }
+            else
+            {
+                //null soms
+                Console.WriteLine("SELECTED: " + _selected);
+
+                sendFieldCode(start);
+                sendFieldCode(_selected.currentField);
+                
+                _selected = null;
+                _diceRoll = 0;
+
+                main.rollButton.IsEnabled = true;
+
+            }
+           
             
-            //null soms
-            Console.WriteLine("SELECTED: " + _selected);
-            sendFieldCode(_selected.currentField);
 
-            _selected = null;
-            _diceRoll = 0;
-
-            main.rollButton.IsEnabled = true;
 
             //NULLPOINTER
            
@@ -338,28 +351,28 @@ namespace MensErgerJeNiet.ModelView
             Field temp = f;
             if (temp.pawn != null && temp.pawn.player.color == PlayerColor.GREEN)
             {
-                Console.WriteLine("hij komt hier");
+                
                 main.fillField(temp.fieldCode, Colors.LawnGreen);
             }
             else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.RED)
             {
                 main.fillField(temp.fieldCode, Colors.Red);
-                Console.WriteLine("hij komt hier2");
+              
             }
             else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.BLUE)
             {
                 main.fillField(temp.fieldCode, Colors.Blue);
-                Console.WriteLine("hij komt hier3");
+                
             }
             else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.YELLOW)
             {
                 main.fillField(temp.fieldCode, Colors.Yellow);
-                Console.WriteLine("hij komt hier4");
+               
             }
             else if (temp.pawn == null)
             {
                 main.fillField(temp.fieldCode, Colors.White);
-                Console.WriteLine("witte ding");
+               
             }
             else
             {

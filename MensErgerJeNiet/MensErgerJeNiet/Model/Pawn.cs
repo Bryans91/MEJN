@@ -59,9 +59,7 @@ namespace MensErgerJeNiet.Model
             
             //check if possible to move
             for (int i = 1; i < steps; i++)
-            {
-                Console.Write(i + " ");
-              
+            {                        
                 if (goal.nextF == null)
                 {
                     direction = false;
@@ -120,16 +118,20 @@ namespace MensErgerJeNiet.Model
         {
             //The actual move
             bool direction = true;
+            Console.WriteLine("Old Location: " + _currentField);
+            
+            //TESTCODE
+            currentField.pawn = null;
+
 
             if (_onSpawn)
             {
-                _currentField = _currentField.nextF;
+               // _currentField = _currentField.nextF;
                 _onSpawn = false;
             }
-            Console.WriteLine("MOVE");
                 for (int i = 1; i <= steps; i++)
                 {
-                    Console.WriteLine(i + " ");
+                  
                     if (_currentField.nextF == null)
                     {
                         direction = false;
@@ -225,6 +227,8 @@ namespace MensErgerJeNiet.Model
                             }
                       }   // end if else      
                 }//endfor
+               
+                Console.WriteLine("NEW LOCATION: " + _currentField.fieldCode);
         } //end method
 
 

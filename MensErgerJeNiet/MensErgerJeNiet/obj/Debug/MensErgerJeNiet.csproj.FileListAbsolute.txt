@@ -32,3 +32,5 @@ C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.
 C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csprojResolveAssemblyReference.cache
 C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.baml
 C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.g.cs
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.baml
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.g.cs

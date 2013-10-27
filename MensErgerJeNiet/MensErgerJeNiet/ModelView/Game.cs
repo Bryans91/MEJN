@@ -145,9 +145,13 @@ namespace MensErgerJeNiet.ModelView
 
             Console.WriteLine("First: " + playersTurn.color);
             //place first pawn on board
-            playersTurn.pawns[0].currentField = playersTurn.pawns[0].currentField.nextF;
+            //playersTurn.pawns[0].currentField = playersTurn.pawns[0].currentField.nextF;
+            playersTurn.pawns[0].move(1);
+
+            //Won't draw
+
             sendFieldCode(_playersTurn.pawns[0].currentField);
-            Console.WriteLine(playersTurn.pawns[0].currentField + " THIS IS THE FIRST FIELD");
+            
             
             if (!_playersTurn.isHuman)
             {
@@ -299,7 +303,9 @@ namespace MensErgerJeNiet.ModelView
             }
             
             //null soms
+            Console.WriteLine("SELECTED: " + _selected);
             sendFieldCode(_selected.currentField);
+
             _selected = null;
             _diceRoll = 0;
 

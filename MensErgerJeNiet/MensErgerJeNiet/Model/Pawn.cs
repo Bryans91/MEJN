@@ -58,7 +58,7 @@ namespace MensErgerJeNiet.Model
 
             
             //check if possible to move
-            for (int i = 0; i < steps; i++)
+            for (int i = 1; i < steps; i++)
             {
                 Console.Write(i + " ");
               
@@ -127,7 +127,7 @@ namespace MensErgerJeNiet.Model
                 _onSpawn = false;
             }
             Console.WriteLine("MOVE");
-                for (int i = 0; i <= steps; i++)
+                for (int i = 1; i <= steps; i++)
                 {
                     Console.WriteLine(i + " ");
                     if (_currentField.nextF == null)

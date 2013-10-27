@@ -53,7 +53,7 @@ namespace MensErgerJeNiet
                 }
                 else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Green);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
                 {
@@ -61,7 +61,7 @@ namespace MensErgerJeNiet
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
                 {
@@ -69,7 +69,7 @@ namespace MensErgerJeNiet
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
                 {
@@ -77,7 +77,7 @@ namespace MensErgerJeNiet
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
                 }
                 i++;
             }
@@ -85,6 +85,7 @@ namespace MensErgerJeNiet
 
         public void fillField(String fieldCode, Color col)
         {
+            colorEllipses();
             getFieldEllipse(fieldCode).Fill = new SolidColorBrush(col);
         }
 

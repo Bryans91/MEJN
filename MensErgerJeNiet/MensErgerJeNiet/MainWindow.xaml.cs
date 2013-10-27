@@ -49,59 +49,43 @@ namespace MensErgerJeNiet
             {
                 if (spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.LawnGreen);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.LawnGreen);
                 }
                 else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Red);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Red);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Blue);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Blue);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Yellow);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width + 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height + 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Stroke = new SolidColorBrush(Colors.Black);
-                    getFieldEllipse(spawns[i].fieldCode).Width = getFieldEllipse(spawns[i].fieldCode).Width - 3;
-                    getFieldEllipse(spawns[i].fieldCode).Height = getFieldEllipse(spawns[i].fieldCode).Height - 3;
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
                 }
                 i++;
             }
         }
 
-        public void fillField(String fieldCode, Color c)
+        public void fillField(String fieldCode, Color col)
         {
-            getFieldEllipse(fieldCode).Fill = new SolidColorBrush(c);
+            getFieldEllipse(fieldCode).Fill = new SolidColorBrush(col);
         }
 
         protected override void OnClosed(EventArgs e)
@@ -246,69 +230,69 @@ namespace MensErgerJeNiet
                     return p4spawn3;
                 case "p4spawn4":
                     return p4spawn4;
-                case "f1":
+                case "field1":
                     return field1;
-                case "f2":
+                case "field2":
                     return field2;
-                case "f3":
+                case "field3":
                     return field3;
-                case "f4":
+                case "field4":
                     return field4;
-                case "f5":
+                case "field5":
                     return field5;
-                case "f6":
+                case "field6":
                     return field6;
-                case "f7":
+                case "field7":
                     return field7;
-                case "f8":
+                case "field8":
                     return field8;
-                case "f9":
+                case "field9":
                     return field9;
-                case "f10":
+                case "field10":
                     return field10;
-                case "f11":
+                case "field11":
                     return field11;
-                case "f12":
+                case "field12":
                     return field12;
-                case "f13":
+                case "field13":
                     return field13;
-                case "f14":
+                case "field14":
                     return field14;
-                case "f15":
+                case "field15":
                     return field15;
-                case "f16":
+                case "field16":
                     return field16;
-                case "f17":
+                case "field17":
                     return field17;
-                case "f18":
+                case "field18":
                     return field18;
-                case "f19":
+                case "field19":
                     return field19;
-                case "f20":
+                case "field20":
                     return field20;
-                case "f21":
+                case "field21":
                     return field21;
-                case "f22":
+                case "field22":
                     return field22;
-                case "f23":
+                case "field23":
                     return field23;
-                case "f24":
+                case "field24":
                     return field24;
-                case "f25":
+                case "field25":
                     return field25;
-                case "f26":
+                case "field26":
                     return field26;
-                case "f27":
+                case "field27":
                     return field27;
-                case "f28":
+                case "field28":
                     return field28;
-                case "f29":
+                case "field29":
                     return field29;
-                case "f30":
+                case "field30":
                     return field30;
-                case "f31":
+                case "field31":
                     return field31;
-                case "f32":
+                case "field32":
                     return field32;
                 case "p1end1":
                     return p1end1;

@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace MensErgerJeNiet.ModelView
 {
-    class Game
+    public class Game
     {
 
         private int _diceRoll;
@@ -39,23 +39,25 @@ namespace MensErgerJeNiet.ModelView
         public void startFromFile(String[] file)
         {
             //TEST STRINGARRAY
-            string[] strings = new string[4];
-            strings[0] = "NrPlayers=4";
-            strings[1] = "NrHumans=2";
-            strings[2] = "Turn=RED";
-            strings[3] = "oooooooRooooo1ooooGooooooRooo2ooooooBoooooo3ooooooYoooooo4"; //incomplete
+            string[] strings = file;
+            //strings[0] = "NrPlayers=4";
+            //strings[1] = "NrHumans=2";
+            //strings[2] = "Turn=RED";
+            //strings[3] = "oooooooRooooo1ooooGooooooRooo2ooooooBoooooo3ooooooYoooooo4"; //incomplete
             //TEST STRINGARRAY
 
-
             //Strings == files later on
-            int NrofPlayers = Convert.ToInt32(strings[0].Substring(strings[0].IndexOf('='), 1));
-            int NrofHumans = Convert.ToInt32(strings[1].Substring(strings[0].IndexOf('='), 1));
+            int NrofPlayers = 0;
+            Int32.TryParse((strings[0].Substring(strings[0].IndexOf('=')+1, 1)), out NrofPlayers);
+            int NrofHumans = 0;
+            Int32.TryParse((strings[1].Substring(strings[1].IndexOf('=')+1, 1)), out NrofHumans);
+            Console.WriteLine(NrofPlayers + " " + NrofHumans);
 
             createPlayers(NrofPlayers, NrofHumans);
 
             foreach (Player p in _playerList)
             {
-                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('='), 1)))
+                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
                 {
                     playersTurn = p;
                 }
@@ -383,7 +385,7 @@ namespace MensErgerJeNiet.ModelView
 
         public void recieveClickedEllipse(string p)
         {
-            Field current = null;
+            Field current;
             
             current = board.getFieldFromPath(p);
             if (current == null)

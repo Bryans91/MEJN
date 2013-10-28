@@ -26,15 +26,13 @@ namespace MensErgerJeNiet
     public partial class MainWindow : Window
     {
         private ModelView.Game theGame;
-        private PreGameScreenv2 pgs;
-        private PreGameScreen pg;
         private Model.Spawn[] spawns;
 
         public MainWindow()
         {
             InitializeComponent();
             this.Visibility = Visibility.Hidden;
-            theGame = new Game(this);
+            TheGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
             rollButton.IsEnabled = false;
         }
@@ -341,6 +339,12 @@ namespace MensErgerJeNiet
         {
             Ellipse clicked = (Ellipse)sender;
             theGame.recieveClickedEllipse(clicked.Name);
+        }
+
+        public Game TheGame
+        {
+            get { return theGame; }
+            private set { theGame = value; }
         }
     }
 }

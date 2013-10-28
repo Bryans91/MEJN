@@ -38,6 +38,8 @@ namespace MensErgerJeNiet.ModelView
 
         public void startFromFile(String[] file)
         {
+            _board = null;
+
             //TEST STRINGARRAY
             string[] strings = new string[8];
             strings = file;
@@ -155,7 +157,8 @@ namespace MensErgerJeNiet.ModelView
             }
             
             _playersTurn = first;
-         
+            
+            
 
             Console.WriteLine("First: " + playersTurn.color);
             //place first pawn on board
@@ -174,6 +177,7 @@ namespace MensErgerJeNiet.ModelView
                 
                 computerPrep(_playersTurn);
             }
+            main.changePlayerTurn(playersTurn.color);
         }
 
 
@@ -360,7 +364,7 @@ namespace MensErgerJeNiet.ModelView
 
             }
 
-            main.changePlayerTurn(p.nextP.color);
+            main.changePlayerTurn(playersTurn.color);
 
         }
         
@@ -392,9 +396,21 @@ namespace MensErgerJeNiet.ModelView
             {
                 main.fillField(temp.fieldCode, Colors.Yellow);
             }
-            else if (temp.pawn == null)
+            else if ((temp.pawn == null && temp.fieldCode.Equals("field0")) || (temp.pawn == null && temp.fieldCode.StartsWith("goalgreen")) || (temp.pawn == null && temp.fieldCode.StartsWith("pgreen")))
             {
-                main.fillField(temp.fieldCode, Colors.White);
+                main.fillField(temp.fieldCode, Colors.Green);
+            }
+            else if ((temp.pawn == null && temp.fieldCode.Equals("field10")) || (temp.pawn == null && temp.fieldCode.StartsWith("goalred")) || (temp.pawn == null && temp.fieldCode.StartsWith("pred")))
+            {
+                main.fillField(temp.fieldCode, Colors.DarkRed);
+            }
+            else if ((temp.pawn == null && temp.fieldCode.Equals("field20")) || (temp.pawn == null && temp.fieldCode.StartsWith("goalblue")) || (temp.pawn == null && temp.fieldCode.StartsWith("pblue")))
+            {
+                main.fillField(temp.fieldCode, Colors.DarkBlue);
+            }
+            else if ((temp.pawn == null && temp.fieldCode.Equals("field30")) || (temp.pawn == null && temp.fieldCode.StartsWith("goalyellow")) || (temp.pawn == null && temp.fieldCode.StartsWith("pyellow")))
+            {
+                main.fillField(temp.fieldCode, Colors.Goldenrod);
             }
             else
             {
@@ -428,11 +444,6 @@ namespace MensErgerJeNiet.ModelView
             main.colorEllipses(playerList);
         }
 
-        private void setPlayerTurn()
-        {
-            main.changePlayerTurn(playersTurn.color);
-        }
-
         //properties
         public int diceRoll
         {
@@ -461,6 +472,10 @@ namespace MensErgerJeNiet.ModelView
             get { return _playerList; }
         }
 
+        public MainWindow Main
+        {
+            get { return main; }
+        }
 
     }
 }

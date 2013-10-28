@@ -23,6 +23,8 @@ namespace MensErgerJeNiet.View
     /// </summary>
     public partial class PreGameScreen : Window
     {
+        MainWindow main;
+
         public PreGameScreen()
         {
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace MensErgerJeNiet.View
 
         private void Nieuw_Click(object sender, RoutedEventArgs e)
         {
-            PreGameScreenv2 pgsv2 = new PreGameScreenv2(new MainWindow());
+            PreGameScreenv2 pgsv2 = new PreGameScreenv2(main = new MainWindow(this));
             this.Close();
         }
 
@@ -63,7 +65,7 @@ namespace MensErgerJeNiet.View
                 // Assign the cursor in the Stream to the Form's Cursor property.
                 System.IO.StreamReader sr = new
                 System.IO.StreamReader(openFileDialog1.FileName);
-                MainWindow main = new MainWindow();
+                main = new MainWindow(this);
                 List<string> lines = new List<string>();
                 string line;
                 while((line = sr.ReadLine())!= null)
@@ -74,6 +76,12 @@ namespace MensErgerJeNiet.View
                 sr.Close();
                 this.Close();
             }
+        }
+
+        public MainWindow Main
+        {
+            get { return main; }
+            set { main = value; }
         }
     }
 }

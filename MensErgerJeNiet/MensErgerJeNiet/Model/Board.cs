@@ -461,16 +461,20 @@ namespace MensErgerJeNiet.Model
                 Console.WriteLine(current.fieldCode);
                 Console.WriteLine("gfpnext: " + current.nextF.fieldCode);
                 current = current.nextF;
+                if (current.switchF != null)
+                {
+                    Console.WriteLine(current.switchF.fieldCode);
+                }
                 if (temp != null)
                 {
                     if (temp.nextF != null)
                     {
-                        temp = temp.nextF;
                         if (temp.fieldCode == fieldcode)
                         {
                             current = temp;
                             break;
                         }
+                        temp = temp.nextF;
                     }
                 }
 

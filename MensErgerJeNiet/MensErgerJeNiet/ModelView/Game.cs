@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace MensErgerJeNiet.ModelView
 {
-    class Game
+    public class Game
     {
 
         private int _diceRoll;
@@ -39,6 +39,7 @@ namespace MensErgerJeNiet.ModelView
         public void startFromFile(String[] file)
         {
             //TEST STRINGARRAY
+<<<<<<< HEAD
             string[] strings = new string[8];
             strings[0] = "NrPlayers=4";
             strings[1] = "NrHumans=2";
@@ -48,18 +49,27 @@ namespace MensErgerJeNiet.ModelView
             strings[5] = "OOOO";
             strings[6] = "OOOO";
             strings[7] = "OOOO";
+=======
+            string[] strings = file;
+            //strings[0] = "NrPlayers=4";
+            //strings[1] = "NrHumans=2";
+            //strings[2] = "Turn=RED";
+            //strings[3] = "oooooooRooooo1ooooGooooooRooo2ooooooBoooooo3ooooooYoooooo4"; //incomplete
+>>>>>>> 532f73c6a4ba109b036fb24cda09dfbec4026136
             //TEST STRINGARRAY
 
-
             //Strings == files later on
-            int NrofPlayers = Convert.ToInt32(strings[0].Substring(strings[0].IndexOf('='), 1));
-            int NrofHumans = Convert.ToInt32(strings[1].Substring(strings[0].IndexOf('='), 1));
+            int NrofPlayers = 0;
+            Int32.TryParse((strings[0].Substring(strings[0].IndexOf('=')+1, 1)), out NrofPlayers);
+            int NrofHumans = 0;
+            Int32.TryParse((strings[1].Substring(strings[1].IndexOf('=')+1, 1)), out NrofHumans);
+            Console.WriteLine(NrofPlayers + " " + NrofHumans);
 
             createPlayers(NrofPlayers, NrofHumans);
 
             foreach (Player p in _playerList)
             {
-                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('='), 1)))
+                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
                 {
                     playersTurn = p;
                 }
@@ -387,7 +397,7 @@ namespace MensErgerJeNiet.ModelView
 
         public void recieveClickedEllipse(string p)
         {
-            Field current = null;
+            Field current;
             
             current = board.getFieldFromPath(p);
             if (current == null)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
 {
-    class Spawn : Field
+    public class Spawn : Field
     {
         public Spawn(string fieldC)
         {

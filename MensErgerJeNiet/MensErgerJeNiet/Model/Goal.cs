@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
 {
-    class Goal : Field
+    public class Goal : Field
     {
         private Player _player;
 

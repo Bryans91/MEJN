@@ -26,15 +26,13 @@ namespace MensErgerJeNiet
     public partial class MainWindow : Window
     {
         private ModelView.Game theGame;
-        private PreGameScreenv2 pgs;
-        private PreGameScreen pg;
         private Model.Spawn[] spawns;
 
         public MainWindow()
         {
             InitializeComponent();
             this.Visibility = Visibility.Hidden;
-            theGame = new Game(this);
+            TheGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
             rollButton.IsEnabled = false;
         }
@@ -53,7 +51,7 @@ namespace MensErgerJeNiet
                 }
                 else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Green);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
                 {
@@ -61,7 +59,7 @@ namespace MensErgerJeNiet
                 }
                 else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
                 {
@@ -69,7 +67,7 @@ namespace MensErgerJeNiet
                 }
                 else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
                 {
@@ -77,7 +75,7 @@ namespace MensErgerJeNiet
                 }
                 else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn == null)
                 {
-                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Black);
+                    getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
                 }
                 i++;
             }
@@ -85,6 +83,7 @@ namespace MensErgerJeNiet
 
         public void fillField(String fieldCode, Color col)
         {
+            colorEllipses();
             getFieldEllipse(fieldCode).Fill = new SolidColorBrush(col);
         }
 
@@ -340,6 +339,12 @@ namespace MensErgerJeNiet
         {
             Ellipse clicked = (Ellipse)sender;
             theGame.recieveClickedEllipse(clicked.Name);
+        }
+
+        public Game TheGame
+        {
+            get { return theGame; }
+            private set { theGame = value; }
         }
     }
 }

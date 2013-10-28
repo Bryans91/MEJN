@@ -40,6 +40,8 @@ namespace MensErgerJeNiet.ModelView
         {
             //TEST STRINGARRAY
             string[] strings = new string[8];
+            strings = file;
+            /*
             strings[0] = "NrPlayers=4";
             strings[1] = "NrHumans=2";
             strings[2] = "Turn=RED";
@@ -48,7 +50,7 @@ namespace MensErgerJeNiet.ModelView
             strings[5] = "OOOO";
             strings[6] = "OOOO";
             strings[7] = "OOOO";
-
+            */
             //TEST STRINGARRAY
 
             //Strings == files later on

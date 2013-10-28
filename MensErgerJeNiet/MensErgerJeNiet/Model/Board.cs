@@ -27,14 +27,8 @@ namespace MensErgerJeNiet.Model
            // createField();
         }
 
-        public void createField()
-        {
-            //in case we want to change it to getting the path from .txt files we got a 2nd method
-            createWalkingPath(true);
-        }
 
-
-        //NEW TRY
+        
         public void newCreateField(string[] field , Player[] players)
         {
             Console.WriteLine("creating field");
@@ -65,14 +59,16 @@ namespace MensErgerJeNiet.Model
                 {
                     string spwnCode = "p" + p.color + "spawn" + s;
                     p.spawns[s] = new Spawn(spwnCode);
+                    Console.WriteLine(p.spawns[s].fieldCode);
                 }
+                
             }
 
 
             //create field & goal
             for (int i = 0; i < normalF.Length; i++)
             {
-
+               
 
                 tempPawn = null;
                 //the normal fieldcreation
@@ -115,6 +111,7 @@ namespace MensErgerJeNiet.Model
                                 players[1].pawns[index] = tempPawn;
                                 index = 5;
                             }
+                            
                         }
                         break;
 
@@ -240,141 +237,157 @@ namespace MensErgerJeNiet.Model
                                 rPrev.nextF = rTemp;
 
                             }
-
+                            Console.WriteLine(rTemp.fieldCode);
                             rPrev = rTemp;
                         }
                         break;
                         
                     case 19:
-                        Goal bTemp = null;
-                        Goal bPrev = null;
-
-                        for (int g = 0; g < blueG.Length; g++)
+                        if (players[2] != null)
                         {
-                            string fc = "goal" + players[2].color + g;
-                            if (blueG[g].Equals('B'))
-                            {
-                                bTemp = new Goal(players[2], fc);
-                                bTemp.pawn = new Pawn(players[2], bTemp);
-                                players[2].pawnsInGoal += 1;
 
-                                for (int index = 0; index < players[2].pawns.Length; index++)
+                            Goal bTemp = null;
+                            Goal bPrev = null;
+
+                            for (int g = 0; g < blueG.Length; g++)
+                            {
+                                string fc = "goal" + players[2].color + g;
+                                if (blueG[g].Equals('B'))
                                 {
-                                    if (players[2].pawns[index] == null)
+                                    bTemp = new Goal(players[2], fc);
+                                    bTemp.pawn = new Pawn(players[2], bTemp);
+                                    players[2].pawnsInGoal += 1;
+
+                                    for (int index = 0; index < players[2].pawns.Length; index++)
                                     {
-                                        players[2].pawns[index] = bTemp.pawn;
-                                        index = 5;
+                                        if (players[2].pawns[index] == null)
+                                        {
+                                            players[2].pawns[index] = bTemp.pawn;
+                                            index = 5;
+                                        }
                                     }
-                                }    
-                            }
-                            else
-                            {
-                                bTemp = new Goal(players[2], fc);
-                            }
+                                }
+                                else
+                                {
+                                    bTemp = new Goal(players[2], fc);
+                                }
 
-                            if (g == 0)
-                            {
-                                current.switchF = bTemp;
-                                bTemp.previousF = current;
-                            }
-                            else
-                            {
-                                bTemp.previousF = bPrev;
-                                bPrev.nextF = bTemp;
+                                if (g == 0)
+                                {
+                                    current.switchF = bTemp;
+                                    bTemp.previousF = current;
+                                }
+                                else
+                                {
+                                    bTemp.previousF = bPrev;
+                                    bPrev.nextF = bTemp;
 
+                                }
+                                Console.WriteLine(bTemp.fieldCode);
+                                bPrev = bTemp;
                             }
-
-                            bPrev = bTemp;
                         }
-
                         break;
                     
                     case 29:
                         Goal yTemp = null;
                         Goal yPrev = null;
 
-                        for (int g = 0; g < yellowG.Length; g++)
+                        if (players[3] != null)
                         {
-                            string fc = "goal" + players[3].color + g;
-                            if (yellowG[g].Equals('Y'))
-                            {
-                                yTemp = new Goal(players[3], fc);
-                                yTemp.pawn = new Pawn(players[3], yTemp);
-                                players[3].pawnsInGoal += 1;
 
-                                for (int index = 0; index < players[3].pawns.Length; index++)
+
+                            for (int g = 0; g < yellowG.Length; g++)
+                            {
+                                string fc = "goal" + players[3].color + g;
+                                if (yellowG[g].Equals('Y'))
                                 {
-                                    if (players[3].pawns[index] == null)
+                                    yTemp = new Goal(players[3], fc);
+                                    yTemp.pawn = new Pawn(players[3], yTemp);
+                                    players[3].pawnsInGoal += 1;
+
+                                    for (int index = 0; index < players[3].pawns.Length; index++)
                                     {
-                                        players[3].pawns[index] = yTemp.pawn;
-                                        index = 5;
+                                        if (players[3].pawns[index] == null)
+                                        {
+                                            players[3].pawns[index] = yTemp.pawn;
+                                            index = 5;
+                                        }
                                     }
-                                }    
-                            }
-                            else
-                            {
-                                yTemp = new Goal(players[3], fc);
+                                }
+                                else
+                                {
+                                    yTemp = new Goal(players[3], fc);
+                                }
+
+                                if (g == 0)
+                                {
+                                    current.switchF = yTemp;
+                                    yTemp.previousF = current;
+                                }
+                                else
+                                {
+                                    yTemp.previousF = yPrev;
+                                    yPrev.nextF = yTemp;
+
+                                }
+                                Console.WriteLine(yTemp.fieldCode);
+
+                                yPrev = yTemp;
                             }
 
-                            if (g == 0)
-                            {
-                                current.switchF = yTemp;
-                                yTemp.previousF = current;
-                            }
-                            else
-                            {
-                                yTemp.previousF =yPrev;
-                                yPrev.nextF = yTemp;
-
-                            }
-
-                            yPrev = yTemp;
                         }
-                        break;
+                    break;
                     case 39:
-                        Goal gTemp = null;
-                        Goal gPrev = null;
 
-                        for (int g = 0; g < greenG.Length; g++)
+                        if (players[0] != null)
                         {
-                            string fc = "goal" + players[0].color + g;
-                            if (greenG[g].Equals('G'))
-                            {
-                                gTemp = new Goal(players[0], fc);
-                                gTemp.pawn = new Pawn(players[0], gTemp);
-                                players[0].pawnsInGoal += 1;
+                            Goal gTemp = null;
+                            Goal gPrev = null;
 
-                                for (int index = 0; index < players[0].pawns.Length; index++)
+                            for (int g = 0; g < greenG.Length; g++)
+                            {
+                                string fc = "goal" + players[0].color + g;
+                                if (greenG[g].Equals('G'))
                                 {
-                                    if (players[0].pawns[index] == null)
+                                    gTemp = new Goal(players[0], fc);
+                                    gTemp.pawn = new Pawn(players[0], gTemp);
+                                    players[0].pawnsInGoal += 1;
+
+                                    for (int index = 0; index < players[0].pawns.Length; index++)
                                     {
-                                        players[0].pawns[index] = gTemp.pawn;
-                                        index = 5;
+                                        if (players[0].pawns[index] == null)
+                                        {
+                                            players[0].pawns[index] = gTemp.pawn;
+                                            index = 5;
+                                        }
                                     }
-                                }    
-                            }
-                            else
-                            {
-                                gTemp = new Goal(players[0], fc);
-                            }
+                                }
+                                else
+                                {
+                                    gTemp = new Goal(players[0], fc);
+                                }
 
-                            if (g == 0)
-                            {
-                                current.switchF = gTemp;
-                                gTemp.previousF = current;
-                            }
-                            else
-                            {
-                                gTemp.previousF = gPrev;
-                                gPrev.nextF = gTemp;
+                                if (g == 0)
+                                {
+                                    current.switchF = gTemp;
+                                    gTemp.previousF = current;
+                                }
+                                else
+                                {
+                                    gTemp.previousF = gPrev;
+                                    gPrev.nextF = gTemp;
 
+                                }
+                                Console.WriteLine(gTemp.fieldCode);
+                                gPrev = gTemp;
                             }
+                            //link ends
 
-                            gPrev = gTemp;
+                            current.nextF = first;
+                            first.previousF = current;
+
                         }
-                        //link ends
-                        current.nextF = first;
-                        first.previousF = current;
                         break;
 
                 }
@@ -417,238 +430,14 @@ namespace MensErgerJeNiet.Model
 
 
             Console.WriteLine("FIELD CREATED");
-        } // end method
+        } 
 
 
-        /**
-
-        public void createField(String[] field)
-        {
-            char[] charField = new char[field[3].Length];
-            char[] charGGoal = new char[field[4].Length];
-            char[] charRGoal = new char[field[5].Length];
-            char[] charBGoal = new char[field[6].Length];
-            char[] charYGoal = new char[field[7].Length];
-
-            int[] greenPawns = null, redPawns = null, bluePawns = null, yellowPawns = null;
-            int g = 0, r = 0, b = 0, y = 0;
-            int[] pawnsAtGreenEnd = null, pawnsAtRedEnd = null, pawnsAtBlueEnd = null, pawnsAtYellowEnd = null;
-            int gEnd = 0, rEnd = 0, bEnd = 0, yEnd = 0;
-
-            //charfield is normal field
-            charField = field[3].ToCharArray();
-            charGGoal = field[4].ToCharArray();
-            charRGoal = field[5].ToCharArray();
-            charBGoal = field[6].ToCharArray();
-            charYGoal = field[7].ToCharArray();
-
-
-
-            
-            for (int i = 0; i < charField.Length; i++)
-            {
-                switch (charField[i])
-                {
-                        //count pawns of players
-                    case 'G':
-                        greenPawns[g] = i;
-                        g++;
-                        break;
-                    case 'R':
-                        redPawns[r] = i;
-                        r++;
-                        break;
-                    case 'B':
-                        bluePawns[b] = i;
-                        b++;
-                        break;
-                    case 'Y':
-                        yellowPawns[y] = i;
-                        y++;
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            for (int i = 0; i < charGGoal.Length; i++)
-            {
-                if (charGGoal[i] == 'G')
-                {
-                    pawnsAtGreenEnd[gEnd] = i;
-                    gEnd++;
-                }
-                if (charRGoal[i] == 'R')
-                {
-                    pawnsAtRedEnd[rEnd] = i;
-                    rEnd++;
-                }
-                if (charBGoal[i] == 'B')
-                {
-                    pawnsAtBlueEnd[bEnd] = i;
-                    bEnd++;
-                } 
-                if(charYGoal[i] == 'Y')
-                {
-                    pawnsAtYellowEnd[yEnd] = i;
-                    yEnd++;
-                }
-
-            }
-            //counted pawns of players: if pawncount < 4 set difference to spawn
-            // create all the pawns on the spawns for players
-            createSpawns(playerList[player1], (4 - g - gEnd));
-            createSpawns(playerList[player2], (4 - r - rEnd));
-            createSpawns(playerList[player3], (4 - b - bEnd));
-            createSpawns(playerList[player4], (4 - y - yEnd));
-
-            if (field[3].Length == 40 && field[4].Length == 4 && field[5].Length == 4 && field[5].Length == 4 && field[7].Length == 4)
-                createWalkingPath(false);
-            if (g > 0)
-                getFieldFromPath("field" + greenPawns[g + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[g + 1]));
-            if (r > 0)
-                getFieldFromPath("field" + greenPawns[r + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[r + 1]));
-            if (b > 0)
-                getFieldFromPath("field" + greenPawns[b + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("field" + greenPawns[b + 1]));
-            if (y > 0)
-                getFieldFromPath("field" + greenPawns[y + 1]).pawn = new Pawn(playerList[player4], getFieldFromPath("field" + greenPawns[y + 1]));
-            if (gEnd > 0)
-                getFieldFromPath("p1end" + greenPawns[gEnd + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("p1end" + greenPawns[gEnd + 1]));
-            if (rEnd > 0)
-                getFieldFromPath("p2end" + greenPawns[rEnd + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("p2end" + greenPawns[rEnd + 1]));
-            if (bEnd > 0)
-                getFieldFromPath("p3end" + greenPawns[bEnd + 1]).pawn = new Pawn(playerList[player1], getFieldFromPath("p3end" + greenPawns[bEnd + 1]));
-            if (yEnd > 0)
-                getFieldFromPath("p4end" + greenPawns[yEnd + 1]).pawn = new Pawn(playerList[player4], getFieldFromPath("p4end" + greenPawns[yEnd + 1]));
-
-
-
-
-
-        }
-*/
         private Boolean isEmpty()
         {
             return first == null;
         }
 
-        
-        private void createWalkingPath(Boolean newGame)
-        {
-            Goal temp;
-            int i = 0;
-            while (i < normalFields)
-            {
-                Field newField = new Field();
-                newField.fieldCode = "field" + (i + 1);
-                if (isEmpty())
-                {
-                    first = newField;
-                }
-                else
-                {
-                    last.nextF = newField;
-                }
-                newField.previousF = last;
-                last = newField;
-                
-                switch (i)
-                {
-                    case 8:
-                        currentPlayer = playerList[player2];
-                        if(newGame)
-                            createSpawns(currentPlayer, 4);
-                        temp = createGoals(currentPlayer);
-                        newField.switchF = temp;
-                        temp.previousF = newField;
-                        temp = null;
-                        break;
-                    case 9:
-                        //set spawns to direct to the according startingfield
-                        spawns[0].nextF = newField;
-                        spawns[1].nextF = newField;
-                        spawns[2].nextF = newField;
-                        spawns[3].nextF = newField;
-                        break;
-                    case 18:
-                        if (playerList.Length >= 3)
-                        {
-                            currentPlayer = playerList[player3];
-                            if (newGame)
-                                createSpawns(currentPlayer, 4);
-                            temp = createGoals(currentPlayer);
-                            newField.switchF = temp;
-                            temp.previousF = newField;
-                            temp = null;
-                        }
-                        break;
-                    case 19:
-                        if(spawns[4] == null)
-                        {
-                            spawns[4] = new Spawn("No Current Player");
-                            spawns[5] = new Spawn("No Current Player");
-                            spawns[6] = new Spawn("No Current Player");
-                            spawns[7] = new Spawn("No Current Player");
-                            createSpawnCounter++;
-                        }
-                        if (playerList.Length >= 4)
-                        {
-                            spawns[4].nextF = newField;
-                            spawns[5].nextF = newField;
-                            spawns[6].nextF = newField;
-                            spawns[7].nextF = newField;
-                        }
-                        break;
-                    case 28:
-                        if (playerList.Length >= 4)
-                        {
-                            currentPlayer = playerList[player4];
-                            if (newGame)
-                                createSpawns(currentPlayer, 4);
-                            temp = createGoals(currentPlayer);
-                            newField.switchF = temp;
-                            temp.previousF = newField;
-                            temp = null;
-                        }
-                        break;
-                    case 29:
-                        if (spawns[8] == null)
-                        {
-                            spawns[8] = new Spawn("No Current Player");
-                            spawns[9] = new Spawn("No Current Player");
-                            spawns[10] = new Spawn("No Current Player");
-                            spawns[11] = new Spawn("No Current Player");
-                            createSpawnCounter++;
-                        }
-                        if (playerList.Length >= 4)
-                        {
-                            spawns[8].nextF = newField;
-                            spawns[9].nextF = newField;
-                            spawns[10].nextF = newField;
-                            spawns[11].nextF = newField;
-                        }
-                        break;
-                    case 38:
-                        currentPlayer = playerList[player1];
-                        if (newGame)
-                            createSpawns(currentPlayer, 4);
-                        temp = createGoals(currentPlayer);
-                        newField.switchF = temp;
-                        temp.previousF = newField;
-                        temp = null;
-                        break;
-                    case 39:
-                        spawns[12].nextF = newField;
-                        spawns[13].nextF = newField;
-                        spawns[14].nextF = newField;
-                        spawns[15].nextF = newField;
-                        newField.nextF = first;
-                        first.previousF = newField;
-                        break;
-                }
-                i++;
-            }
-        }
 
         public Field getFieldFromPath(String fieldcode)
         {

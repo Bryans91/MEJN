@@ -67,6 +67,7 @@ namespace MensErgerJeNiet.ModelView
                 if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
                 {
                     playersTurn = p;
+                    
                 }
 
                 //create spawns for players? (nu we toch in een loop zitten)
@@ -76,7 +77,7 @@ namespace MensErgerJeNiet.ModelView
 
             _board = new Board(playerList);
             board.newCreateField(strings , _playerList);
-
+            main.changePlayerTurn(playersTurn.color);
         }
 
         public void startGame(string[] strings , int nrP , int nrH)
@@ -166,7 +167,7 @@ namespace MensErgerJeNiet.ModelView
             }
             
             _playersTurn = first;
-         
+            main.changePlayerTurn(playersTurn.color);
 
             Console.WriteLine("First: " + playersTurn.color);
             //place first pawn on board

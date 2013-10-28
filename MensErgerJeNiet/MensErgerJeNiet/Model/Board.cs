@@ -9,7 +9,7 @@ namespace MensErgerJeNiet.Model
 {
     public class Board
     {
-        private Field _first, _last, current;
+        private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
         private int normalFields = 40, numberOfSpawns = 4, numberOfCurrentGoals = 0;
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
@@ -76,7 +76,7 @@ namespace MensErgerJeNiet.Model
 
                 tempPawn = null;
                 //the normal fieldcreation
-                switch (normalF[i])
+                switch (normalF[i]) 
                 {
                     // empty field
                     case 'O':
@@ -655,7 +655,10 @@ namespace MensErgerJeNiet.Model
             Field current = first;
             while (current.fieldCode != fieldcode)
             {
+                Console.WriteLine(current.fieldCode);
+                Console.WriteLine("next: " + current.nextF.fieldCode);
                 current = current.nextF;
+                
             }
             return current;
         }

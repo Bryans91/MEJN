@@ -427,12 +427,8 @@ namespace MensErgerJeNiet.Model
                                 {
                                     p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
                                     p.spawns[spawns].pawn = p.pawns[pawns];
-                                    placed = true;
-                                    
-
+                                    placed = true;                                                              
                                 }
-
-
                                 Console.WriteLine(p.spawns[spawns].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[spawns].fieldCode);
                             } // last for
                         }
@@ -441,7 +437,7 @@ namespace MensErgerJeNiet.Model
             }
 
 
-            Console.WriteLine("FIELD CREATED");
+            Console.WriteLine("FIELD CREATED");2
         } 
 
 
@@ -456,7 +452,7 @@ namespace MensErgerJeNiet.Model
             Field current = first;
             while (current.fieldCode != fieldcode)
             {
-                //kan infinite loop worden, geen pawns bij red? of niet getekend?
+                
                 Console.WriteLine(current.fieldCode);
                 Console.WriteLine("gfpnext: " + current.nextF.fieldCode);
                 current = current.nextF;

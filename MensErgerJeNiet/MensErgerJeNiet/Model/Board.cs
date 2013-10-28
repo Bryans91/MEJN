@@ -9,7 +9,7 @@ namespace MensErgerJeNiet.Model
 {
     public class Board
     {
-        private Field _first, _last;
+        private Field _first, _last, current;
         private Spawn[] spawns = new Spawn[16];
         private int normalFields = 40, numberOfSpawns = 4, numberOfCurrentGoals = 0;
         private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
@@ -53,7 +53,7 @@ namespace MensErgerJeNiet.Model
 
             Field previous = null;
             Field current = null;
-            Field first = null;
+            first = null;
             Pawn tempPawn = null;
            
 
@@ -413,7 +413,6 @@ namespace MensErgerJeNiet.Model
                             }
                     }
                 }
-
             }
 
 
@@ -654,28 +653,11 @@ namespace MensErgerJeNiet.Model
         public Field getFieldFromPath(String fieldcode)
         {
             Field current = first;
-            int i = 0;
-            while (current.fieldCode != fieldcode && i < 50)
+            while (current.fieldCode != fieldcode)
             {
                 current = current.nextF;
-                if (current == null || i >= 49)
-                {
-                    return null;
-                }
-                i++;
             }
-            if (current == first)
-                first = current.nextF;
-            else
-            {
-                current.previousF.nextF = current.nextF;
-            }
-            if (current == last)
-                last = current.previousF;
-            else
-                current.nextF.previousF = current.previousF;
             return current;
-
         }
 
 

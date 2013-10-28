@@ -64,7 +64,7 @@ namespace MensErgerJeNiet.View
 
                     main.Visibility = Visibility.Visible;
                     main.TheGame.startGame(strings, players, humans);
-                    
+                    main.colorEllipses(main.TheGame.board.playerList);
                     main.enableRollButton();
                 }
             }

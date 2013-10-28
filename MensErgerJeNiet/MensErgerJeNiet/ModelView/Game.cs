@@ -66,7 +66,6 @@ namespace MensErgerJeNiet.ModelView
             _board = new Board(playerList);
             board.newCreateField(strings , _playerList);
 
-
         }
 
         public void startGame(string[] strings , int nrP , int nrH)
@@ -211,7 +210,6 @@ namespace MensErgerJeNiet.ModelView
             {
               
                 _playersTurn = _playersTurn.nextP;
-
                 Console.WriteLine(_playersTurn.color + " " + playersTurn.isHuman);
                 if (!_playersTurn.isHuman)
                 {
@@ -225,7 +223,7 @@ namespace MensErgerJeNiet.ModelView
             {
                 main.rollButton.IsEnabled = false;
             }
-
+            main.changePlayerTurn(playersTurn.color);
         }
 
 
@@ -295,6 +293,7 @@ namespace MensErgerJeNiet.ModelView
 
                 _diceRoll = 0;
             }
+            main.changePlayerTurn(playersTurn.color);
         }
 
 
@@ -342,6 +341,8 @@ namespace MensErgerJeNiet.ModelView
 
             }
 
+            main.changePlayerTurn(p.nextP.color);
+
         }
         
 
@@ -386,25 +387,8 @@ namespace MensErgerJeNiet.ModelView
         {
             Field current = null;
             
-            current = board.getFieldFromPath(p);/*
-            if (current == null)
-            {
-                int g = 0;
-                while (g < 16)
-                {
-                    if (board.Spawns[g].fieldCode == p)
-                    {
-                        current = board.Spawns[g];
-                        break;
-                    }
-                    if (board.Goals[g].fieldCode == p)
-                    {
-                        current = board.Goals[g];
-                        break;
-                    }
-                    g++;
-                }
-            }*/
+            current = board.getFieldFromPath(p);
+
             if (current != null)
             {
                 Console.WriteLine(current.fieldCode);

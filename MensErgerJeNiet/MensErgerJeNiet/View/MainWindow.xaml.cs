@@ -1,4 +1,5 @@
-﻿using MensErgerJeNiet.ModelView;
+﻿using MensErgerJeNiet.Model;
+using MensErgerJeNiet.ModelView;
 using MensErgerJeNiet.View;
 using Microsoft.Win32;
 using System;
@@ -26,7 +27,7 @@ namespace MensErgerJeNiet
     public partial class MainWindow : Window
     {
         private ModelView.Game theGame;
-        private Model.Spawn[] spawns;
+        private Spawn[] spawns = new Spawn[16];
 
         public MainWindow()
         {
@@ -37,9 +38,17 @@ namespace MensErgerJeNiet
             rollButton.IsEnabled = false;
         }
 
-        private void colorEllipses()
+        public void colorEllipses(Player[] players)
         {
-
+            int g = 0;
+            foreach(Player p in players) 
+            {
+                foreach(Spawn sp in p.spawns) 
+                {
+                    spawns[g] = sp;
+                    g++;
+                }
+            }
             //color all the spawns
             int i = 0;
             if(spawns!=null)
@@ -83,7 +92,6 @@ namespace MensErgerJeNiet
 
         public void fillField(String fieldCode, Color col)
         {
-            colorEllipses();
             getFieldEllipse(fieldCode).Fill = new SolidColorBrush(col);
         }
 
@@ -105,7 +113,6 @@ namespace MensErgerJeNiet
           //  theGame.startGame(players, humans);
            
             spawns = theGame.board.Spawns;
-            colorEllipses();
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
@@ -361,6 +368,12 @@ namespace MensErgerJeNiet
         {
             get { return theGame; }
             private set { theGame = value; }
+        }
+
+        public Spawn[] Spawns
+        {
+            get { return spawns; }
+            set { spawns = value; }
         }
     }
 }

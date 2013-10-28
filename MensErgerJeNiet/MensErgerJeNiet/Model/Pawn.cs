@@ -100,6 +100,11 @@ namespace MensErgerJeNiet.Model
             //check the goal location
                 if (goal.pawn != null)
                 {
+                    if (goal.pawn == this)
+                    {
+                        return true;
+                    }
+
                     if (goal.pawn.player != _player)
                     {
                         _canHit = true;
@@ -264,6 +269,19 @@ namespace MensErgerJeNiet.Model
                             g.sendFieldCode(_currentField.nextF);
                         }
 
+                        if (_currentField.switchF != null)
+                        {
+                            if (_currentField.switchF.pawn != null)
+                            {
+                                if (_currentField.switchF.pawn == this)
+                                {
+                                    _currentField.switchF.pawn = null;
+                                    g.sendFieldCode(_currentField.switchF);
+                                }
+                            }
+                        }
+
+
                     }
 
 
@@ -291,7 +309,7 @@ namespace MensErgerJeNiet.Model
                     //Does not draw steps individually
 
                     //Time between steps
-                    Thread.Sleep(300);
+                    //Thread.Sleep(300);
                     
                     
                 }//endfor

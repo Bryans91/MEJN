@@ -72,7 +72,8 @@ namespace MensErgerJeNiet.Model
             //create field & goal
             for (int i = 0; i < normalF.Length; i++)
             {
-                Console.WriteLine("loop" + i);
+
+
                 tempPawn = null;
                 //the normal fieldcreation
                 switch (normalF[i])
@@ -80,13 +81,13 @@ namespace MensErgerJeNiet.Model
                     // empty field
                     case 'O':
                         current = new Field();
-                        current.fieldCode = "field" + i + 1;
+                        current.fieldCode = "field" + i;
                         break;
                     
                      // green on board
                     case 'G':
                         current = new Field();
-                        current.fieldCode = "field" + i + 1;
+                        current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[0], current);
                        
                         //add pawn
@@ -103,7 +104,7 @@ namespace MensErgerJeNiet.Model
                     //Red on board
                     case 'R':
                         current = new Field();
-                        current.fieldCode = "field" + i + 1;
+                        current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[1], current);
                        
                         //add pawn
@@ -120,7 +121,7 @@ namespace MensErgerJeNiet.Model
                      // blue on board
                     case 'B':
                         current = new Field();
-                        current.fieldCode = "field" + i + 1;
+                        current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[2], current);
                        
                         //add pawn
@@ -137,7 +138,7 @@ namespace MensErgerJeNiet.Model
                     //yellow on board
                     case 'Y':
                         current = new Field();
-                        current.fieldCode = "field" + i + 1;
+                        current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[3], current);
                        
                         //add pawn
@@ -382,10 +383,12 @@ namespace MensErgerJeNiet.Model
                 if (i != 0 && i != 39)
                 {
                     previous.nextF = current;
-                    current.previousF = previous;                    
+                    current.previousF = previous;
+                    Console.WriteLine("prev: " + previous.fieldCode + " next: " + current.fieldCode);
                 }
 
                 previous = current;
+               
 
             } // end for
 

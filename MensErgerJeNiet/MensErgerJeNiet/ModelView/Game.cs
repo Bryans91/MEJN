@@ -335,7 +335,7 @@ namespace MensErgerJeNiet.ModelView
                 Console.WriteLine("SELECTED: " + _selected);
 
                 sendFieldCode(start);
-                sendFieldCode(_selected.currentField);
+                //sendFieldCode(_selected.currentField);
                 
                 _selected = null;
                 _diceRoll = 0;

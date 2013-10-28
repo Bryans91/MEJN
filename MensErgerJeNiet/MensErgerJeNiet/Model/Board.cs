@@ -384,6 +384,10 @@ namespace MensErgerJeNiet.Model
                             }
                             //link ends
 
+
+                            current.previousF = previous;
+                            previous.nextF = current;
+                            
                             current.nextF = first;
                             first.previousF = current;
 

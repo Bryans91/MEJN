@@ -294,9 +294,6 @@ namespace MensErgerJeNiet.Model
                     {
                         //Does not draw steps individually
                         g.sendFieldCode(currentField);
-
-                        //Time between steps
-                        Thread.Sleep(50);
                     }
                     Console.WriteLine("CURRENT LOCATION: " + currentField.fieldCode);
                     

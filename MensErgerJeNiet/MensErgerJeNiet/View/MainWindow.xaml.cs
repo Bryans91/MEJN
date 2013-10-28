@@ -347,6 +347,31 @@ namespace MensErgerJeNiet
             theGame.recieveClickedEllipse(clicked.Name);
         }
 
+        private void playercheat_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem clicked = (MenuItem)sender;
+            String str = clicked.Name;
+            String[] strarray = str.Split('_');
+            int hi = -1;
+            Int32.TryParse(strarray[1], out hi);
+            if (hi > -1)
+                theGame.cheatPlayer(hi);
+        }
+
+        private void throwcheat_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem clicked = (MenuItem)sender;
+            String str = clicked.Name;
+            String[] strarray = str.Split('_');
+            int hi = -1;
+            Int32.TryParse(strarray[1], out hi);
+            if (hi > -1)
+            {
+                theGame.cheatThrow(hi);
+                changeDice(hi);
+            }
+        }
+
         public Game TheGame
         {
             get { return theGame; }

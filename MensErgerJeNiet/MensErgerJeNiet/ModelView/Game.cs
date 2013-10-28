@@ -36,6 +36,16 @@ namespace MensErgerJeNiet.ModelView
             sendFieldCode(temp);
         }
 
+        public void cheatPlayer(int playernumber)
+        {
+            playersTurn = playerList[playernumber];
+            main.changePlayerTurn(playersTurn.color);
+        }
+        public void cheatThrow(int dicenumber)
+        {
+            diceRoll = dicenumber;
+        }
+
         public void startFromFile(String[] file)
         {
             _board = null;

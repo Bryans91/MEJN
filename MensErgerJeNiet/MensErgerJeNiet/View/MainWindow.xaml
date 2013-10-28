@@ -9,6 +9,24 @@
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open" Click="Open_Click"/>
                     <MenuItem Header="_Save" Click="Save_Click"/>
+                
+                     
+                </MenuItem>
+                <MenuItem Header="_Cheats">
+                    <MenuItem Header="_Change player">
+                        <MenuItem Name="player_0" Header="_Player 1" Click="playercheat_Click"/>
+                        <MenuItem Name="player_1" Header="_Player 2" Click="playercheat_Click"/>
+                        <MenuItem Name="player_2" Header="_Player 3" Click="playercheat_Click"/>
+                        <MenuItem Name="player_3" Header="_Player 4" Click="playercheat_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="_Change throw">
+                        <MenuItem Name="dice_1" Header="_Throw 1" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_2" Header="_Throw 2" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_3" Header="_Throw 3" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_4" Header="_Throw 4" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_5" Header="_Throw 5" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_6" Header="_Throw 6" Click="throwcheat_Click"/>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>

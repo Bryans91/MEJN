@@ -393,25 +393,8 @@ namespace MensErgerJeNiet.ModelView
         {
             Field current = null;
             
-            current = board.getFieldFromPath(p);/*
-            if (current == null)
-            {
-                int g = 0;
-                while (g < 16)
-                {
-                    if (board.Spawns[g].fieldCode == p)
-                    {
-                        current = board.Spawns[g];
-                        break;
-                    }
-                    if (board.Goals[g].fieldCode == p)
-                    {
-                        current = board.Goals[g];
-                        break;
-                    }
-                    g++;
-                }
-            }*/
+            current = board.getFieldFromPath(p);
+
             if (current != null)
             {
                 Console.WriteLine(current.fieldCode);

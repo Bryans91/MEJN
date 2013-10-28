@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\
 MensErgerJeNiet
 none
 false
 DEBUG;TRACE
-C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\App.xaml
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\App.xaml
 31603324617
 1-2080616385
 15-1340521608
-141699980697
+141012385901
 View\MainWindow.xaml;View\PreGameScreen.xaml;View\PreGameScreenv2.xaml;
 
 False

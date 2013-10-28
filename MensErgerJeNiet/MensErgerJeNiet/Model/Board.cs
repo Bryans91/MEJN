@@ -385,12 +385,13 @@ namespace MensErgerJeNiet.Model
                             //link ends
 
 
-                            current.previousF = previous;
                             previous.nextF = current;
+                            current.previousF = previous;
                             
                             current.nextF = first;
                             first.previousF = current;
-
+                            Console.WriteLine("prev: " + previous.fieldCode + " next: " + current.fieldCode);
+                            
                         }
                         break;
 

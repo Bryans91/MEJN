@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MensErgerJeNiet.ModelView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace MensErgerJeNiet.Model
             Console.WriteLine("PLAYER CREATED:" + _isHuman + " " + _color);
         }
 
-        public void pawnToSpawn(Pawn p)
+        public void pawnToSpawn(Pawn p , Game g)
         {
            bool placed = false;
 
@@ -42,6 +43,8 @@ namespace MensErgerJeNiet.Model
                         p.currentField = _spawns[i];
                         placed = true;
                         p.onSpawn = true;
+                        g.sendFieldCode(_spawns[i]);
+                      
                     }
                 }
             }

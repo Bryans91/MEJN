@@ -45,35 +45,35 @@ namespace MensErgerJeNiet
             if(spawns!=null)
             while (i < spawns.Length)
             {
-                if (spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn != null)
+                if (spawns[i].fieldCode.StartsWith("pGREEN") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.LawnGreen);
                 }
-                else if(spawns[i].fieldCode.StartsWith("p1") && spawns[i].pawn == null) 
+                else if (spawns[i].fieldCode.StartsWith("pGREEN") && spawns[i].pawn == null) 
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Green);
                 }
-                else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("pRED") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Red);
                 }
-                else if (spawns[i].fieldCode.StartsWith("p2") && spawns[i].pawn == null)
+                else if (spawns[i].fieldCode.StartsWith("pRED") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
                 }
-                else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("pBLUE") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Blue);
                 }
-                else if (spawns[i].fieldCode.StartsWith("p3") && spawns[i].pawn == null)
+                else if (spawns[i].fieldCode.StartsWith("pBLUE") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
                 }
-                else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("pYELLOW") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
                 }
-                else if (spawns[i].fieldCode.StartsWith("p4") && spawns[i].pawn == null)
+                else if (spawns[i].fieldCode.StartsWith("pYELLOW") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
                 }
@@ -197,38 +197,38 @@ namespace MensErgerJeNiet
         {
             switch (field)
             {
-                case "p1spawn1":
-                    return p1spawn1;
-                case "p1spawn2":
-                    return p1spawn2;
-                case "p1spawn3":
-                    return p1spawn3;
-                case "p1spawn4":
-                    return p1spawn4;
-                case "p2spawn1":
-                    return p2spawn1;
-                case "p2spawn2":
-                    return p2spawn2;
-                case "p2spawn3":
-                    return p2spawn3;
-                case "p2spawn4":
-                    return p2spawn4;
-                case "p3spawn1":
-                    return p3spawn1;
-                case "p3spawn2":
-                    return p3spawn2;
-                case "p3spawn3":
-                    return p3spawn3;
-                case "p3spawn4":
-                    return p3spawn4;
-                case "p4spawn1":
-                    return p4spawn1;
-                case "p4spawn2":
-                    return p4spawn2;
-                case "p4spawn3":
-                    return p4spawn3;
-                case "p4spawn4":
-                    return p4spawn4;
+                case "pGREENspawn1":
+                    return pGREENspawn1;
+                case "pGREENspawn2":
+                    return pGREENspawn2;
+                case "pGREENspawn3":
+                    return pGREENspawn3;
+                case "pGREENspawn4":
+                    return pGREENspawn4;
+                case "pREDspawn1":
+                    return pREDspawn1;
+                case "pREDspawn2":
+                    return pREDspawn2;
+                case "pREDspawn3":
+                    return pREDspawn3;
+                case "pREDspawn4":
+                    return pREDspawn4;
+                case "pBLUEspawn1":
+                    return pBLUEspawn1;
+                case "pBLUEspawn2":
+                    return pBLUEspawn2;
+                case "pBLUEspawn3":
+                    return pBLUEspawn3;
+                case "pBLUEspawn4":
+                    return pBLUEspawn4;
+                case "pYELLOWspawn1":
+                    return pYELLOWspawn1;
+                case "pYELLOWspawn2":
+                    return pYELLOWspawn2;
+                case "pYELLOWspawn3":
+                    return pYELLOWspawn3;
+                case "pYELLOWspawn4":
+                    return pYELLOWspawn4;
                 case "field1":
                     return field1;
                 case "field2":
@@ -293,38 +293,38 @@ namespace MensErgerJeNiet
                     return field31;
                 case "field32":
                     return field32;
-                case "p1end1":
-                    return p1end1;
-                case "p1end2":
-                    return p1end2;
-                case "p1end3":
-                    return p1end3;
-                case "p1end4":
-                    return p1end4;
-                case "p2end1":
-                    return p2end1;
-                case "p2end2":
-                    return p2end2;
-                case "p2end3":
-                    return p2end3;
-                case "p2end4":
-                    return p2end4;
-                case "p3end1":
-                    return p3end1;
-                case "p3end2":
-                    return p3end2;
-                case "p3end3":
-                    return p3end3;
-                case "p3end4":
-                    return p3end4;
-                case "p4end1":
-                    return p4end1;
-                case "p4end2":
-                    return p4end2;
-                case "p4end3":
-                    return p4end3;
-                case "p4end4":
-                    return p4end4;
+                case "goalGREEN1":
+                    return goalGREEN1;
+                case "goalGREEN2":
+                    return goalGREEN2;
+                case "goalGREEN3":
+                    return goalGREEN3;
+                case "goalGREEN4":
+                    return goalGREEN4;
+                case "goalRED1":
+                    return goalRED1;
+                case "goalRED2":
+                    return goalRED2;
+                case "goalRED3":
+                    return goalRED3;
+                case "goalRED4":
+                    return goalRED4;
+                case "goalBLUE1":
+                    return goalBLUE1;
+                case "goalBLUE2":
+                    return goalBLUE2;
+                case "goalBLUE3":
+                    return goalBLUE3;
+                case "goalBLUE4":
+                    return goalBLUE4;
+                case "goalYELLOW1":
+                    return goalYELLOW1;
+                case "goalYELLOW2":
+                    return goalYELLOW2;
+                case "goalYELLOW3":
+                    return goalYELLOW3;
+                case "goalYELLOW4":
+                    return goalYELLOW4;
                 default:
                     return new Ellipse();
             }

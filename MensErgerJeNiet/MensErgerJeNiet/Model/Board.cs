@@ -54,13 +54,15 @@ namespace MensErgerJeNiet.Model
             //create spawns
             foreach (Player p in players)
             {
-                for (int s = 0; s < p.spawns.Length; s++)
+                if (p != null)
                 {
-                    string spwnCode = "p" + p.color + "spawn" + s;
-                    p.spawns[s] = new Spawn(spwnCode);
-                    Console.WriteLine(p.spawns[s].fieldCode);
+                    for (int s = 0; s < p.spawns.Length; s++)
+                    {
+                        string spwnCode = "p" + p.color + "spawn" + s;
+                        p.spawns[s] = new Spawn(spwnCode);
+                        Console.WriteLine(p.spawns[s].fieldCode);
+                    }
                 }
-                
             }
 
 
@@ -412,27 +414,30 @@ namespace MensErgerJeNiet.Model
             //create pawns if not created yet:
             foreach (Player p in players)
             {
-                for (int pawns = 0; pawns < p.pawns.Length; pawns++)
+                if (p != null)
                 {
-                    if (p.pawns[pawns] == null)
+                    for (int pawns = 0; pawns < p.pawns.Length; pawns++)
                     {
-                        bool placed = false;
-                        while (!placed)
+                        if (p.pawns[pawns] == null)
                         {
-                            for (int spawns = 0; spawns < p.spawns.Length; spawns++)
+                            bool placed = false;
+                            while (!placed)
                             {
-
-                                if (p.spawns[spawns].pawn == null)
+                                for (int spawns = 0; spawns < p.spawns.Length; spawns++)
                                 {
-                                    p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
-                                    p.spawns[spawns].pawn = p.pawns[pawns];
-                                    placed = true;                                                              
-                                }
-                                Console.WriteLine(p.spawns[spawns].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[spawns].fieldCode);
-                            } // last for
+
+                                    if (p.spawns[spawns].pawn == null)
+                                    {
+                                        p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
+                                        p.spawns[spawns].pawn = p.pawns[pawns];
+                                        placed = true;
+                                    }
+                                    Console.WriteLine(p.spawns[spawns].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[spawns].fieldCode);
+                                } // last for
+                            }
                         }
-                    }
-                } // first for
+                    } // first for
+                }
             }
 
 
@@ -492,23 +497,29 @@ namespace MensErgerJeNiet.Model
                         }
                         break;
                     case 20:
-                        temp = current.switchF;
-                        foreach (Spawn sp in playerList[2].spawns)
+                        if (playerList[2] != null)
                         {
-                            if (current.fieldCode != fieldcode)
-                                current = sp;
-                            else
-                                break;
+                            temp = current.switchF;
+                            foreach (Spawn sp in playerList[2].spawns)
+                            {
+                                if (current.fieldCode != fieldcode)
+                                    current = sp;
+                                else
+                                    break;
+                            }
                         }
                         break;
                     case 30:
-                        temp = current.switchF;
-                        foreach (Spawn sp in playerList[3].spawns)
+                        if (playerList[3] != null)
                         {
-                            if (current.fieldCode != fieldcode)
-                                current = sp;
-                            else
-                                break;
+                            temp = current.switchF;
+                            foreach (Spawn sp in playerList[3].spawns)
+                            {
+                                if (current.fieldCode != fieldcode)
+                                    current = sp;
+                                else
+                                    break;
+                            }
                         }
                         break;
                     case 40:

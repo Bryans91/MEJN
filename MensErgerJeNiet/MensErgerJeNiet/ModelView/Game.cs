@@ -95,7 +95,7 @@ namespace MensErgerJeNiet.ModelView
         //Starts up the game
         public void createPlayers(int nrOfPlayers, int nrOfHumans)
         {
-            _playerList = new Player[nrOfPlayers];
+            _playerList = new Player[4];
             Player temp = null;
 
             Console.WriteLine(nrOfPlayers + " " + nrOfHumans);
@@ -142,7 +142,7 @@ namespace MensErgerJeNiet.ModelView
                 temp = _playerList[i];
             }
 
-            _playerList[_playerList.Length -1].nextP = _playerList[0];
+            _playerList[nrOfPlayers -1].nextP = _playerList[0];
         }
 
         private void firstRoll(Player[] players)
@@ -152,13 +152,16 @@ namespace MensErgerJeNiet.ModelView
 
             foreach (Player p in players)
             {
-                int temp = rollDice();
-                p.startRoll = temp;
-
-                if (p.startRoll > highest)
+                if (p != null)
                 {
-                    highest = p.startRoll;
-                    first = p;
+                    int temp = rollDice();
+                    p.startRoll = temp;
+
+                    if (p.startRoll > highest)
+                    {
+                        highest = p.startRoll;
+                        first = p;
+                    }
                 }
             }
             
@@ -326,12 +329,14 @@ namespace MensErgerJeNiet.ModelView
             {
                 sendFieldCode(start);
                 sendFieldCode(_selected.currentField);
+                _selected = null;
+                _diceRoll = 0;
                 computerPrep(_playersTurn);
             }
             else
             {
                 //null soms
-                Console.WriteLine("SELECTED: " + _selected);
+                
 
                 sendFieldCode(start);
                 //sendFieldCode(_selected.currentField);
@@ -342,12 +347,16 @@ namespace MensErgerJeNiet.ModelView
                 main.rollButton.IsEnabled = true;
 
             }
+<<<<<<< HEAD
 
 
             main.changePlayerTurn(p.nextP.color);
 
             //NULLPOINTER
            
+=======
+
+>>>>>>> b99716928bdd92e71f689eeb03e9c0ca62ed046e
         }
         
 

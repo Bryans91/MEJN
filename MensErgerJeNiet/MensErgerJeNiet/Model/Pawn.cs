@@ -57,7 +57,10 @@ namespace MensErgerJeNiet.Model
             }
 
             //goal is null
-
+            if (goal == null)
+            {
+                goal = _currentField;
+            }
             
             //check if possible to move
             for (int i = 1; i < steps; i++)
@@ -231,17 +234,36 @@ namespace MensErgerJeNiet.Model
 
 
                     //Drawing step by step
-                    if (_currentField.pawn == null)
+                    if (direction)
                     {
-                        _currentField.pawn = this;
-                      
-                    }
-                    
-                    if (_currentField.previousF.pawn == this)
-                    {
-                        _currentField.previousF.pawn = null;
+                        if (_currentField.pawn == null)
+                        {
+                            _currentField.pawn = this;
 
-                        g.sendFieldCode(_currentField.previousF);
+                        }
+
+                        if (_currentField.previousF.pawn == this)
+                        {
+                            _currentField.previousF.pawn = null;
+
+                            g.sendFieldCode(_currentField.previousF);
+                        }
+                    }
+                    else
+                    {
+                        if (_currentField.pawn == null)
+                        {
+                            _currentField.pawn = this;
+
+                        }
+
+                        if (_currentField.nextF.pawn == this)
+                        {
+                            _currentField.nextF.pawn = null;
+
+                            g.sendFieldCode(_currentField.nextF);
+                        }
+
                     }
 
 

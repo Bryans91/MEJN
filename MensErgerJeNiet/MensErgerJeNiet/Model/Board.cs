@@ -62,7 +62,7 @@ namespace MensErgerJeNiet.Model
             {
                 for (int s = 0; s < p.spawns.Length; s++)
                 {
-                    string spwnCode = "P" + p.color + "Spawn" + s;
+                    string spwnCode = "p" + p.color + "spawn" + s;
                     p.spawns[s] = new Spawn(spwnCode);
                 }
             }
@@ -78,13 +78,13 @@ namespace MensErgerJeNiet.Model
                     // empty field
                     case 'O':
                         current = new Field();
-                        current.fieldCode = "Field" + i + 1;
+                        current.fieldCode = "field" + i + 1;
                         break;
                     
                      // green on board
                     case 'G':
                         current = new Field();
-                        current.fieldCode = "Field" + i + 1;
+                        current.fieldCode = "field" + i + 1;
                         tempPawn = new Pawn(players[0], current);
                        
                         //add pawn
@@ -101,7 +101,7 @@ namespace MensErgerJeNiet.Model
                     //Red on board
                     case 'R':
                         current = new Field();
-                        current.fieldCode = "Field" + i + 1;
+                        current.fieldCode = "field" + i + 1;
                         tempPawn = new Pawn(players[1], current);
                        
                         //add pawn
@@ -118,7 +118,7 @@ namespace MensErgerJeNiet.Model
                      // blue on board
                     case 'B':
                         current = new Field();
-                        current.fieldCode = "Field" + i + 1;
+                        current.fieldCode = "field" + i + 1;
                         tempPawn = new Pawn(players[2], current);
                        
                         //add pawn
@@ -135,7 +135,7 @@ namespace MensErgerJeNiet.Model
                     //yellow on board
                     case 'Y':
                         current = new Field();
-                        current.fieldCode = "Field" + i + 1;
+                        current.fieldCode = "field" + i + 1;
                         tempPawn = new Pawn(players[3], current);
                        
                         //add pawn
@@ -205,7 +205,7 @@ namespace MensErgerJeNiet.Model
 
                         for (int g = 0; g < redG.Length; g++)
                         {
-                            string fc = "Goal" + players[1].color + g;
+                            string fc = "goal" + players[1].color + g;
                             if (redG[g].Equals('R'))
                             {
                                 rTemp = new Goal(players[1], fc);
@@ -248,7 +248,7 @@ namespace MensErgerJeNiet.Model
 
                         for (int g = 0; g < blueG.Length; g++)
                         {
-                            string fc = "Goal" + players[2].color + g;
+                            string fc = "goal" + players[2].color + g;
                             if (blueG[g].Equals('B'))
                             {
                                 bTemp = new Goal(players[2], fc);
@@ -292,7 +292,7 @@ namespace MensErgerJeNiet.Model
 
                         for (int g = 0; g < yellowG.Length; g++)
                         {
-                            string fc = "Goal" + players[3].color + g;
+                            string fc = "goal" + players[3].color + g;
                             if (yellowG[g].Equals('Y'))
                             {
                                 yTemp = new Goal(players[3], fc);
@@ -334,7 +334,7 @@ namespace MensErgerJeNiet.Model
 
                         for (int g = 0; g < greenG.Length; g++)
                         {
-                            string fc = "Goal" + players[0].color + g;
+                            string fc = "goal" + players[0].color + g;
                             if (greenG[g].Equals('G'))
                             {
                                 gTemp = new Goal(players[0], fc);

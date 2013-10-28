@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MensErgerJeNiet.ModelView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
@@ -114,7 +116,7 @@ namespace MensErgerJeNiet.Model
         } //endmethod
 
 
-        public void move(int steps)
+        public void move(int steps , Game g)
         {
             //The actual move
             bool direction = true;
@@ -226,6 +228,50 @@ namespace MensErgerJeNiet.Model
                                 }
                             }
                       }   // end if else      
+
+
+                    //Drawing step by step
+                    if (_currentField.pawn == null)
+                    {
+                        _currentField.pawn = this;
+                      
+                    }
+                    
+                    if (_currentField.previousF.pawn == this)
+                    {
+                        _currentField.previousF.pawn = null;
+
+                        g.sendFieldCode(_currentField.previousF);
+                    }
+
+
+                    //fixen
+                    switch (_currentField.previousF.fieldCode)
+                    {
+                        case "field0":
+                            //send code for green spawn
+                            break;
+                        case "field10":
+                            //send code for red spawn
+                            break;
+                        case "field20":
+                            // send code for blue spawn
+                            break;
+                        case "field30":
+                            //send code for yellow spawn
+                            break;
+
+                    }
+                    
+                    //refresh
+                    g.sendFieldCode(_currentField);
+                    
+                    //Does not draw steps individually
+
+                    //Time between steps
+                    Thread.Sleep(300);
+                    
+                    
                 }//endfor
                
                 Console.WriteLine("NEW LOCATION: " + _currentField.fieldCode);

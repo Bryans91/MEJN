@@ -389,7 +389,8 @@ namespace MensErgerJeNiet.Model
                             
                             current.nextF = first;
                             first.previousF = current;
-
+                            Console.WriteLine("prev: " + previous.fieldCode + " next: " + current.fieldCode);
+                            
                         }
                         break;
 
@@ -416,19 +417,26 @@ namespace MensErgerJeNiet.Model
                     if (p.pawns[pawns] == null)
                     {
                         bool placed = false;
-   
+                        while (!placed)
+                        {
                             for (int spawns = 0; spawns < p.spawns.Length; spawns++)
                             {
-                                while(!placed){
-                                    if (p.spawns[spawns].pawn == null)
-                                    {
-                                        p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
-                                        placed = true;
-                                    }
+
+                                if (p.spawns[spawns].pawn == null)
+                                {
+                                    p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
+                                    p.spawns[spawns].pawn = p.pawns[pawns];
+                                    placed = true;
+                                    
+
                                 }
-                            }
+
+
+                                Console.WriteLine(p.spawns[spawns].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[spawns].fieldCode);
+                            } // last for
+                        }
                     }
-                }
+                } // first for
             }
 
 
@@ -449,8 +457,9 @@ namespace MensErgerJeNiet.Model
             int g = 0;
             while (current.fieldCode != fieldcode)
             {
+                //kan infinite loop worden, geen pawns bij red? of niet getekend?
                 Console.WriteLine(current.fieldCode);
-                Console.WriteLine("next: " + current.nextF.fieldCode);
+                Console.WriteLine("gfpnext: " + current.nextF.fieldCode);
                 current = current.nextF;
                 if (temp != null)
                 {

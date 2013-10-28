@@ -171,7 +171,7 @@ namespace MensErgerJeNiet.ModelView
             //playersTurn.pawns[0].currentField = playersTurn.pawns[0].currentField.nextF;
             Field temporary = playersTurn.pawns[0].currentField;
 
-            playersTurn.pawns[0].move(1);
+            playersTurn.pawns[0].move(1 , this);
 
             //Won't draw
             sendFieldCode(temporary);
@@ -305,7 +305,7 @@ namespace MensErgerJeNiet.ModelView
         public void handleTurn(Player p)
         {
             Field start = _selected.currentField;
-            _selected.move(_diceRoll);
+            _selected.move(_diceRoll , this);
 
 
             if (p.pawnsInGoal == 4)
@@ -335,7 +335,7 @@ namespace MensErgerJeNiet.ModelView
                 Console.WriteLine("SELECTED: " + _selected);
 
                 sendFieldCode(start);
-                sendFieldCode(_selected.currentField);
+                //sendFieldCode(_selected.currentField);
                 
                 _selected = null;
                 _diceRoll = 0;
@@ -360,7 +360,7 @@ namespace MensErgerJeNiet.ModelView
             return _random.Next(1, 7);
         }
 
-        private void sendFieldCode(Field f)
+        public void sendFieldCode(Field f)
         {
             Field temp = f;
             if (temp.pawn != null && temp.pawn.player.color == PlayerColor.GREEN)

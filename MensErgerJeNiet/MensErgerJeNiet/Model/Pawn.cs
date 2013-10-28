@@ -100,6 +100,11 @@ namespace MensErgerJeNiet.Model
             //check the goal location
                 if (goal.pawn != null)
                 {
+                    if (goal.pawn == this)
+                    {
+                        return true;
+                    }
+
                     if (goal.pawn.player != _player)
                     {
                         _canHit = true;

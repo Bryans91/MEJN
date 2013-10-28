@@ -449,8 +449,9 @@ namespace MensErgerJeNiet.Model
             Field current = first;
             while (current.fieldCode != fieldcode)
             {
+                //kan infinite loop worden, geen pawns bij red? of niet getekend?
                 Console.WriteLine(current.fieldCode);
-                Console.WriteLine("next: " + current.nextF.fieldCode);
+                Console.WriteLine("gfpnext: " + current.nextF.fieldCode);
                 current = current.nextF;
                 
             }

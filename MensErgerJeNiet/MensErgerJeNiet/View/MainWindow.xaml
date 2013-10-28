@@ -19,7 +19,7 @@
         <Label Name ="Player3" Content="Player 3" Margin="29,291,459,147"/>
         <Label Name ="Player4" Content="Player 4" Margin="29,111,459,327"/>
         <Ellipse x:Name="field39" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="179,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field40" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="209,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field0" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="209,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
@@ -59,39 +59,39 @@
         <Ellipse x:Name="field37" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field38" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
 
-        <Ellipse x:Name="pGREENspawn1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pGREENspawn2" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="329,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pGREENspawn3" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pGREENspawn4" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="329,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pREDspawn1" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pREDspawn2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pREDspawn3" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pREDspawn4" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pBLUEspawn1" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="29,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pBLUEspawn2" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="59,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pBLUEspawn3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="29,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pBLUEspawn4" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="59,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pYELLOWspawn1" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pYELLOWspawn2" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pYELLOWspawn3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="pYELLOWspawn4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pgreenspawn1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pgreenspawn2" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="329,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pgreenspawn3" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pgreenspawn4" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="329,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="predspawn1" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="predspawn2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="predspawn3" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="predspawn4" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pbluespawn1" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="29,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pbluespawn2" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="59,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pbluespawn3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="29,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pbluespawn4" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="59,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pyellowspawn1" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pyellowspawn2" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pyellowspawn3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="pyellowspawn4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
 
-        <Ellipse x:Name="goalGREEN1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalGREEN2" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalGREEN3" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalGREEN4" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalRED1" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalRED2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="269,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalRED3" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="239,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalRED4" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="209,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalBLUE1" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalBLUE2" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalBLUE3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalBLUE4" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalYELLOW1" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalYELLOW2" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="89,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalYELLOW3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="119,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="goalYELLOW4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="149,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalgreen1" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalgreen2" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalgreen3" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalgreen4" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="179,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalred1" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="299,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalred2" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="269,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalred3" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="239,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalred4" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="209,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalblue1" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalblue2" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalblue3" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalblue4" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="179,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalyellow1" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="59,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalyellow2" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="89,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalyellow3" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="119,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="goalyellow4" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="149,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
 
 
         <Button Name ="rollButton" Content="Roll" HorizontalAlignment="Left" Margin="422,84,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>

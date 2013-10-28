@@ -418,19 +418,26 @@ namespace MensErgerJeNiet.Model
                     if (p.pawns[pawns] == null)
                     {
                         bool placed = false;
-   
+                        while (!placed)
+                        {
                             for (int spawns = 0; spawns < p.spawns.Length; spawns++)
                             {
-                                while(!placed){
-                                    if (p.spawns[spawns].pawn == null)
-                                    {
-                                        p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
-                                        placed = true;
-                                    }
+
+                                if (p.spawns[spawns].pawn == null)
+                                {
+                                    p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
+                                    p.spawns[spawns].pawn = p.pawns[pawns];
+                                    placed = true;
+                                    
+
                                 }
-                            }
+
+
+                                Console.WriteLine(p.spawns[spawns].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[spawns].fieldCode);
+                            } // last for
+                        }
                     }
-                }
+                } // first for
             }
 
 

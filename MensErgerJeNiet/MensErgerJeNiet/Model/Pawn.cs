@@ -240,6 +240,7 @@ namespace MensErgerJeNiet.Model
                     if (_currentField.previousF.pawn == this)
                     {
                         _currentField.previousF.pawn = null;
+
                         g.sendFieldCode(_currentField.previousF);
                     }
 

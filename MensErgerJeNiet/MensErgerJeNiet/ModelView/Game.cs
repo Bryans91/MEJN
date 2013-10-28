@@ -365,33 +365,27 @@ namespace MensErgerJeNiet.ModelView
             Field temp = f;
             if (temp.pawn != null && temp.pawn.player.color == PlayerColor.GREEN)
             {
-                
                 main.fillField(temp.fieldCode, Colors.LawnGreen);
             }
             else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.RED)
             {
                 main.fillField(temp.fieldCode, Colors.Red);
-              
             }
             else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.BLUE)
             {
                 main.fillField(temp.fieldCode, Colors.Blue);
-                
             }
             else if (temp.pawn != null && temp.pawn.player.color == PlayerColor.YELLOW)
             {
                 main.fillField(temp.fieldCode, Colors.Yellow);
-               
             }
             else if (temp.pawn == null)
             {
                 main.fillField(temp.fieldCode, Colors.White);
-               
             }
             else
             {
                 main.fillField(temp.fieldCode, Colors.White);
-                Console.WriteLine("witte v2");
             }
         }
 
@@ -399,7 +393,7 @@ namespace MensErgerJeNiet.ModelView
         {
             Field current;
             
-            current = board.getFieldFromPath(p);
+            current = board.getFieldFromPath(p);/*
             if (current == null)
             {
                 int g = 0;
@@ -417,7 +411,7 @@ namespace MensErgerJeNiet.ModelView
                     }
                     g++;
                 }
-            }
+            }*/
             if (current != null)
             {
                 Console.WriteLine(current.fieldCode);

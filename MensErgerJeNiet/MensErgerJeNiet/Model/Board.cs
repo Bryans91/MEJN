@@ -11,10 +11,8 @@ namespace MensErgerJeNiet.Model
     {
         private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
-        private int normalFields = 40, numberOfSpawns = 4, numberOfCurrentGoals = 0;
-        private int player1 = 0, player2 = 1, player3 = 2, player4 = 3;
+        private int numberOfSpawns = 4, numberOfCurrentGoals = 0;
         private Player[] _playerList;
-        private Player currentPlayer;
         private int createSpawnCounter = 1, createGoalCounter = 1;
         private Goal[] goals = new Goal[16];
 
@@ -32,6 +30,7 @@ namespace MensErgerJeNiet.Model
         public void newCreateField(string[] field , Player[] players)
         {
             Console.WriteLine("creating field");
+            playerList = players;
             //Field creation prep
             char[] normalF = new char[field[3].Length];
             char[] greenG = new char[4];
@@ -437,7 +436,7 @@ namespace MensErgerJeNiet.Model
             }
 
 
-            Console.WriteLine("FIELD CREATED");2
+            Console.WriteLine("FIELD CREATED");
         } 
 
 
@@ -449,13 +448,72 @@ namespace MensErgerJeNiet.Model
 
         public Field getFieldFromPath(String fieldcode)
         {
-            Field current = first;
+            Field current = first, temp = null;
+            int i = 0;
+            int g = 0;
             while (current.fieldCode != fieldcode)
             {
                 
                 Console.WriteLine(current.fieldCode);
                 Console.WriteLine("gfpnext: " + current.nextF.fieldCode);
                 current = current.nextF;
+                if (temp != null)
+                {
+                    if (temp.nextF != null)
+                    {
+                        temp = temp.nextF;
+                        if (temp.fieldCode == fieldcode)
+                        {
+                            current = temp;
+                            break;
+                        }
+                    }
+                }
+
+
+                switch (i)
+                {
+                    case 0:
+                        foreach (Spawn sp in playerList[0].spawns)
+                        {
+                            if (current.fieldCode != fieldcode)
+                                current = sp;
+                            else 
+                                break;
+                        }
+                        break;
+                    case 10:
+                        temp = current.switchF;
+                        foreach (Spawn sp in playerList[1].spawns)
+                        {
+                            if (current.fieldCode != fieldcode)
+                                current = sp;
+                            else
+                                break;
+                        }
+                        break;
+                    case 20:
+                        temp = current.switchF;
+                        foreach (Spawn sp in playerList[2].spawns)
+                        {
+                            if (current.fieldCode != fieldcode)
+                                current = sp;
+                            else
+                                break;
+                        }
+                        break;
+                    case 30:
+                        temp = current.switchF;
+                        foreach (Spawn sp in playerList[3].spawns)
+                        {
+                            if (current.fieldCode != fieldcode)
+                                current = sp;
+                            else
+                                break;
+                        }
+                        break;
+                }
+                i++;
                 
             }
             return current;

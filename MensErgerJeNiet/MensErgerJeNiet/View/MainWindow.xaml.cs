@@ -28,14 +28,16 @@ namespace MensErgerJeNiet
     {
         private ModelView.Game theGame;
         private Spawn[] spawns = new Spawn[16];
+        private PreGameScreen pgs;
 
-        public MainWindow()
+        public MainWindow(PreGameScreen pregs)
         {
             InitializeComponent();
             this.Visibility = Visibility.Hidden;
             TheGame = new Game(this);
             dice.MouseLeftButtonUp += Button_Click;
             rollButton.IsEnabled = false;
+            pgs = pregs;
         }
 
         public void colorEllipses(Player[] players)
@@ -100,51 +102,32 @@ namespace MensErgerJeNiet
             Application.Current.Shutdown();
         }
 
-        public void startGame(int players, int humans)
-        {
-            ALEX_STARTUP(players, humans);
-
-
-
-        }
-
-        private void ALEX_STARTUP(int players, int humans)
-        {
-          //  theGame.startGame(players, humans);
-           
-            spawns = theGame.board.Spawns;
-        }
-
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            string[] lines = new string[8];
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = @"C:\"; //fix
-            dialog.DefaultExt = "MEJN files |*.mejn";
-            dialog.Title = "Mens Erger Je Niet Loadgame";
+            // Displays an OpenFileDialog so the user can select a Cursor.
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Text Files|*.txt";
+            openFileDialog1.Title = "Select a Text File";
 
-            if(dialog.ShowDialog() == DialogResult)
+            // Show the Dialog.
+            // If the user clicked OK in the dialog and
+            // a .CUR file was selected, open it.
+            if (openFileDialog1.ShowDialog() == true)
             {
-                StreamReader stream = new StreamReader(dialog.FileName);
+                
+                // Assign the cursor in the Stream to the Form's Cursor property.
+                System.IO.StreamReader sr = new
+                System.IO.StreamReader(openFileDialog1.FileName);
+                List<string> lines = new List<string>();
                 string line;
-
-                for (int i = 0; i < 8; i++)
-                {
-                    line = stream.ReadLine();
-                    lines[i] = line;
-                    Console.WriteLine(line);
-                }
-               
+                while ((line = sr.ReadLine()) != null)
+                    lines.Add(line);
+                string[] strarray = lines.ToArray();
+                pgs.Main.TheGame = null;
+                pgs.Main.TheGame = new Game(pgs.Main);
+                pgs.Main.TheGame.startFromFile(strarray);
+                sr.Close();
             }
-
-
-
-         //   throw new NotImplementedException();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -362,6 +345,31 @@ namespace MensErgerJeNiet
         {
             Ellipse clicked = (Ellipse)sender;
             theGame.recieveClickedEllipse(clicked.Name);
+        }
+
+        private void playercheat_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem clicked = (MenuItem)sender;
+            String str = clicked.Name;
+            String[] strarray = str.Split('_');
+            int hi = -1;
+            Int32.TryParse(strarray[1], out hi);
+            if (hi > -1)
+                theGame.cheatPlayer(hi);
+        }
+
+        private void throwcheat_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem clicked = (MenuItem)sender;
+            String str = clicked.Name;
+            String[] strarray = str.Split('_');
+            int hi = -1;
+            Int32.TryParse(strarray[1], out hi);
+            if (hi > -1)
+            {
+                theGame.cheatThrow(hi);
+                changeDice(hi);
+            }
         }
 
         public Game TheGame

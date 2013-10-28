@@ -129,7 +129,7 @@ namespace MensErgerJeNiet.Model
             //The actual move
             bool direction = true;
             Console.WriteLine("Old Location: " + _currentField);
-            
+            Field temp = currentField;
             //TESTCODE
             currentField.pawn = null;
 
@@ -284,41 +284,23 @@ namespace MensErgerJeNiet.Model
 
                     }
 
+                        
 
-                    //fixen
-                    switch (_currentField.previousF.fieldCode)
-                    {
-                        case "field1":
-                            g.colorSpawns();
-                            //send code for green spawn
-                            break;
-                        case "field11":
-                            g.colorSpawns();
-                            //send code for red spawn
-                            break;
-                        case "field21":
-                            g.colorSpawns();
-                            // send code for blue spawn
-                            break;
-                        case "field31":
-                            g.colorSpawns();
-                            //send code for yellow spawn
-                            break;
-
-                    }
+                        //no clue why, but wont work without V. maybe it delays something
+                                                 g.colorSpawns();
                     
                     //refresh
-                    g.sendFieldCode(_currentField);
-                    
-                    //Does not draw steps individually
-
-                    //Time between steps
-                    //Thread.Sleep(300);
-                    
+                    if (temp != currentField)
+                    {
+                        //Does not draw steps individually
+                        g.sendFieldCode(currentField);
+                    }
+                    Console.WriteLine("CURRENT LOCATION: " + currentField.fieldCode);
                     
                 }//endfor
 
                 Console.WriteLine("NEW LOCATION: " + _currentField.fieldCode);
+                g.colorSpawns();
         } //end method
 
 

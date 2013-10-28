@@ -8,8 +8,25 @@
             <Menu DockPanel.Dock="Top" Height="24">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open" Click="Open_Click"/>
-                    <MenuItem Header="_Close" Click="Close_Click"/>
                     <MenuItem Header="_Save" Click="Save_Click"/>
+                
+                     
+                </MenuItem>
+                <MenuItem Header="_Cheats">
+                    <MenuItem Header="_Change player">
+                        <MenuItem Name="player_0" Header="_Player 1" Click="playercheat_Click"/>
+                        <MenuItem Name="player_1" Header="_Player 2" Click="playercheat_Click"/>
+                        <MenuItem Name="player_2" Header="_Player 3" Click="playercheat_Click"/>
+                        <MenuItem Name="player_3" Header="_Player 4" Click="playercheat_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="_Change throw">
+                        <MenuItem Name="dice_1" Header="_Throw 1" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_2" Header="_Throw 2" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_3" Header="_Throw 3" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_4" Header="_Throw 4" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_5" Header="_Throw 5" Click="throwcheat_Click"/>
+                        <MenuItem Name="dice_6" Header="_Throw 6" Click="throwcheat_Click"/>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -20,45 +37,45 @@
         <Label Name ="Player4" Content="Player 4" Margin="29,111,459,327"/>
 
         <Ellipse x:Name="field0" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="209,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="239,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="269,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field7" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="299,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field8" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="329,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field9" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="329,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field1" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field2" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field3" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field4" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field5" Fill="White" HorizontalAlignment="Left" Height="25" Margin="239,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field6" Fill="White" HorizontalAlignment="Left" Height="25" Margin="269,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field7" Fill="White" HorizontalAlignment="Left" Height="25" Margin="299,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field8" Fill="White" HorizontalAlignment="Left" Height="25" Margin="329,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field9" Fill="White" HorizontalAlignment="Left" Height="25" Margin="329,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field10" Fill="DarkRed" HorizontalAlignment="Left" Height="25" Margin="329,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field11" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="299,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field12" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="269,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field13" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="239,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field14" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field15" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field16" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field17" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field18" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="209,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field19" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="179,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field11" Fill="White" HorizontalAlignment="Left" Height="25" Margin="299,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field12" Fill="White" HorizontalAlignment="Left" Height="25" Margin="269,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field13" Fill="White" HorizontalAlignment="Left" Height="25" Margin="239,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field14" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field15" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field16" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field17" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field18" Fill="White" HorizontalAlignment="Left" Height="25" Margin="209,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field19" Fill="White" HorizontalAlignment="Left" Height="25" Margin="179,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field20" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="149,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field21" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field22" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field23" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field24" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field25" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="119,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field26" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="89,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field27" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="59,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field28" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="29,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field29" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="29,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field21" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,321,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field22" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field23" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field24" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field25" Fill="White" HorizontalAlignment="Left" Height="25" Margin="119,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field26" Fill="White" HorizontalAlignment="Left" Height="25" Margin="89,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field27" Fill="White" HorizontalAlignment="Left" Height="25" Margin="59,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field28" Fill="White" HorizontalAlignment="Left" Height="25" Margin="29,231,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field29" Fill="White" HorizontalAlignment="Left" Height="25" Margin="29,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
         <Ellipse x:Name="field30" Fill="Goldenrod" HorizontalAlignment="Left" Height="25" Margin="29,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field31" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="59,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field32" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="89,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field33" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="119,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field34" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field35" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field36" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field37" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field38" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="149,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
-        <Ellipse x:Name="field39" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="179,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field31" Fill="White" HorizontalAlignment="Left" Height="25" Margin="59,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field32" Fill="White" HorizontalAlignment="Left" Height="25" Margin="89,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field33" Fill="White" HorizontalAlignment="Left" Height="25" Margin="119,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field34" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field35" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field36" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field37" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,81,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field38" Fill="White" HorizontalAlignment="Left" Height="25" Margin="149,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
+        <Ellipse x:Name="field39" Fill="White" HorizontalAlignment="Left" Height="25" Margin="179,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>
 
 
         <Ellipse x:Name="pgreenspawn0" Fill="DarkGreen" HorizontalAlignment="Left" Height="25" Margin="299,51,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="handleClick"/>

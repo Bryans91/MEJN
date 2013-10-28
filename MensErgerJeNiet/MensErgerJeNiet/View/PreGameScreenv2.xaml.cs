@@ -51,7 +51,20 @@ namespace MensErgerJeNiet.View
                     this.Topmost = false;
                     this.Close();
                     main.Visibility = Visibility.Visible;
-                    main.startGame(players, humans);
+                    string[] strings = new string[8];
+
+                    strings[0] = "NrPlayers=" + players;
+                    strings[1] = "NrHumans=" + humans;
+                    strings[2] = "Turn=";
+                    strings[3] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"; //incomplete
+                    strings[4] = "OOOO";
+                    strings[5] = "OOOO";
+                    strings[6] = "OOOO";
+                    strings[7] = "OOOO";
+
+                    main.Visibility = Visibility.Visible;
+                    main.TheGame.startGame(strings, players, humans);
+                    
                     main.enableRollButton();
                 }
             }

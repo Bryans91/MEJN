@@ -24,7 +24,7 @@ namespace MensErgerJeNiet.Model
             playerList = plist;
             first = null;
             last = null;
-            createField();
+           // createField();
         }
 
         public void createField()
@@ -37,6 +37,7 @@ namespace MensErgerJeNiet.Model
         //NEW TRY
         public void newCreateField(string[] field , Player[] players)
         {
+            Console.WriteLine("creating field");
             //Field creation prep
             char[] normalF = new char[field[3].Length];
             char[] greenG = new char[4];
@@ -69,8 +70,9 @@ namespace MensErgerJeNiet.Model
 
 
             //create field & goal
-            for (int i = 0; i > normalF.Length; i++)
+            for (int i = 0; i < normalF.Length; i++)
             {
+                Console.WriteLine("loop" + i);
                 tempPawn = null;
                 //the normal fieldcreation
                 switch (normalF[i])
@@ -377,13 +379,13 @@ namespace MensErgerJeNiet.Model
                 }
 
                 //link the list
-                if (i != 0 || i != 39)
+                if (i != 0 && i != 39)
                 {
                     previous.nextF = current;
                     current.previousF = previous;                    
                 }
 
-                current = previous;
+                previous = current;
 
             } // end for
 
@@ -399,7 +401,7 @@ namespace MensErgerJeNiet.Model
                             for (int spawns = 0; spawns < p.spawns.Length; spawns++)
                             {
                                 while(!placed){
-                                    if (p.spawns[spawns] == null)
+                                    if (p.spawns[spawns].pawn == null)
                                     {
                                         p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
                                         placed = true;
@@ -412,7 +414,7 @@ namespace MensErgerJeNiet.Model
             }
 
 
-           
+            Console.WriteLine("FIELD CREATED");
         } // end method
 
 
@@ -528,6 +530,7 @@ namespace MensErgerJeNiet.Model
             return first == null;
         }
 
+        
         private void createWalkingPath(Boolean newGame)
         {
             Goal temp;

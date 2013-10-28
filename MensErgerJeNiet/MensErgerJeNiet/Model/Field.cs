@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
 {
-    class Field
+    public class Field
     {
 
         protected Field _nextF, _previousF;

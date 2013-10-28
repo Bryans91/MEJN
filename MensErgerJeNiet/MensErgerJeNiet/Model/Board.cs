@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
 {
-    class Board
+    public class Board
     {
         private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];

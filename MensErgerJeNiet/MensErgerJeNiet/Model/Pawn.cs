@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
 {
-    class Pawn
+    public class Pawn
     {
 
         private Player _player;

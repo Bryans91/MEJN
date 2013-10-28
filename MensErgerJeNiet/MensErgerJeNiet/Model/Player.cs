@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MensErgerJeNiet.Model
 {
-    class Player
+    public class Player
     {
         private Field _startingField;
         private Spawn[] _spawns;

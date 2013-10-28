@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MensErgerJeNiet.ModelView;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -48,8 +50,30 @@ namespace MensErgerJeNiet.View
 
         private void Laad_Click(object sender, RoutedEventArgs e)
         {
-            //openfiledialog
-            this.Close();
+            // Displays an OpenFileDialog so the user can select a Cursor.
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Text Files|*.txt";
+            openFileDialog1.Title = "Select a Text File";
+
+            // Show the Dialog.
+            // If the user clicked OK in the dialog and
+            // a .CUR file was selected, open it.
+            if (openFileDialog1.ShowDialog() == true)
+            {
+                // Assign the cursor in the Stream to the Form's Cursor property.
+                System.IO.StreamReader sr = new
+                System.IO.StreamReader(openFileDialog1.FileName);
+                MainWindow main = new MainWindow();
+                List<string> lines = new List<string>();
+                string line;
+                while((line = sr.ReadLine())!= null)
+                    lines.Add(line);
+                string[] strarray = lines.ToArray();
+                main.TheGame.startFromFile(strarray);
+                main.Visibility = Visibility.Visible;
+                sr.Close();
+                this.Close();
+            }
         }
     }
 }

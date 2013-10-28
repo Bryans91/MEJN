@@ -391,7 +391,7 @@ namespace MensErgerJeNiet.ModelView
 
         public void recieveClickedEllipse(string p)
         {
-            Field current;
+            Field current = null;
             
             current = board.getFieldFromPath(p);/*
             if (current == null)

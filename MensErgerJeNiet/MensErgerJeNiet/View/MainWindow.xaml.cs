@@ -203,32 +203,32 @@ namespace MensErgerJeNiet
                     return pgreenspawn2;
                 case "pgreenspawn3":
                     return pgreenspawn3;
-                case "pgreenspawn4":
-                    return pgreenspawn4;
+                case "pgreenspawn0":
+                    return pgreenspawn0;
                 case "predspawn1":
                     return predspawn1;
                 case "predspawn2":
                     return predspawn2;
                 case "predspawn3":
                     return predspawn3;
-                case "predspawn4":
-                    return predspawn4;
+                case "predspawn0":
+                    return predspawn0;
                 case "pbluespawn1":
                     return pbluespawn1;
                 case "pbluespawn2":
                     return pbluespawn2;
                 case "pbluespawn3":
                     return pbluespawn3;
-                case "pbluespawn4":
-                    return pbluespawn4;
+                case "pbluespawn0":
+                    return pbluespawn0;
                 case "pyellowspawn1":
                     return pyellowspawn1;
                 case "pyellowspawn2":
                     return pyellowspawn2;
                 case "pyellowspawn3":
                     return pyellowspawn3;
-                case "pyellowspawn4":
-                    return pyellowspawn4;
+                case "pyellowspawn0":
+                    return pyellowspawn0;
                 case "field1":
                     return field1;
                 case "field2":
@@ -315,32 +315,32 @@ namespace MensErgerJeNiet
                     return goalgreen2;
                 case "goalgreen3":
                     return goalgreen3;
-                case "goalgreen4":
-                    return goalgreen4;
+                case "goalgreen0":
+                    return goalgreen0;
                 case "goalred1":
                     return goalred1;
                 case "goalred2":
                     return goalred2;
                 case "goalred3":
                     return goalred3;
-                case "goalred4":
-                    return goalred4;
+                case "goalred0":
+                    return goalred0;
                 case "goalblue1":
                     return goalblue1;
                 case "goalblue2":
                     return goalblue2;
                 case "goalblue3":
                     return goalblue3;
-                case "goalblue4":
-                    return goalblue4;
+                case "goalblue0":
+                    return goalblue0;
                 case "goalyellow1":
                     return goalyellow1;
                 case "goalyellow2":
                     return goalyellow2;
                 case "goalyellow3":
                     return goalyellow3;
-                case "goalyellow4":
-                    return goalyellow4;
+                case "goalyellow0":
+                    return goalyellow0;
                 default:
                     return new Ellipse();
             }

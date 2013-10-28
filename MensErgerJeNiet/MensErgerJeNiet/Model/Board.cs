@@ -390,7 +390,8 @@ namespace MensErgerJeNiet.Model
                             
                             current.nextF = first;
                             first.previousF = current;
-
+                            Console.WriteLine("prev: " + previous.fieldCode + " next: " + current.fieldCode);
+                            
                         }
                         break;
 

@@ -2,9 +2,7 @@ C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.exe
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.pdb
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csprojResolveAssemblyReference.cache
-C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MainWindow.baml
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.baml
-C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MainWindow.g.cs
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.g.cs
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\App.g.cs
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet_Content.g.cs
@@ -34,3 +32,5 @@ C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.g.cs
 C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.baml
 C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.g.cs
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.baml
+C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.g.cs

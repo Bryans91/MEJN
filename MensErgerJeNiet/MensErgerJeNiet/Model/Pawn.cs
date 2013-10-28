@@ -288,16 +288,20 @@ namespace MensErgerJeNiet.Model
                     //fixen
                     switch (_currentField.previousF.fieldCode)
                     {
-                        case "field0":
+                        case "field1":
+                            g.colorSpawns();
                             //send code for green spawn
                             break;
-                        case "field10":
+                        case "field11":
+                            g.colorSpawns();
                             //send code for red spawn
                             break;
-                        case "field20":
+                        case "field21":
+                            g.colorSpawns();
                             // send code for blue spawn
                             break;
-                        case "field30":
+                        case "field31":
+                            g.colorSpawns();
                             //send code for yellow spawn
                             break;
 
@@ -313,7 +317,7 @@ namespace MensErgerJeNiet.Model
                     
                     
                 }//endfor
-               
+
                 Console.WriteLine("NEW LOCATION: " + _currentField.fieldCode);
         } //end method
 

@@ -45,11 +45,12 @@ namespace MensErgerJeNiet
             int g = 0;
             foreach(Player p in players) 
             {
-                foreach(Spawn sp in p.spawns) 
-                {
-                    spawns[g] = sp;
-                    g++;
-                }
+                if(p!=null)
+                    foreach(Spawn sp in p.spawns) 
+                    {
+                        spawns[g] = sp;
+                        g++;
+                    }
             }
             //color all the spawns
             int i = 0;

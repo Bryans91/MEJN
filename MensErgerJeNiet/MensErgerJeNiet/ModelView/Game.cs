@@ -65,10 +65,9 @@ namespace MensErgerJeNiet.ModelView
 
             foreach (Player p in _playerList)
             {
-                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
-                {
-                    playersTurn = p;
-                }
+                if(p != null)
+                    if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
+                        playersTurn = p;
 
                 //create spawns for players? (nu we toch in een loop zitten)
                 //evt ook goals?

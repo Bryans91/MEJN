@@ -155,7 +155,7 @@ namespace MensErgerJeNiet.Model
                                 {
                                     if (_currentField.nextF.pawn != null)
                                     {
-                                        _currentField.nextF.pawn.player.pawnToSpawn(_currentField.nextF.pawn);
+                                        _currentField.nextF.pawn.player.pawnToSpawn(_currentField.nextF.pawn , g);
                                         _currentField = _currentField.nextF;
                                         _currentField.pawn = this;
                                     }
@@ -179,7 +179,7 @@ namespace MensErgerJeNiet.Model
                             {
                                 if (_currentField.nextF.pawn != null)
                                 {
-                                    _currentField.nextF.pawn.player.pawnToSpawn(_currentField.nextF.pawn);
+                                    _currentField.nextF.pawn.player.pawnToSpawn(_currentField.nextF.pawn, g);
                                     _currentField = _currentField.nextF;
                                     _currentField.pawn = this;
                                 }
@@ -204,7 +204,7 @@ namespace MensErgerJeNiet.Model
                         {
                             if (_currentField.previousF.pawn != null)
                             {
-                                _currentField.previousF.pawn.player.pawnToSpawn(_currentField.previousF.pawn);
+                                _currentField.previousF.pawn.player.pawnToSpawn(_currentField.previousF.pawn , g);
                                 _currentField = _currentField.previousF;
                                 _currentField.pawn = this;
                             }

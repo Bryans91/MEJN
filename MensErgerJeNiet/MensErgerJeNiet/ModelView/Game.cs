@@ -80,10 +80,14 @@ namespace MensErgerJeNiet.ModelView
 
         }
 
-        public void startGame(int players, int humans)
+        public void startGame(string[] strings , int nrP , int nrH)
         {
-            createPlayers(players, humans);
-            _board = new Board(_playerList);
+            _board = new Board(playerList);
+            createPlayers(nrP, nrH);
+            board.newCreateField(strings, playerList);
+
+           // createPlayers(stri, humans);
+           // _board = new Board(_playerList);
             firstRoll(_playerList);
             //addPawn();
         }

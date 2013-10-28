@@ -102,7 +102,7 @@ namespace MensErgerJeNiet
 
         private void ALEX_STARTUP(int players, int humans)
         {
-            theGame.startGame(players, humans);
+          //  theGame.startGame(players, humans);
            
             spawns = theGame.board.Spawns;
             colorEllipses();

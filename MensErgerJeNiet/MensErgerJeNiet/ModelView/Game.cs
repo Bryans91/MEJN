@@ -415,7 +415,8 @@ namespace MensErgerJeNiet.ModelView
             if (current != null)
             {
                 Console.WriteLine(current.fieldCode);
-                Console.WriteLine("Next: " + current.nextF.fieldCode);
+                if (current.nextF != null) 
+                    Console.WriteLine("Next: " + current.nextF.fieldCode);
                 if (current.pawn != null)
                 {
                     if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))

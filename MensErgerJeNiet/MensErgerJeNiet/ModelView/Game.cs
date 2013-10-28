@@ -77,7 +77,6 @@ namespace MensErgerJeNiet.ModelView
             _board = new Board(playerList);
             board.newCreateField(strings , _playerList);
 
-
         }
 
         public void startGame(string[] strings , int nrP , int nrH)
@@ -219,7 +218,6 @@ namespace MensErgerJeNiet.ModelView
             {
               
                 _playersTurn = _playersTurn.nextP;
-
                 Console.WriteLine(_playersTurn.color + " " + playersTurn.isHuman);
                 if (!_playersTurn.isHuman)
                 {
@@ -233,7 +231,7 @@ namespace MensErgerJeNiet.ModelView
             {
                 main.rollButton.IsEnabled = false;
             }
-
+            main.changePlayerTurn(playersTurn.color);
         }
 
 
@@ -299,6 +297,7 @@ namespace MensErgerJeNiet.ModelView
 
                 _diceRoll = 0;
             }
+            main.changePlayerTurn(playersTurn.color);
         }
 
 
@@ -343,9 +342,9 @@ namespace MensErgerJeNiet.ModelView
                 main.rollButton.IsEnabled = true;
 
             }
-           
-            
 
+
+            main.changePlayerTurn(p.nextP.color);
 
             //NULLPOINTER
            

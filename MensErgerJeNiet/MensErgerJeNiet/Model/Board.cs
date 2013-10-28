@@ -450,7 +450,6 @@ namespace MensErgerJeNiet.Model
         {
             Field current = first, temp = null;
             int i = 0;
-            int g = 0;
             while (current.fieldCode != fieldcode)
             {
                 
@@ -607,10 +606,10 @@ namespace MensErgerJeNiet.Model
             return newGoal1;
         }
 
-        private Player[] playerList
+        public Player[] playerList
         {
             get { return _playerList; }
-            set { _playerList = value; }
+            private set { _playerList = value; }
         }
 
         public Spawn[] Spawns

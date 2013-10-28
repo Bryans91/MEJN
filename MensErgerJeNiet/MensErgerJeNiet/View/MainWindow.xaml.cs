@@ -45,35 +45,35 @@ namespace MensErgerJeNiet
             if(spawns!=null)
             while (i < spawns.Length)
             {
-                if (spawns[i].fieldCode.StartsWith("pGREEN") && spawns[i].pawn != null)
+                if (spawns[i].fieldCode.StartsWith("pgreen") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.LawnGreen);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pGREEN") && spawns[i].pawn == null) 
+                else if (spawns[i].fieldCode.StartsWith("pgreen") && spawns[i].pawn == null) 
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Green);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pRED") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("pred") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Red);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pRED") && spawns[i].pawn == null)
+                else if (spawns[i].fieldCode.StartsWith("pred") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkRed);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pBLUE") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("pblue") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Blue);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pBLUE") && spawns[i].pawn == null)
+                else if (spawns[i].fieldCode.StartsWith("pblue") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.DarkBlue);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pYELLOW") && spawns[i].pawn != null)
+                else if (spawns[i].fieldCode.StartsWith("pyellow") && spawns[i].pawn != null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Yellow);
                 }
-                else if (spawns[i].fieldCode.StartsWith("pYELLOW") && spawns[i].pawn == null)
+                else if (spawns[i].fieldCode.StartsWith("pyellow") && spawns[i].pawn == null)
                 {
                     getFieldEllipse(spawns[i].fieldCode).Fill = new SolidColorBrush(Colors.Goldenrod);
                 }
@@ -197,38 +197,38 @@ namespace MensErgerJeNiet
         {
             switch (field)
             {
-                case "pGREENspawn1":
-                    return pGREENspawn1;
-                case "pGREENspawn2":
-                    return pGREENspawn2;
-                case "pGREENspawn3":
-                    return pGREENspawn3;
-                case "pGREENspawn4":
-                    return pGREENspawn4;
-                case "pREDspawn1":
-                    return pREDspawn1;
-                case "pREDspawn2":
-                    return pREDspawn2;
-                case "pREDspawn3":
-                    return pREDspawn3;
-                case "pREDspawn4":
-                    return pREDspawn4;
-                case "pBLUEspawn1":
-                    return pBLUEspawn1;
-                case "pBLUEspawn2":
-                    return pBLUEspawn2;
-                case "pBLUEspawn3":
-                    return pBLUEspawn3;
-                case "pBLUEspawn4":
-                    return pBLUEspawn4;
-                case "pYELLOWspawn1":
-                    return pYELLOWspawn1;
-                case "pYELLOWspawn2":
-                    return pYELLOWspawn2;
-                case "pYELLOWspawn3":
-                    return pYELLOWspawn3;
-                case "pYELLOWspawn4":
-                    return pYELLOWspawn4;
+                case "pgreenspawn1":
+                    return pgreenspawn1;
+                case "pgreenspawn2":
+                    return pgreenspawn2;
+                case "pgreenspawn3":
+                    return pgreenspawn3;
+                case "pgreenspawn4":
+                    return pgreenspawn4;
+                case "predspawn1":
+                    return predspawn1;
+                case "predspawn2":
+                    return predspawn2;
+                case "predspawn3":
+                    return predspawn3;
+                case "predspawn4":
+                    return predspawn4;
+                case "pbluespawn1":
+                    return pbluespawn1;
+                case "pbluespawn2":
+                    return pbluespawn2;
+                case "pbluespawn3":
+                    return pbluespawn3;
+                case "pbluespawn4":
+                    return pbluespawn4;
+                case "pyellowspawn1":
+                    return pyellowspawn1;
+                case "pyellowspawn2":
+                    return pyellowspawn2;
+                case "pyellowspawn3":
+                    return pyellowspawn3;
+                case "pyellowspawn4":
+                    return pyellowspawn4;
                 case "field1":
                     return field1;
                 case "field2":
@@ -293,38 +293,54 @@ namespace MensErgerJeNiet
                     return field31;
                 case "field32":
                     return field32;
-                case "goalGREEN1":
-                    return goalGREEN1;
-                case "goalGREEN2":
-                    return goalGREEN2;
-                case "goalGREEN3":
-                    return goalGREEN3;
-                case "goalGREEN4":
-                    return goalGREEN4;
-                case "goalRED1":
-                    return goalRED1;
-                case "goalRED2":
-                    return goalRED2;
-                case "goalRED3":
-                    return goalRED3;
-                case "goalRED4":
-                    return goalRED4;
-                case "goalBLUE1":
-                    return goalBLUE1;
-                case "goalBLUE2":
-                    return goalBLUE2;
-                case "goalBLUE3":
-                    return goalBLUE3;
-                case "goalBLUE4":
-                    return goalBLUE4;
-                case "goalYELLOW1":
-                    return goalYELLOW1;
-                case "goalYELLOW2":
-                    return goalYELLOW2;
-                case "goalYELLOW3":
-                    return goalYELLOW3;
-                case "goalYELLOW4":
-                    return goalYELLOW4;
+                case "field33":
+                    return field33;
+                case "field34":
+                    return field34;
+                case "field35":
+                    return field35;
+                case "field36":
+                    return field36;
+                case "field37":
+                    return field37;
+                case "field38":
+                    return field38;
+                case "field39":
+                    return field39;
+                case "field0":
+                    return field0;
+                case "goalgreen1":
+                    return goalgreen1;
+                case "goalgreen2":
+                    return goalgreen2;
+                case "goalgreen3":
+                    return goalgreen3;
+                case "goalgreen4":
+                    return goalgreen4;
+                case "goalred1":
+                    return goalred1;
+                case "goalred2":
+                    return goalred2;
+                case "goalred3":
+                    return goalred3;
+                case "goalred4":
+                    return goalred4;
+                case "goalblue1":
+                    return goalblue1;
+                case "goalblue2":
+                    return goalblue2;
+                case "goalblue3":
+                    return goalblue3;
+                case "goalblue4":
+                    return goalblue4;
+                case "goalyellow1":
+                    return goalyellow1;
+                case "goalyellow2":
+                    return goalyellow2;
+                case "goalyellow3":
+                    return goalyellow3;
+                case "goalyellow4":
+                    return goalyellow4;
                 default:
                     return new Ellipse();
             }

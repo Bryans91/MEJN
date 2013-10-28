@@ -512,6 +512,9 @@ namespace MensErgerJeNiet.Model
                                 break;
                         }
                         break;
+                    case 40:
+                        temp = current.switchF;
+                        break;
                 }
                 i++;
                 

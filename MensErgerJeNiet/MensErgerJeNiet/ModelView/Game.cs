@@ -347,16 +347,9 @@ namespace MensErgerJeNiet.ModelView
                 main.rollButton.IsEnabled = true;
 
             }
-<<<<<<< HEAD
-
 
             main.changePlayerTurn(p.nextP.color);
 
-            //NULLPOINTER
-           
-=======
-
->>>>>>> b99716928bdd92e71f689eeb03e9c0ca62ed046e
         }
         
 

@@ -319,7 +319,8 @@ namespace MensErgerJeNiet.ModelView
         {
             Field start = _selected.currentField;
             _selected.move(_diceRoll , this);
-
+            if (diceRoll == 0)
+                return;
 
             if (p.pawnsInGoal == 4)
             {
@@ -422,6 +423,10 @@ namespace MensErgerJeNiet.ModelView
                 }
             }
         }
+        public void colorSpawns()
+        {
+            main.colorEllipses(playerList);
+        }
 
         private void setPlayerTurn()
         {
@@ -455,5 +460,7 @@ namespace MensErgerJeNiet.ModelView
         {
             get { return _playerList; }
         }
+
+
     }
 }

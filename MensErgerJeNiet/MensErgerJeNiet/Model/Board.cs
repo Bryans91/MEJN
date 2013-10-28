@@ -467,17 +467,16 @@ namespace MensErgerJeNiet.Model
                 }
                 if (temp != null)
                 {
+                    if (temp.fieldCode == fieldcode)
+                    {
+                        current = temp;
+                        break;
+                    }
                     if (temp.nextF != null)
                     {
-                        if (temp.fieldCode == fieldcode)
-                        {
-                            current = temp;
-                            break;
-                        }
                         temp = temp.nextF;
                     }
                 }
-
 
                 switch (i)
                 {

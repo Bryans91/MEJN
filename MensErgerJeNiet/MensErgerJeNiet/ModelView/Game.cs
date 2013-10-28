@@ -39,11 +39,15 @@ namespace MensErgerJeNiet.ModelView
         public void startFromFile(String[] file)
         {
             //TEST STRINGARRAY
-            string[] strings = new string[4];
+            string[] strings = new string[8];
             strings[0] = "NrPlayers=4";
             strings[1] = "NrHumans=2";
             strings[2] = "Turn=RED";
-            strings[3] = "oooooooRooooo1ooooGooooooRooo2ooooooBoooooo3ooooooYoooooo4"; //incomplete
+            strings[3] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"; //incomplete
+            strings[4] = "OOOO";
+            strings[5] = "OOOO";
+            strings[6] = "OOOO";
+            strings[7] = "OOOO";
             //TEST STRINGARRAY
 
 
@@ -65,7 +69,7 @@ namespace MensErgerJeNiet.ModelView
 
             }
 
-            board.createField(strings);
+            board.newCreateField(strings , _playerList);
 
 
         }

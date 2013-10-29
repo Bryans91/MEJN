@@ -149,7 +149,7 @@ namespace MensErgerJeNiet.Model
 
             if (_onSpawn)
             {
-               // _currentField = _currentField.nextF;
+                //_currentField = _currentField.nextF;
                 _onSpawn = false;
             }
                 for (int i = 1; i <= steps; i++)

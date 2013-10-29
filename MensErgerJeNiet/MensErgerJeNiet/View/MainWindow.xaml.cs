@@ -45,6 +45,7 @@ namespace MensErgerJeNiet
             int g = 0;
             foreach(Player p in players) 
             {
+
                 if (p != null)
                 {
                     foreach (Spawn sp in p.spawns)
@@ -110,37 +111,16 @@ namespace MensErgerJeNiet
             Application.Current.Shutdown();
         }
 
-        private void Open_Click(object sender, RoutedEventArgs e)
-        {
-            // Displays an OpenFileDialog so the user can select a Cursor.
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Text Files|*.txt";
-            openFileDialog1.Title = "Select a Text File";
-
-            // Show the Dialog.
-            // If the user clicked OK in the dialog and
-            // a .CUR file was selected, open it.
-            if (openFileDialog1.ShowDialog() == true)
-            {
-                
-                // Assign the cursor in the Stream to the Form's Cursor property.
-                System.IO.StreamReader sr = new
-                System.IO.StreamReader(openFileDialog1.FileName);
-                List<string> lines = new List<string>();
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                    lines.Add(line);
-                string[] strarray = lines.ToArray();
-                pgs.Main.TheGame = null;
-                pgs.Main.TheGame = new Game(pgs.Main);
-                pgs.Main.TheGame.startFromFile(strarray);
-                sr.Close();
-            }
-        }
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string[] lines = TheGame.board.getSave();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (sfd.ShowDialog() == true)
+            {
+                string name = sfd.FileName;
+                File.WriteAllLines(name, lines);
+            }
         }
 
         public void enableRollButton()

@@ -66,24 +66,23 @@ namespace MensErgerJeNiet.ModelView
 
             foreach (Player p in _playerList)
             {
-                if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
-                {
-                    playersTurn = p;
-                }
+                if(p != null)
+                    if (p.color.Equals(strings[3].Substring(strings[3].IndexOf('=')+1, 1)))
+                        playersTurn = p;
 
                 //create spawns for players? (nu we toch in een loop zitten)
                 //evt ook goals?
 
             }
 
-            _board = new Board(playerList);
+            _board = new Board(playerList, this);
             board.newCreateField(strings , _playerList);
 
         }
 
         public void startGame(string[] strings , int nrP , int nrH)
         {
-            _board = new Board(playerList);
+            _board = new Board(playerList, this);
             createPlayers(nrP, nrH);
             board.newCreateField(strings, playerList);
 
@@ -386,7 +385,6 @@ namespace MensErgerJeNiet.ModelView
             }
 
             main.changePlayerTurn(playersTurn.color);
-
         }
         
 

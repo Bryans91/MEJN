@@ -531,11 +531,10 @@ namespace MensErgerJeNiet.Model
             }
             strings[1] = "NrHumans=" + counter;
             strings[2] = "Turn=" + theGame.playersTurn.color;
-            int counter2 = 0;
             Field current = first, temp = null;
             int i = 0;
             char[] chars = new char[40];
-            char[] goals = new char[4];
+            char[] goals = new char[16];
             while (i < 51)
             {
                 if (i < 40)
@@ -552,59 +551,141 @@ namespace MensErgerJeNiet.Model
                         chars[i] = 'Y';
                 }
                 current = current.nextF;
-
-                if (temp != null)
-                {
-                    if (temp.pawn == null && counter2 < 4)
-                        goals[counter2] = 'O';
-                    else if (temp.pawn != null && counter2 < 4)
-                    {
-                         if (temp.pawn.player.color == PlayerColor.GREEN){
-                            goals[counter2] = 'G';}
-                         if (temp.pawn.player.color == PlayerColor.RED){
-                            goals[counter2] = 'R';}
-                         if (temp.pawn.player.color == PlayerColor.BLUE){
-                            goals[counter2] = 'B';}
-                         if (temp.pawn.player.color == PlayerColor.YELLOW) {
-                             goals[counter2] = 'Y';}
-                    }
-                    System.Threading.Thread.Sleep(50);
-                    if (temp.nextF != null)
-                    {
-                        temp = temp.nextF;
-                        counter2++;
-                    }
-                }
                 
                 switch (i)
                 {
                     case 8:
-                        Console.WriteLine("THISISCURRENT: " + current.fieldCode);
-                        temp = current.switchF;
+                        Field tempf = current.switchF;
+                       int tempint = 0;
+                       goals = new char[16];
+                       if (tempf.switchF.pawn != null)
+                       {
+                           goals[tempint] = 'R';
+                       }
+                       else
+                       {
+                           goals[tempint] = 'O';
+                       }
+
+                       tempint++;
+                       tempf = tempf.switchF;
+
+                       while (tempf.nextF != null && tempint < 8)
+                        {
+                            if (tempf.pawn != null)
+                            {
+                                goals[tempint] = 'R';
+                            }
+                            else
+                            {
+                                goals[tempint] = 'O';
+                            }
+                            tempf = tempf.nextF;
+                            tempint++;
+                        }
+                        strings[5] = new string(goals);
+                        goals = null;
                         break;
                     case 18:
-                        counter = 0;
-                        strings[5] = new string(goals);
-                        goals = new char[4];
-                        temp = current.switchF;
+                       tempf = current;
+                       tempint = 0;
+                       goals = new char[16];
+                       if (tempf.switchF.pawn != null)
+                       {
+                           goals[tempint] = 'B';
+                       }
+                       else
+                       {
+                           goals[tempint] = 'O';
+                       }
+
+                       tempint++;
+                       tempf = tempf.switchF;
+
+                       while (tempf.nextF != null && tempint < 8)
+                        {
+                            if (tempf.pawn != null)
+                            {
+                                goals[tempint] = 'B';
+                            }
+                            else
+                            {
+                                goals[tempint] = 'O';
+                            }
+                            tempf = tempf.nextF;
+                            tempint++;
+                        }
+                        strings[6] = new string(goals);
+                        goals = null;
                         break;
                     case 28:
-                        counter = 0;
-                        strings[6] = new string(goals);
-                        goals = new char[4];
-                        temp = current.switchF;
+                       tempf = current;
+                       tempint = 0;
+                       goals = new char[16];
+                       if (tempf.switchF.pawn != null)
+                       {
+                           goals[tempint] = 'Y';
+                       }
+                       else
+                       {
+                           goals[tempint] = 'O';
+                       }
+
+                       tempint++;
+                       tempf = tempf.switchF;
+
+                       while (tempf.nextF != null && tempint < 8)
+                        {
+                            if (tempf.pawn != null)
+                            {
+                                goals[tempint] = 'Y';
+                            }
+                            else
+                            {
+                                goals[tempint] = 'O';
+                            }
+                            tempf = tempf.nextF;
+                            tempint++;
+                        }
+                        strings[7] = new string(goals);
+                        goals = null;
                         break;
                     case 38:
-                        counter = 0;
-                        strings[7] = new string(goals);
-                        goals = new char[4];
-                        temp = current.switchF;
+                       tempf = current;
+                       tempint = 0;
+                       goals = new char[16];
+                       if (tempf.switchF.pawn != null)
+                       {
+                           goals[tempint] = 'G';
+                       }
+                       else
+                       {
+                           goals[tempint] = 'O';
+                       }
+
+                       tempint++;
+                       tempf = tempf.switchF;
+
+                       while (tempf.nextF != null && tempint < 8)
+                        {
+                            if (tempf.pawn != null)
+                            {
+                                goals[tempint] = 'G';
+                            }
+                            else
+                            {
+                                goals[tempint] = 'O';
+                            }
+                            tempf = tempf.nextF;
+                            tempint++;
+                        }
+                        strings[4] = new string(goals);
+                        goals = null;
                         break;
                 }
                 i++;
             }
             strings[3] = new string(chars);
-            strings[4] = new string(goals);
             return strings;
         }
 

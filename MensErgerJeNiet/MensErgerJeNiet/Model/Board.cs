@@ -11,9 +11,7 @@ namespace MensErgerJeNiet.Model
     {
         private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
-        private int numberOfSpawns = 4, numberOfCurrentGoals = 0;
         private Player[] _playerList;
-        private int createSpawnCounter = 1, createGoalCounter = 1;
         private Goal[] goals = new Goal[16];
 
 
@@ -528,91 +526,6 @@ namespace MensErgerJeNiet.Model
                 
             }
             return current;
-        }
-
-
-        private void createSpawns(Player p, int numberOfPawns)
-        {
-            int i, pNR = 0;
-            int g = 1;
-            switch (createSpawnCounter)
-            {
-                case 1:
-                    i = 0;
-                    numberOfSpawns = 4;
-                    g = 1;
-                    break;
-                case 2:
-                    i = 4;
-                    numberOfSpawns = 8;
-                    g = 1;
-                    break;
-                case 3:
-                    i = 8;
-                    numberOfSpawns = 12;
-                    g = 1;
-                    break;
-                case 4:
-                    i = 12;
-                    numberOfSpawns = 16;
-                    g = 1;
-                    break;
-                default:
-                    i = 0;
-                    break;
-                
-            }
-
-            switch (p.color)
-            {
-                case PlayerColor.GREEN:
-                    pNR = 1;
-                    break;
-                case PlayerColor.RED:
-                    pNR = 2;
-                    break;
-                case PlayerColor.BLUE:
-                    pNR = 3;
-                    break;
-                case PlayerColor.YELLOW:
-                    pNR = 4;
-                    break;
-            }
-            while (i < numberOfSpawns)
-            {
-                Spawn newSpawn = new Spawn("p" + pNR + "spawn" + g);
-                if(g <= numberOfPawns)
-                    newSpawn.pawn = new Pawn(p, newSpawn);
-                spawns[i] = newSpawn;
-                g++;
-                i++;
-            }
-            createSpawnCounter++;
-        }
-
-        private Goal createGoals(Player p)
-        {
-            Goal newGoal1 = new Goal(p, "p" + createGoalCounter + "end1");
-            Goal newGoal2 = new Goal(p, "p" + createGoalCounter + "end2");
-            Goal newGoal3 = new Goal(p, "p" + createGoalCounter + "end3");
-            Goal newGoal4 = new Goal(p, "p" + createGoalCounter + "end4");
-            newGoal1.nextF = newGoal2;
-            newGoal2.nextF = newGoal3;
-            newGoal3.nextF = newGoal2;
-            newGoal4.nextF = null;//making sure it's null
-            newGoal2.previousF = newGoal1;
-            newGoal3.previousF = newGoal2;
-            newGoal4.previousF = newGoal3;
-            goals[numberOfCurrentGoals] = newGoal1;
-            numberOfCurrentGoals++;
-            goals[numberOfCurrentGoals] = newGoal2;
-            numberOfCurrentGoals++;
-            goals[numberOfCurrentGoals] = newGoal3;
-            numberOfCurrentGoals++;
-            goals[numberOfCurrentGoals] = newGoal4;
-            numberOfCurrentGoals++;
-            createGoalCounter++;
-            return newGoal1;
         }
 
         public Player[] playerList

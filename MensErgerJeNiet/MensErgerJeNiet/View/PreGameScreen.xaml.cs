@@ -68,11 +68,23 @@ namespace MensErgerJeNiet.View
                 main = new MainWindow(this);
                 List<string> lines = new List<string>();
                 string line;
-                while((line = sr.ReadLine())!= null)
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
                     lines.Add(line);
-                string[] strarray = lines.ToArray();
-                main.TheGame.startFromFile(strarray);
+                }
+                string[] strarray = new string[8];
+                strarray = lines.ToArray();
+                int players, humans;
+                string[] array1 = strarray[0].Split('=');
+                string[] array2 = strarray[1].Split('=');
+                Int32.TryParse(array1[1], out players);
+                Int32.TryParse(array2[1], out humans);
+                main.TheGame.startGame(strarray, players, humans);
+                //main.TheGame.startFromFile(strarray);
                 main.Visibility = Visibility.Visible;
+                main.colorEllipses(main.TheGame.board.playerList);
+                main.enableRollButton();
                 sr.Close();
                 this.Close();
             }

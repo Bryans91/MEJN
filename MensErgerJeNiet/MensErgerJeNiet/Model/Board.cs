@@ -88,6 +88,7 @@ namespace MensErgerJeNiet.Model
                         //add pawn
                         if (players[0].pawns[greenPawns] == null)
                         {
+                            tempPawn.onSpawn = false;
                             players[0].pawns[greenPawns] = tempPawn;
                             greenPawns++;
                         }
@@ -104,6 +105,7 @@ namespace MensErgerJeNiet.Model
                         //add pawn
                         if (players[1].pawns[redPawns] == null)
                         {
+                            tempPawn.onSpawn = false;
                             players[1].pawns[redPawns] = tempPawn;
                             redPawns++;
                         }
@@ -120,6 +122,7 @@ namespace MensErgerJeNiet.Model
                         //add pawn
                         if (players[2].pawns[bluePawns] == null)
                         {
+                            tempPawn.onSpawn = false;
                             players[2].pawns[bluePawns] = tempPawn;
                             bluePawns++;
                         }
@@ -136,6 +139,7 @@ namespace MensErgerJeNiet.Model
                         //add pawn
                         if (players[3].pawns[yellowPawns] == null)
                         {
+                            tempPawn.onSpawn = false;
                             players[3].pawns[yellowPawns] = tempPawn;
                             yellowPawns++;
                         }
@@ -206,6 +210,7 @@ namespace MensErgerJeNiet.Model
                                 theGame.sendFieldCode(rTemp);
                                 if (players[1].pawns[redPawns] == null)
                                 {
+                                    tempPawn.onSpawn = false;
                                     players[1].pawns[redPawns] = tempPawn;
                                     redPawns++;
                                 }
@@ -248,6 +253,7 @@ namespace MensErgerJeNiet.Model
                                     theGame.sendFieldCode(bTemp);
                                     if (players[2].pawns[bluePawns] == null)
                                     {
+                                        tempPawn.onSpawn = false;
                                         players[2].pawns[bluePawns] = tempPawn;
                                         bluePawns++;
                                     }
@@ -292,6 +298,7 @@ namespace MensErgerJeNiet.Model
                                     theGame.sendFieldCode(yTemp);
                                     if (players[3].pawns[yellowPawns] == null)
                                     {
+                                        tempPawn.onSpawn = false;
                                         players[3].pawns[yellowPawns] = tempPawn;
                                         yellowPawns++;
                                     }
@@ -333,9 +340,10 @@ namespace MensErgerJeNiet.Model
                                     gTemp.pawn = new Pawn(players[0], gTemp);
                                     players[0].pawnsInGoal += 1;
                                     theGame.sendFieldCode(gTemp);
-                                    if (players[1].pawns[greenPawns] == null)
+                                    if (players[0].pawns[greenPawns] == null)
                                     {
-                                        players[1].pawns[greenPawns] = tempPawn;
+                                        tempPawn.onSpawn = false;
+                                        players[0].pawns[greenPawns] = tempPawn;
                                         greenPawns++;
                                     }
                                 }

@@ -60,7 +60,6 @@ namespace MensErgerJeNiet.ModelView
             Int32.TryParse((strings[0].Substring(strings[0].IndexOf('=')+1, 1)), out NrofPlayers);
             int NrofHumans = 0;
             Int32.TryParse((strings[1].Substring(strings[1].IndexOf('=')+1, 1)), out NrofHumans);
-            Console.WriteLine(NrofPlayers + " " + NrofHumans);
 
             createPlayers(NrofPlayers, NrofHumans);
 
@@ -98,8 +97,6 @@ namespace MensErgerJeNiet.ModelView
         {
             _playerList = new Player[4];
             Player temp = null;
-
-            Console.WriteLine(nrOfPlayers + " " + nrOfHumans);
             //add players to player list & sets human or computer player
             for (int i = 0; i < nrOfPlayers; i++)
             {
@@ -170,9 +167,7 @@ namespace MensErgerJeNiet.ModelView
             
             
 
-            Console.WriteLine("First: " + playersTurn.color);
             //place first pawn on board
-            //playersTurn.pawns[0].currentField = playersTurn.pawns[0].currentField.nextF;
             Field temporary = playersTurn.pawns[0].currentField;
 
             playersTurn.pawns[0].move(1 , this);
@@ -195,8 +190,6 @@ namespace MensErgerJeNiet.ModelView
         //Checks if ANY moves are possible
         public bool canMakeMove(Player p)
         {
-            Console.WriteLine("Checking for move player: " + p.color + " roll: " + _diceRoll);
-
             int moveablePawns = 0;
             bool stuck = true;
 
@@ -205,13 +198,9 @@ namespace MensErgerJeNiet.ModelView
                 
                 if (pawn.canMove(_diceRoll))
                 {
-                    Console.WriteLine(pawn.currentField.fieldCode + " Can move");
                     moveablePawns++;
                 }
             }
-
-            Console.WriteLine(moveablePawns + "<--- movable pawns");
-
             if (moveablePawns == 0)
             {
                 stuck = false;
@@ -227,7 +216,6 @@ namespace MensErgerJeNiet.ModelView
             {
               
                 _playersTurn = _playersTurn.nextP;
-                Console.WriteLine(_playersTurn.color + " " + playersTurn.isHuman);
                 if (!_playersTurn.isHuman)
                 {        
                     computerPrep(_playersTurn);
@@ -308,7 +296,6 @@ namespace MensErgerJeNiet.ModelView
                     }
 
                     select = true;
-                    Console.WriteLine("Selected: " + _selected);
                 }
 
                 handleTurn(p);
@@ -344,8 +331,6 @@ namespace MensErgerJeNiet.ModelView
             _selected.move(_diceRoll , this);
             if (diceRoll == 0)
                 return;
-            Console.WriteLine("pawns in goal " + p.color + " " + p.pawnsInGoal);
-
             if (p.pawnsInGoal == 4)
             {
                 main.showEndMessage();

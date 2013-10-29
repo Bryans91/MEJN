@@ -104,7 +104,6 @@ namespace MensErgerJeNiet.Model
              
             } // end for
 
-            Console.WriteLine("THEGOAL: " + goal.fieldCode);
             //check the goal location
                 if (goal.pawn != null)
                 {
@@ -311,8 +310,6 @@ namespace MensErgerJeNiet.Model
                    
                     
                 }//endfor
-
-                Console.WriteLine("NEW LOCATION: " + _currentField.fieldCode);
                 g.colorSpawns();
         } //end method
 

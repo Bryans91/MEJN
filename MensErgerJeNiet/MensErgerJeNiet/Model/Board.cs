@@ -26,7 +26,6 @@ namespace MensErgerJeNiet.Model
         
         public void newCreateField(string[] field , Player[] players)
         {
-            Console.WriteLine("creating field");
             playerList = players;
             //Field creation prep
             char[] normalF = new char[field[3].Length];
@@ -59,7 +58,6 @@ namespace MensErgerJeNiet.Model
                     {
                         string spwnCode = "p" + p.color + "spawn" + s;
                         p.spawns[s] = new Spawn(spwnCode);
-                        Console.WriteLine(p.spawns[s].fieldCode);
                     }
                 }
             }
@@ -228,15 +226,7 @@ namespace MensErgerJeNiet.Model
                                 rPrev.nextF = rTemp;
 
                             }
-                            Console.WriteLine(rTemp.fieldCode);
-                           
-
-                         
-
                             rPrev = rTemp;
-
-                       
-                            
                         }
                         break;
                         
@@ -278,7 +268,6 @@ namespace MensErgerJeNiet.Model
                                     bPrev.nextF = bTemp;
 
                                 }
-                                Console.WriteLine(bTemp.fieldCode);
                                 bPrev = bTemp;
                             }
                         }
@@ -323,8 +312,6 @@ namespace MensErgerJeNiet.Model
                                     yPrev.nextF = yTemp;
 
                                 }
-                                Console.WriteLine(yTemp.fieldCode);
-
                                 yPrev = yTemp;
                             }
 
@@ -368,7 +355,6 @@ namespace MensErgerJeNiet.Model
                                     gPrev.nextF = gTemp;
 
                                 }
-                                Console.WriteLine(gTemp.fieldCode);
                                 gPrev = gTemp;
                             }
                             //link ends
@@ -379,8 +365,6 @@ namespace MensErgerJeNiet.Model
                             
                             current.nextF = first;
                             first.previousF = current;
-                            Console.WriteLine("prev: " + previous.fieldCode + " next: " + current.fieldCode);
-                            
                         }
                         break;
 
@@ -391,7 +375,6 @@ namespace MensErgerJeNiet.Model
                 {
                     previous.nextF = current;
                     current.previousF = previous;
-                    Console.WriteLine("prev: " + previous.fieldCode + " next: " + current.fieldCode);
                 }
 
                 previous = current;
@@ -420,16 +403,12 @@ namespace MensErgerJeNiet.Model
                                         p.spawns[counter2].pawn = p.pawns[counter1];
                                         placed = true;
                                     }
-                                    Console.WriteLine(p.spawns[counter2].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[counter2].fieldCode);
                                 } // last for
                             }
                         }
                     } // first for
                 }
             }
-
-
-            Console.WriteLine("FIELD CREATED");
         } 
 
 
@@ -558,18 +537,20 @@ namespace MensErgerJeNiet.Model
                         Field tempf = current.switchF;
                        int tempint = 0;
                        goals = new char[16];
-                       if (tempf.switchF.pawn != null)
+                       if (temp.switchF != null)
                        {
-                           goals[tempint] = 'R';
-                       }
-                       else
-                       {
-                           goals[tempint] = 'O';
-                       }
+                           if (tempf.switchF.pawn != null)
+                           {
+                               goals[tempint] = 'R';
+                           }
+                           else
+                           {
+                               goals[tempint] = 'O';
+                           }
 
-                       tempint++;
-                       tempf = tempf.switchF;
-
+                           tempint++;
+                           tempf = tempf.switchF;
+                       }
                        while (tempf.nextF != null && tempint < 8)
                         {
                             if (tempf.pawn != null)

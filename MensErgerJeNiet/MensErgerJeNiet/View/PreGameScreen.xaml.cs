@@ -38,7 +38,6 @@ namespace MensErgerJeNiet.View
             string path = thisExe.Location;
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             string folderName = dirInfo.Parent.FullName;
-            Console.WriteLine(folderName);
             Uri uri = new Uri(folderName + "/background.jpg");
             BitmapImage img = new BitmapImage(uri);
             this.Background = new ImageBrush(img);
@@ -70,7 +69,6 @@ namespace MensErgerJeNiet.View
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(line);
                     lines.Add(line);
                 }
                 string[] strarray = new string[8];

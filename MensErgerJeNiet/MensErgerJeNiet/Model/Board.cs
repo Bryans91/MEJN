@@ -12,7 +12,6 @@ namespace MensErgerJeNiet.Model
         private Field _first, _last;
         private Spawn[] spawns = new Spawn[16];
         private Player[] _playerList;
-        private Goal[] goals = new Goal[16];
         private Game theGame;
 
         public Board(Player[] plist, Game game)
@@ -512,6 +511,96 @@ namespace MensErgerJeNiet.Model
             return current;
         }
 
+        public string[] getSave()
+        {
+            string[] strings = new string[8];
+            strings[0] = "NrPlayers=" + playerList.Length;
+            int tempi = 0, counter = 0;
+            while (tempi < playerList.Length) 
+            {
+                if (playerList[tempi].isHuman)
+                    counter++;
+                tempi++;
+            }
+            strings[1] = "NrHumans=" + counter;
+            strings[2] = "Turn=" + theGame.playersTurn.color;
+            int counter2 = 0;
+            Field current = first, temp = null;
+            int i = 0;
+            char[] chars = new char[40];
+            char[] goals = new char[4];
+            while (i < 51)
+            {
+                if (i < 40)
+                {
+                    if (current.pawn == null)
+                        chars[i] = 'O';
+                    else if (current.pawn.player.color == PlayerColor.GREEN)
+                        chars[i] = 'G';
+                    else if (current.pawn.player.color == PlayerColor.RED)
+                        chars[i] = 'R';
+                    else if (current.pawn.player.color == PlayerColor.BLUE)
+                        chars[i] = 'B';
+                    else if (current.pawn.player.color == PlayerColor.YELLOW)
+                        chars[i] = 'Y';
+                }
+                current = current.nextF;
+
+                if (temp != null)
+                {
+                    if (temp.pawn == null && counter2 < 4)
+                        goals[counter2] = 'O';
+                    else if (temp.pawn != null && counter2 < 4)
+                    {
+                         if (temp.pawn.player.color == PlayerColor.GREEN){
+                            goals[counter2] = 'G';}
+                         if (temp.pawn.player.color == PlayerColor.RED){
+                            goals[counter2] = 'R';}
+                         if (temp.pawn.player.color == PlayerColor.BLUE){
+                            goals[counter2] = 'B';}
+                         if (temp.pawn.player.color == PlayerColor.YELLOW) {
+                             goals[counter2] = 'Y';}
+                    }
+                    System.Threading.Thread.Sleep(50);
+                    if (temp.nextF != null)
+                    {
+                        temp = temp.nextF;
+                        counter2++;
+                    }
+                }
+                
+                switch (i)
+                {
+                    case 8:
+                        Console.WriteLine("THISISCURRENT: " + current.fieldCode);
+                        temp = current.switchF;
+                        break;
+                    case 18:
+                        counter = 0;
+                        strings[5] = new string(goals);
+                        goals = new char[4];
+                        temp = current.switchF;
+                        break;
+                    case 28:
+                        counter = 0;
+                        strings[6] = new string(goals);
+                        goals = new char[4];
+                        temp = current.switchF;
+                        break;
+                    case 38:
+                        counter = 0;
+                        strings[7] = new string(goals);
+                        goals = new char[4];
+                        temp = current.switchF;
+                        break;
+                }
+                i++;
+            }
+            strings[3] = new string(chars);
+            strings[4] = new string(goals);
+            return strings;
+        }
+
         public Player[] playerList
         {
             get { return _playerList; }
@@ -534,11 +623,5 @@ namespace MensErgerJeNiet.Model
             get { return _last; }
             private set { _last = value; }
         }
-
-        public Goal[] Goals
-        {
-            get { return goals; }
-        }
-
     }
 }

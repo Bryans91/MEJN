@@ -384,7 +384,6 @@ namespace MensErgerJeNiet.ModelView
             }
 
             main.changePlayerTurn(playersTurn.color);
-
         }
         
 

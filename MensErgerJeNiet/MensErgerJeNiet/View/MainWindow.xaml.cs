@@ -113,7 +113,14 @@ namespace MensErgerJeNiet
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string[] lines = TheGame.board.getSave();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (sfd.ShowDialog() == true)
+            {
+                string name = sfd.FileName;
+                File.WriteAllLines(name, lines);
+            }
         }
 
         public void enableRollButton()

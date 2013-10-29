@@ -6,12 +6,7 @@
     <Grid Margin="0,0,0,2" Background="White">
         <DockPanel VerticalAlignment="Top">
             <Menu DockPanel.Dock="Top" Height="24">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Open" Click="Open_Click"/>
-                    <MenuItem Header="_Save" Click="Save_Click"/>
-                
-                     
-                </MenuItem>
+                <MenuItem Header="_Save" Click="Save_Click"/>
                 <MenuItem Header="_Cheats">
                     <MenuItem Header="_Change player">
                         <MenuItem Name="player_0" Header="_Player 1" Click="playercheat_Click"/>

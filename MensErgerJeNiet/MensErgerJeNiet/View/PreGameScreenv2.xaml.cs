@@ -56,7 +56,7 @@ namespace MensErgerJeNiet.View
                     strings[0] = "NrPlayers=" + players;
                     strings[1] = "NrHumans=" + humans;
                     strings[2] = "Turn=";
-                    strings[3] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"; //incomplete
+                    strings[3] = "OOOOOOOOOYOOOOOOOOOOOOOOYOOOOOOOOOOOOOOO";
                     strings[4] = "OOOO";
                     strings[5] = "OOOO";
                     strings[6] = "OOOO";

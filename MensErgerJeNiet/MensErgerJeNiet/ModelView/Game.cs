@@ -205,9 +205,12 @@ namespace MensErgerJeNiet.ModelView
                 
                 if (pawn.canMove(_diceRoll))
                 {
+                    Console.WriteLine(pawn.currentField.fieldCode + " Can move");
                     moveablePawns++;
                 }
             }
+
+            Console.WriteLine(moveablePawns + "<--- movable pawns");
 
             if (moveablePawns == 0)
             {
@@ -226,8 +229,7 @@ namespace MensErgerJeNiet.ModelView
                 _playersTurn = _playersTurn.nextP;
                 Console.WriteLine(_playersTurn.color + " " + playersTurn.isHuman);
                 if (!_playersTurn.isHuman)
-                {
-                    
+                {        
                     computerPrep(_playersTurn);
                 }
 
@@ -255,9 +257,7 @@ namespace MensErgerJeNiet.ModelView
             {
                 
                 while (!select)
-                {
-
-                    
+                {                   
                     foreach (Pawn pawn in p.pawns)
                     {
                         
@@ -344,6 +344,7 @@ namespace MensErgerJeNiet.ModelView
             _selected.move(_diceRoll , this);
             if (diceRoll == 0)
                 return;
+            Console.WriteLine("pawns in goal " + p.color + " " + p.pawnsInGoal);
 
             if (p.pawnsInGoal == 4)
             {
@@ -448,7 +449,7 @@ namespace MensErgerJeNiet.ModelView
 
                 if (current != null)
                 {
-                    Console.WriteLine(current.fieldCode);
+                    
                     if (current.nextF != null)
 
                         if (current.pawn != null)

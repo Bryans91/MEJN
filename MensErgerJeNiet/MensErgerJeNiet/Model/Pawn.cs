@@ -52,8 +52,13 @@ namespace MensErgerJeNiet.Model
             }
             else
             {
-                //This fix
-                goal = _currentField.nextF;
+                if (_onSpawn && steps == 6)
+                {
+                    goal = _currentField.nextF;
+                } 
+
+
+                
             }
 
             //goal is null
@@ -63,25 +68,27 @@ namespace MensErgerJeNiet.Model
             }
             
             //check if possible to move
-            for (int i = 1; i < steps; i++)
-            {                        
+            for (int i = 0; i < steps; i++)
+            {
+                
                 if (goal.nextF == null)
                 {
                     direction = false;
                 }
 
                 if (direction)
-                {
-                    //REMOVED:goal.nextf.switch
+                { //forwards                 
                     if (goal.switchF != null)
                     {
-                   
-                        if (goal.switchF.player == _player)
+
+                        if (goal.switchF.player.color.Equals( this._player.color))
                         {
+                            
                             goal = goal.switchF;
                         }
                         else
                         {
+                            
                             goal = goal.nextF;
                         }
                     }
@@ -89,22 +96,28 @@ namespace MensErgerJeNiet.Model
                     {
                         goal = goal.nextF;
                     }
-                }
+                } // backwards
                 else
                 {
                     goal = goal.previousF;
                 }
-            }
+             
+            } // end for
 
-            
+            Console.WriteLine("THEGOAL: " + goal.fieldCode);
             //check the goal location
                 if (goal.pawn != null)
                 {
-                    if (goal.pawn == this)
-                    {
+                   if (goal.pawn == this)
+                   {
                         return true;
-                    }
-
+                   }
+                   if (goal.pawn.player == player)
+                   {
+                       _canHit = false;
+                       return false;
+                   }
+            
                     if (goal.pawn.player != _player)
                     {
                         _canHit = true;
@@ -128,7 +141,7 @@ namespace MensErgerJeNiet.Model
         {
             //The actual move
             bool direction = true;
-            Console.WriteLine("Old Location: " + _currentField);
+           
             Field temp = currentField;
             //TESTCODE
             currentField.pawn = null;
@@ -287,7 +300,7 @@ namespace MensErgerJeNiet.Model
                         
 
                         //no clue why, but wont work without V. maybe it delays something
-                                                 g.colorSpawns();
+                       g.colorSpawns();
                     
                     //refresh
                     if (temp != currentField)
@@ -295,7 +308,7 @@ namespace MensErgerJeNiet.Model
                         //Does not draw steps individually
                         g.sendFieldCode(currentField);
                     }
-                    Console.WriteLine("CURRENT LOCATION: " + currentField.fieldCode);
+                   
                     
                 }//endfor
 

@@ -52,8 +52,12 @@ namespace MensErgerJeNiet.Model
             }
             else
             {
-               
-            goal = _currentField.nextF;
+                if (_onSpawn && steps == 6)
+                {
+                    goal = _currentField.nextF;
+                } 
+
+
                 
             }
 
@@ -64,7 +68,7 @@ namespace MensErgerJeNiet.Model
             }
             
             //check if possible to move
-            for (int i = 1; i < steps; i++)
+            for (int i = 0; i < steps; i++)
             {
                 
                 if (goal.nextF == null)
@@ -73,17 +77,18 @@ namespace MensErgerJeNiet.Model
                 }
 
                 if (direction)
-                {
-                   
+                { //forwards                 
                     if (goal.switchF != null)
                     {
-                   
-                        if (goal.switchF.player == _player)
+
+                        if (goal.switchF.player.color.Equals( this._player.color))
                         {
+                            
                             goal = goal.switchF;
                         }
                         else
                         {
+                            
                             goal = goal.nextF;
                         }
                     }
@@ -91,15 +96,15 @@ namespace MensErgerJeNiet.Model
                     {
                         goal = goal.nextF;
                     }
-                }
+                } // backwards
                 else
                 {
                     goal = goal.previousF;
                 }
              
-            }
+            } // end for
 
-            
+            Console.WriteLine("THEGOAL: " + goal.fieldCode);
             //check the goal location
                 if (goal.pawn != null)
                 {

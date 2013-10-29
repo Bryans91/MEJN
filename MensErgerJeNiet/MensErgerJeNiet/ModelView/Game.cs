@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
@@ -235,6 +236,7 @@ namespace MensErgerJeNiet.ModelView
             }
             else
             {
+                _selected = null;
                 main.rollButton.IsEnabled = false;
             }
             main.changePlayerTurn(playersTurn.color);
@@ -246,7 +248,7 @@ namespace MensErgerJeNiet.ModelView
         {
 
             Pawn temp = null;
-            _diceRoll = rollDice();
+            main.changeDice(rollDice());
             bool select = false;
 
 
@@ -296,12 +298,12 @@ namespace MensErgerJeNiet.ModelView
                                 {
                                     _selected = temp;
                                 }
+                                
                             }
 
                             
-                            select = true;
-                            sendFieldCode(_selected.currentField);
-                            
+                            select = true;                         
+                    
 
                         }
                     }
@@ -320,9 +322,16 @@ namespace MensErgerJeNiet.ModelView
 
                 if (!_playersTurn.isHuman)
                 {
+                    _selected = null;
                     computerPrep(_playersTurn);
                 }
+                else
+                {
+                    main.rollButton.IsEnabled = true;
+                   
+                }
 
+                _selected = null;
                 _diceRoll = 0;
             }
             main.changePlayerTurn(playersTurn.color);
@@ -331,6 +340,7 @@ namespace MensErgerJeNiet.ModelView
 
         public void handleTurn(Player p)
         {
+            
             Field start = _selected.currentField;
             _selected.move(_diceRoll , this);
             if (diceRoll == 0)
@@ -389,6 +399,7 @@ namespace MensErgerJeNiet.ModelView
 
         public void sendFieldCode(Field f)
         {
+            
             Field temp = f;
             if (temp.pawn != null && temp.pawn.player.color == PlayerColor.GREEN)
             {
@@ -430,22 +441,26 @@ namespace MensErgerJeNiet.ModelView
 
         public void recieveClickedEllipse(string p)
         {
-            Field current = null;
-            
-            current = board.getFieldFromPath(p);
-
-            if (current != null)
+            if (_diceRoll != 0)
             {
-                Console.WriteLine(current.fieldCode);
-                if (current.nextF != null) 
-                    Console.WriteLine("Next: " + current.nextF.fieldCode);
-                if (current.pawn != null)
+
+                Field current = null;
+
+                current = board.getFieldFromPath(p);
+
+                if (current != null)
                 {
-                    if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))
-                    {
-                        _selected = current.pawn;
-                        handleTurn(playersTurn);
-                    }
+                    Console.WriteLine(current.fieldCode);
+                    if (current.nextF != null)
+
+                        if (current.pawn != null)
+                        {
+                            if (current.pawn.player == playersTurn && current.pawn.canMove(_diceRoll))
+                            {
+                                _selected = current.pawn;
+                                handleTurn(playersTurn);
+                            }
+                        }
                 }
             }
         }

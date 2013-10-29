@@ -239,7 +239,14 @@ namespace MensErgerJeNiet.Model
 
                             }
                             Console.WriteLine(rTemp.fieldCode);
+                           
+
+                         
+
                             rPrev = rTemp;
+
+                       
+                            
                         }
                         break;
                         

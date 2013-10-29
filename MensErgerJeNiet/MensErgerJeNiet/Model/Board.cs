@@ -13,14 +13,14 @@ namespace MensErgerJeNiet.Model
         private Spawn[] spawns = new Spawn[16];
         private Player[] _playerList;
         private Goal[] goals = new Goal[16];
+        private Game theGame;
 
-
-        public Board(Player[] plist)
+        public Board(Player[] plist, Game game)
         {
             playerList = plist;
             first = null;
             last = null;
-           // createField();
+            theGame = game;
         }
 
 
@@ -41,6 +41,8 @@ namespace MensErgerJeNiet.Model
             redG = field[5].ToCharArray();
             blueG = field[6].ToCharArray();
             yellowG = field[7].ToCharArray();
+
+            int yellowPawns = 0, greenPawns = 0, bluePawns = 0, redPawns = 0;
 
             Field previous = null;
             Field current = null;
@@ -84,15 +86,13 @@ namespace MensErgerJeNiet.Model
                         current = new Field();
                         current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[0], current);
-                       
+                        current.pawn = tempPawn;
+                        theGame.sendFieldCode(current);
                         //add pawn
-                        for (int index = 0; index < players[0].pawns.Length; index++)
+                        if (players[0].pawns[greenPawns] == null)
                         {
-                            if (players[0].pawns[index] == null)
-                            {
-                                players[0].pawns[index] = tempPawn;
-                                index = 5;
-                            }
+                            players[0].pawns[greenPawns] = tempPawn;
+                            greenPawns++;
                         }
                         break;
 
@@ -101,16 +101,14 @@ namespace MensErgerJeNiet.Model
                         current = new Field();
                         current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[1], current);
+                        current.pawn = tempPawn;
+                        theGame.sendFieldCode(current);
                        
                         //add pawn
-                        for (int index = 0; index < players[1].pawns.Length; index++)
+                        if (players[1].pawns[redPawns] == null)
                         {
-                            if (players[1].pawns[index] == null)
-                            {
-                                players[1].pawns[index] = tempPawn;
-                                index = 5;
-                            }
-                            
+                            players[1].pawns[redPawns] = tempPawn;
+                            redPawns++;
                         }
                         break;
 
@@ -119,15 +117,14 @@ namespace MensErgerJeNiet.Model
                         current = new Field();
                         current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[2], current);
+                        current.pawn = tempPawn;
+                        theGame.sendFieldCode(current);
                        
                         //add pawn
-                        for (int index = 0; index < players[2].pawns.Length; index++)
+                        if (players[2].pawns[bluePawns] == null)
                         {
-                            if (players[2].pawns[index] == null)
-                            {
-                                players[2].pawns[index] = tempPawn;
-                                index = 5;
-                            }
+                            players[2].pawns[bluePawns] = tempPawn;
+                            bluePawns++;
                         }
                         break; 
                         
@@ -136,15 +133,14 @@ namespace MensErgerJeNiet.Model
                         current = new Field();
                         current.fieldCode = "field" + i;
                         tempPawn = new Pawn(players[3], current);
+                        current.pawn = tempPawn;
+                        theGame.sendFieldCode(current);
                        
                         //add pawn
-                        for (int index = 0; index < players[3].pawns.Length; index++)
+                        if (players[3].pawns[yellowPawns] == null)
                         {
-                            if (players[3].pawns[index] == null)
-                            {
-                                players[3].pawns[index] = tempPawn;
-                                index = 5;
-                            }
+                            players[3].pawns[yellowPawns] = tempPawn;
+                            yellowPawns++;
                         }
                         break;
 
@@ -210,15 +206,12 @@ namespace MensErgerJeNiet.Model
                                 rTemp = new Goal(players[1], fc);
                                 rTemp.pawn = new Pawn(players[1], rTemp);
                                 players[1].pawnsInGoal += 1;
-
-                                for (int index = 0; index < players[1].pawns.Length; index++)
+                                theGame.sendFieldCode(rTemp);
+                                if (players[1].pawns[redPawns] == null)
                                 {
-                                    if (players[1].pawns[index] == null)
-                                    {
-                                        players[1].pawns[index] = rTemp.pawn;
-                                        index = 5;
-                                    }
-                                }    
+                                    players[1].pawns[redPawns] = tempPawn;
+                                    redPawns++;
+                                }
                             }
                             else
                             {
@@ -256,14 +249,11 @@ namespace MensErgerJeNiet.Model
                                     bTemp = new Goal(players[2], fc);
                                     bTemp.pawn = new Pawn(players[2], bTemp);
                                     players[2].pawnsInGoal += 1;
-
-                                    for (int index = 0; index < players[2].pawns.Length; index++)
+                                    theGame.sendFieldCode(bTemp);
+                                    if (players[2].pawns[bluePawns] == null)
                                     {
-                                        if (players[2].pawns[index] == null)
-                                        {
-                                            players[2].pawns[index] = bTemp.pawn;
-                                            index = 5;
-                                        }
+                                        players[2].pawns[bluePawns] = tempPawn;
+                                        bluePawns++;
                                     }
                                 }
                                 else
@@ -304,14 +294,11 @@ namespace MensErgerJeNiet.Model
                                     yTemp = new Goal(players[3], fc);
                                     yTemp.pawn = new Pawn(players[3], yTemp);
                                     players[3].pawnsInGoal += 1;
-
-                                    for (int index = 0; index < players[3].pawns.Length; index++)
+                                    theGame.sendFieldCode(yTemp);
+                                    if (players[3].pawns[yellowPawns] == null)
                                     {
-                                        if (players[3].pawns[index] == null)
-                                        {
-                                            players[3].pawns[index] = yTemp.pawn;
-                                            index = 5;
-                                        }
+                                        players[3].pawns[yellowPawns] = tempPawn;
+                                        yellowPawns++;
                                     }
                                 }
                                 else
@@ -352,14 +339,11 @@ namespace MensErgerJeNiet.Model
                                     gTemp = new Goal(players[0], fc);
                                     gTemp.pawn = new Pawn(players[0], gTemp);
                                     players[0].pawnsInGoal += 1;
-
-                                    for (int index = 0; index < players[0].pawns.Length; index++)
+                                    theGame.sendFieldCode(gTemp);
+                                    if (players[1].pawns[greenPawns] == null)
                                     {
-                                        if (players[0].pawns[index] == null)
-                                        {
-                                            players[0].pawns[index] = gTemp.pawn;
-                                            index = 5;
-                                        }
+                                        players[1].pawns[greenPawns] = tempPawn;
+                                        greenPawns++;
                                     }
                                 }
                                 else
@@ -414,23 +398,23 @@ namespace MensErgerJeNiet.Model
             {
                 if (p != null)
                 {
-                    for (int pawns = 0; pawns < p.pawns.Length; pawns++)
+                    for (int counter1 = 0; counter1 < 4; counter1++)
                     {
-                        if (p.pawns[pawns] == null)
+                        if (p.pawns[counter1] == null)
                         {
                             bool placed = false;
                             while (!placed)
                             {
-                                for (int spawns = 0; spawns < p.spawns.Length; spawns++)
+                                for (int counter2 = 0; counter2 < p.spawns.Length; counter2++)
                                 {
 
-                                    if (p.spawns[spawns].pawn == null)
+                                    if (p.pawns[counter2] == null)
                                     {
-                                        p.pawns[pawns] = new Pawn(p, p.spawns[spawns]);
-                                        p.spawns[spawns].pawn = p.pawns[pawns];
+                                        p.pawns[counter1] = new Pawn(p, p.spawns[counter2]);
+                                        p.spawns[counter2].pawn = p.pawns[counter1];
                                         placed = true;
                                     }
-                                    Console.WriteLine(p.spawns[spawns].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[spawns].fieldCode);
+                                    Console.WriteLine(p.spawns[counter2].pawn + "<-- Pawns in spawn , fieldcode--> " + p.spawns[counter2].fieldCode);
                                 } // last for
                             }
                         }

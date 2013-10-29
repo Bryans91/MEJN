@@ -75,14 +75,14 @@ namespace MensErgerJeNiet.ModelView
 
             }
 
-            _board = new Board(playerList);
+            _board = new Board(playerList, this);
             board.newCreateField(strings , _playerList);
 
         }
 
         public void startGame(string[] strings , int nrP , int nrH)
         {
-            _board = new Board(playerList);
+            _board = new Board(playerList, this);
             createPlayers(nrP, nrH);
             board.newCreateField(strings, playerList);
 

@@ -25,8 +25,6 @@ namespace MensErgerJeNiet.Model
 
             _pawns = new Pawn[4];
             _spawns = new Spawn[4];
-
-            Console.WriteLine("PLAYER CREATED:" + _isHuman + " " + _color);
         }
 
         public void pawnToSpawn(Pawn p , Game g)

@@ -451,7 +451,7 @@ namespace MensErgerJeNiet.ModelView
 
                 if (current != null)
                 {
-                    Console.WriteLine(current.fieldCode);
+                    
                     if (current.nextF != null)
 
                         if (current.pawn != null)

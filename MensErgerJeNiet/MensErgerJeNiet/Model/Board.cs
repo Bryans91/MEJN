@@ -137,11 +137,14 @@ namespace MensErgerJeNiet.Model
                         theGame.sendFieldCode(current);
                        
                         //add pawn
-                        if (players[3].pawns[yellowPawns] == null)
+                        if (players[3] != null)
                         {
-                            tempPawn.onSpawn = false;
-                            players[3].pawns[yellowPawns] = tempPawn;
-                            yellowPawns++;
+                            if (players[3].pawns[yellowPawns] == null)
+                            {
+                                tempPawn.onSpawn = false;
+                                players[3].pawns[yellowPawns] = tempPawn;
+                                yellowPawns++;
+                            }
                         }
                         break;
 

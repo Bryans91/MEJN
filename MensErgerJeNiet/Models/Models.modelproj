@@ -23,6 +23,34 @@
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
     <Folder Include="ModelDefinition\" />
+    <Content Include="Create Game.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Create Game.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Create Game.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Handle Turn Computer.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Handle Turn Computer.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Handle Turn Computer.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Handle Turn Player.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Handle Turn Player.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Handle Turn Player.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Menu Navigation.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Menu Navigation.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Menu Navigation.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="MEJN_CD.classdiagram">
       <SubType>Content</SubType>
     </Content>

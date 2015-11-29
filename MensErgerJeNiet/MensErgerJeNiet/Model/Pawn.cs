@@ -23,6 +23,7 @@ namespace MensErgerJeNiet.Model
             _onSpawn = true;
 
             bool inPawnList = false;
+
             for (int i = 0; i < _player.pawns.Length; i++)
             {
                 if (!inPawnList)

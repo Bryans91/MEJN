@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="825f0173-03a9-42d4-b938-91b718d41185" name="MEJN_CD" linkedPackageId="cddba345-9160-4deb-ab65-faa1c237e50e" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="825f0173-03a9-42d4-b938-91b718d41185" name="MEJN_CD" linkedPackageId="cddba345-9160-4deb-ab65-faa1c237e50e" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <ownedCommentsInternal>
     <comment Id="21985e53-738a-4e46-a968-c3553ce34da8">
       <elementDefinition Id="2c0d8e0e-640c-425f-b30c-50f0f5901e40" />
@@ -30,16 +30,6 @@ Switch Field</body>
     <comment Id="1822559e-d936-48db-bfc0-1ac3d6cf1ac7">
       <elementDefinition Id="e2d24f5a-3a9f-4af3-8342-65175414a733" />
       <body>Color to link objects to players</body>
-    </comment>
-    <comment Id="da26aaf8-1328-447c-9079-d1eda822626a">
-      <elementDefinition Id="00f68101-44df-405e-bd71-d980dda6d32e" />
-      <body>TODO:
--move() checken, staat nu in field, afhankelijk van wat de method pawnclick terug geeft moet dit anders. Volgens deze structuur zou het ideaal zijn als je een bepaalde field terug krijgt bij pawnClick zodat je direct naar die field gaat en de pawn op dat veld selecteerd en naar voren schuift  1 positie vanuit handle turn, en dat een x aantal keer afhankelijk van je diceRoll
-^-- dit maakt dingen wel lastig
-
--Speler laten weten waar zijn pawns zijn? ivm herkenning pawns spawn en goals
-
-</body>
     </comment>
   </ownedCommentsInternal>
   <packagedElements>

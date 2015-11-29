@@ -34,3 +34,21 @@ C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.
 C:\_Projects\Git\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.g.cs
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.baml
 C:\Users\Bryan\Documents\Visual Studio 2012\Projects\Github\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.g.cs
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.exe.config
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.exe
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.pdb
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.exe
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\bin\Debug\MensErgerJeNiet.pdb
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csprojResolveAssemblyReference.cache
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.baml
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.baml
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.baml
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\MainWindow.g.cs
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreen.g.cs
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\View\PreGameScreenv2.g.cs
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\App.g.cs
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet_Content.g.cs
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet_MarkupCompile.cache
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.g.resources
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.Properties.Resources.resources
+C:\Users\bryan\Documents\Visual Studio 2013\Projects\MEJN\MensErgerJeNiet\MensErgerJeNiet\obj\Debug\MensErgerJeNiet.csproj.GenerateResource.Cache
